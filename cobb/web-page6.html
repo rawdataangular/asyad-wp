@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inTEUtion | Data Governance, 360° Fiscal Health & Insights Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                page-break-after: always;
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        :root {
+            --purple: #7851A9;
+            --purple-dark: #4A2D7A;
+            --purple-light: #9B72CF;
+            --cyan: #00FFFF;
+            --cyan-text: #0099AA;
+            --cyan-mid: #00CCDD;
+            --cyan-dim: rgba(0, 255, 255, 0.12);
+            --red: #C8102E;
+            --green: #009A44;
+            --white: #FFFFFF;
+            --grey-light: #F0F2F5;
+            --grey-mid: #E0E4EC;
+            --text-main: #1C1C1C;
+            --text-muted: #5A5A72;
+            --gold: #C8A84B;
+            --shadow-page: 0 20px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--grey-light);
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 0 60px;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: var(--white);
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-page);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .national-accent {
+            height: 6px;
+            width: 100%;
+            flex-shrink: 0;
+            background: linear-gradient(to right, var(--white) 0% 33.3%, var(--red) 33.3% 66.6%, var(--green) 66.6% 100%);
+        }
+
+        .dot-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 8px);
+            grid-template-rows: repeat(3, 8px);
+            gap: 5px;
+        }
+
+        .dot-grid .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot-grid .dot.purple {
+            background: var(--purple-light);
+            opacity: 0.5;
+        }
+
+        .dot-grid .dot.cyan {
+            background: var(--cyan-text);
+            opacity: 0.5;
+        }
+
+        .dot-grid .dot.empty {
+            background: transparent;
+        }
+
+        .footer-band {
+            padding: 5.5mm 18mm;
+            background: var(--purple-dark);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .footer-band .footer-brand img {
+            height: 26px;
+            width: auto;
+            display: block;
+        }
+
+        .footer-band .footer-meta {
+            font-size: 6.5pt;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .footer-band .footer-page-num {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--cyan-mid);
+        }
+
+        /* ── Top Bar ── */
+        .p6-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4.5mm 18mm 3.5mm;
+            flex-shrink: 0;
+            border-bottom: 1px solid var(--grey-mid);
+        }
+
+        .p6-topbar img {
+            height: 36px;
+            width: auto;
+        }
+
+        .p6-topbar .ch-tag {
+            text-align: right;
+        }
+
+        .p6-topbar .ch-tag .cn {
+            font-size: 6.5pt;
+            color: var(--text-muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .p6-topbar .ch-tag .ct {
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: var(--purple-dark);
+        }
+
+        /* ── Hero: audit.png right | title left ── */
+        .p6-hero {
+            display: flex;
+            height: 65mm;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .p6-hero-img {
+            width: 46%;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .p6-hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 60% center;
+            display: block;
+        }
+
+        .p6-hero-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, var(--white));
+        }
+
+        .p6-hero-text {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8mm 18mm 8mm 8mm;
+            position: relative;
+            z-index: 2;
+        }
+
+        .p6-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--purple-dark);
+            color: var(--white);
+            font-size: 6pt;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 20px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            width: fit-content;
+        }
+
+        .p6-hero-badge .bdot {
+            width: 5px;
+            height: 5px;
+            background: var(--cyan-mid);
+            border-radius: 50%;
+        }
+
+        .p6-hero-h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 17pt;
+            font-weight: 900;
+            color: var(--purple-dark);
+            line-height: 1.18;
+            margin-bottom: 6px;
+        }
+
+        .p6-hero-h1 em {
+            font-style: normal;
+            color: var(--cyan-text);
+        }
+
+        .p6-hero-accent {
+            width: 55px;
+            height: 3px;
+            background: linear-gradient(to right, var(--red), var(--purple));
+            border-radius: 2px;
+            margin-bottom: 8px;
+        }
+
+        .p6-hero-sub {
+            font-size: 7.5pt;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Compliance stat badges */
+        .p6-stat-badges {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .p6-stat-badge {
+            text-align: center;
+            background: var(--grey-light);
+            border-radius: 8px;
+            padding: 6px 10px;
+            border-top: 2px solid;
+        }
+
+        .p6-stat-badge.s1 {
+            border-top-color: var(--purple);
+        }
+
+        .p6-stat-badge.s2 {
+            border-top-color: var(--cyan-text);
+        }
+
+        .p6-stat-badge.s3 {
+            border-top-color: var(--green);
+        }
+
+        .p6-stat-badge .sn {
+            font-family: 'Playfair Display', serif;
+            font-size: 13pt;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .s1 .sn {
+            color: var(--purple-dark);
+        }
+
+        .s2 .sn {
+            color: var(--cyan-text);
+        }
+
+        .s3 .sn {
+            color: var(--green);
+        }
+
+        .p6-stat-badge .sl {
+            font-size: 6pt;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 3px;
+            line-height: 1.3;
+        }
+
+        /* ── Body ── */
+        .p6-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4mm;
+            padding: 4mm 0 3mm;
+        }
+
+        /* Section label */
+        .p6-sec-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 18mm;
+        }
+
+        .p6-sec-label .sl-num {
+            background: var(--purple-dark);
+            color: var(--white);
+            font-size: 7pt;
+            font-weight: 900;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .p6-sec-label h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: var(--purple-dark);
+        }
+
+        .p6-sec-label h2 em {
+            font-style: normal;
+            color: var(--cyan-text);
+        }
+
+        /* ── Fortress Grid ── */
+        .p6-fortress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+            padding: 0 18mm;
+        }
+
+        .p6-fortress-card {
+            border-radius: 8px;
+            padding: 11px 13px;
+            border-left: 3px solid;
+            background: #FAFBFF;
+        }
+
+        .p6-fortress-card.fc-a {
+            border-left-color: var(--purple);
+        }
+
+        .p6-fortress-card.fc-b {
+            border-left-color: var(--cyan-text);
+        }
+
+        .p6-fortress-card.fc-c {
+            border-left-color: var(--gold);
+        }
+
+        .p6-fortress-card.fc-d {
+            border-left-color: var(--green);
+        }
+
+        .p6-fortress-card .fc-head {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+
+        .p6-fortress-card .fc-icon {
+            font-size: 14pt;
+            flex-shrink: 0;
+        }
+
+        .p6-fortress-card .fc-title {
+            font-size: 8pt;
+            font-weight: 700;
+        }
+
+        .fc-a .fc-title {
+            color: var(--purple-dark);
+        }
+
+        .fc-b .fc-title {
+            color: var(--cyan-text);
+        }
+
+        .fc-c .fc-title {
+            color: #7A5500;
+        }
+
+        .fc-d .fc-title {
+            color: #1B6B3A;
+        }
+
+        .p6-fortress-card .fc-body {
+            font-size: 7.2pt;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        .p6-fortress-card .fc-body strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* ── Sections 4+5 side by side ── */
+        .p6-lower-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 0 18mm;
+        }
+
+        /* Section 4: 360° Fiscal panel */
+        .p6-fiscal-panel {
+            background: linear-gradient(145deg, var(--purple-dark), #5A3590);
+            border-radius: 8px;
+            padding: 13px 14px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .p6-fiscal-panel::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .p6-fiscal-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: -15px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.04);
+        }
+
+        .p6-fp-head {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 9px;
+        }
+
+        .p6-fp-head .fp-num {
+            background: rgba(0, 204, 221, 0.2);
+            border: 1px solid rgba(0, 204, 221, 0.4);
+            color: var(--cyan-mid);
+            font-size: 7pt;
+            font-weight: 900;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .p6-fp-head h3 {
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: var(--cyan-mid);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .p6-fiscal-panel ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .p6-fiscal-panel ul li {
+            font-size: 7pt;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.5;
+            display: flex;
+            gap: 6px;
+            align-items: flex-start;
+        }
+
+        .p6-fiscal-panel ul li::before {
+            content: '✓';
+            color: var(--cyan-mid);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .p6-fiscal-panel ul li strong {
+            color: rgba(255, 255, 255, 0.96);
+        }
+
+        /* Section 5: Insights Dashboard panel */
+        .p6-insights-panel {
+            background: linear-gradient(145deg, #EFF9FA, #E0F7FA);
+            border: 1px solid rgba(0, 153, 170, 0.2);
+            border-radius: 8px;
+            padding: 13px 14px;
+        }
+
+        .p6-ip-head {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 9px;
+        }
+
+        .p6-ip-head .ip-num {
+            background: var(--cyan-text);
+            color: var(--white);
+            font-size: 7pt;
+            font-weight: 900;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .p6-ip-head h3 {
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: var(--cyan-text);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .p6-insights-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .p6-ic-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 8px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.65);
+        }
+
+        .p6-ic-row .ic-icon {
+            font-size: 13pt;
+            flex-shrink: 0;
+        }
+
+        .p6-ic-row .ic-text {
+            font-size: 7pt;
+            font-weight: 600;
+            color: var(--cyan-text);
+        }
+
+        .p6-ic-row .ic-desc {
+            font-size: 6.5pt;
+            color: var(--text-muted);
+            margin-left: auto;
+            text-align: right;
+            line-height: 1.3;
+        }
+
+        /* ── Closing CTA Block ── */
+        .p6-cta-block {
+            margin: 0 18mm;
+            background: linear-gradient(135deg, var(--purple-dark) 0%, #3D1D6A 45%, #1A0A3C 100%);
+            border-radius: 10px;
+            padding: 16px 22px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        /* Glowing orb decorations */
+        .p6-cta-block::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 204, 221, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .p6-cta-block::after {
+            content: '';
+            position: absolute;
+            bottom: -35px;
+            left: 20px;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(120, 81, 169, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .p6-cta-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .p6-cta-text-col {
+            flex-grow: 1;
+        }
+
+        .p6-cta-eyebrow {
+            font-size: 6.5pt;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--cyan-mid);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .p6-cta-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 22px;
+            height: 2px;
+            background: var(--cyan-mid);
+            border-radius: 1px;
+        }
+
+        .p6-cta-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 14pt;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .p6-cta-headline em {
+            font-style: normal;
+            color: var(--cyan-mid);
+        }
+
+        .p6-cta-sub {
+            font-size: 7.5pt;
+            color: rgba(255, 255, 255, 0.68);
+            line-height: 1.55;
+        }
+
+        /* National tricolor stripe inside CTA */
+        .p6-cta-tricolor {
+            margin-top: 12px;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(to right,
+                    var(--white) 0% 33.3%,
+                    var(--red) 33.3% 66.6%,
+                    var(--green) 66.6% 100%);
+            opacity: 0.35;
+        }
+
+        /* Contact icons row */
+        .p6-cta-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            flex-shrink: 0;
+        }
+
+        .p6-cta-contact-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 7px;
+            padding: 7px 12px;
+            min-width: 155px;
+        }
+
+        .p6-cta-contact-row .cr-icon {
+            font-size: 13pt;
+            flex-shrink: 0;
+        }
+
+        .p6-cta-contact-row .cr-text {
+            font-size: 6.5pt;
+            line-height: 1.4;
+        }
+
+        .p6-cta-contact-row .cr-text .cr-label {
+            color: rgba(255, 255, 255, 0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 600;
+        }
+
+        .p6-cta-contact-row .cr-text .cr-value {
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        /* Dots */
+        .p6-dots {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 18mm;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="page" id="page-6">
+        <div class="national-accent"></div>
+
+        <!-- Top Bar -->
+        <header class="p6-topbar">
+            <img src="inteution-dark.png" alt="inTEUtion Logo">
+            <div class="ch-tag">
+                <div class="cn">Chapter 06 · Governance &amp; Intelligence</div>
+                <div class="ct">Data Governance Fortress · 360° Fiscal Health · inTEUtion Insights</div>
+            </div>
+        </header>
+
+        <!-- Hero: audit.png left, text right -->
+        <div class="p6-hero">
+            <div class="p6-hero-img">
+                <img src="audit.png"
+                    alt="Purple data governance shield: Office-Level Isolation, Encrypted Buy Rates, 100% Audit Compliance">
+            </div>
+            <div class="p6-hero-text">
+                <div class="p6-hero-badge"><span class="bdot"></span>Fortress Architecture</div>
+                <h1 class="p6-hero-h1">
+                    Data Governance,<br><em>360° Fiscal Health</em><br>&amp; Intelligent Insights
+                </h1>
+                <div class="p6-hero-accent"></div>
+                <p class="p6-hero-sub">Protecting ASYAD's commercial secrets through system-enforced boundaries while
+                    delivering one-click financial intelligence.</p>
+                <div class="p6-stat-badges">
+                    <div class="p6-stat-badge s1">
+                        <div class="sn">100%</div>
+                        <div class="sl">Audit<br>Compliant</div>
+                    </div>
+                    <div class="p6-stat-badge s2">
+                        <div class="sn">0</div>
+                        <div class="sl">Manual<br>Bridges</div>
+                    </div>
+                    <div class="p6-stat-badge s3">
+                        <div class="sn">1-Click</div>
+                        <div class="sl">P&amp;L &amp;<br>Reports</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="p6-body">
+
+            <!-- Section 3: Fortress Architecture -->
+            <div class="p6-sec-label">
+                <div class="sl-num">3</div>
+                <h2>Data Governance: The <em>"Fortress Architecture"</em></h2>
+            </div>
+            <div class="p6-fortress-grid">
+                <div class="p6-fortress-card fc-a">
+                    <div class="fc-head"><span class="fc-icon">🏢</span>
+                        <div class="fc-title">Office-Level Isolation</div>
+                    </div>
+                    <div class="fc-body">Local offices and agents are <strong>restricted to their own data</strong> —
+                        blind to global activities of other offices unless explicitly authorized.</div>
+                </div>
+                <div class="p6-fortress-card fc-b">
+                    <div class="fc-head"><span class="fc-icon">🔐</span>
+                        <div class="fc-title">Encrypted Commercial Data</div>
+                    </div>
+                    <div class="fc-body"><strong>Buy Rates, Sell Rates &amp; Agency Commissions</strong> are strictly
+                        encrypted — protecting ASYAD's commercial edge and pricing intelligence.</div>
+                </div>
+                <div class="p6-fortress-card fc-c">
+                    <div class="fc-head"><span class="fc-icon">🕵️</span>
+                        <div class="fc-title">Party Confidentiality</div>
+                    </div>
+                    <div class="fc-body">Prevents cross-party exposure visibility and ensures <strong>strictly governed
+                            tariff showcases</strong> — no leakage between competing principals.</div>
+                </div>
+                <div class="p6-fortress-card fc-d">
+                    <div class="fc-head"><span class="fc-icon">📋</span>
+                        <div class="fc-title">Immutable Audit Trail</div>
+                    </div>
+                    <div class="fc-body"><strong>Comprehensive digital footprints</strong> for every system action —
+                        ensuring full operational integrity and regulator-ready compliance.</div>
+                </div>
+            </div>
+
+            <!-- Sections 4 + 5: Side by side -->
+            <div class="p6-lower-grid">
+
+                <!-- Section 4: 360° Fiscal -->
+                <div class="p6-fiscal-panel">
+                    <div class="p6-fp-head">
+                        <div class="fp-num">4</div>
+                        <h3>360° Fiscal Health &amp; ERPNext</h3>
+                    </div>
+                    <ul>
+                        <li><strong>ERPNext Coupled Architecture:</strong> Every transaction follows a strict path from
+                            vessel slot to end ledger — 100% audit-compliant.</li>
+                        <li><strong>One-Click Intelligence:</strong> Instant P&amp;L (booking-wise), Balance Sheets, and
+                            all accounting statements.</li>
+                        <li><strong>Operational Integrity:</strong> VGM before Gate-In, ICD/Transshipment confirmations,
+                            move-code overlap prevention.</li>
+                        <li><strong>Oman VAT Compliance:</strong> Full support for Oman VAT requirements built-in.</li>
+                    </ul>
+                </div>
+
+                <!-- Section 5: Insights Dashboard -->
+                <div class="p6-insights-panel">
+                    <div class="p6-ip-head">
+                        <div class="ip-num">5</div>
+                        <h3>inTEUtion Insights</h3>
+                    </div>
+                    <div class="p6-insights-categories">
+                        <div class="p6-ic-row"><span class="ic-icon">⚡</span>
+                            <div class="ic-text">Financial Velocity</div>
+                            <div class="ic-desc">Cash-flow, revenue<br>recognition speed</div>
+                        </div>
+                        <div class="p6-ic-row"><span class="ic-icon">🛡️</span>
+                            <div class="ic-text">Operational Integrity</div>
+                            <div class="ic-desc">Move-code compliance<br>&amp; slot utilization</div>
+                        </div>
+                        <div class="p6-ic-row"><span class="ic-icon">📈</span>
+                            <div class="ic-text">Commercial Analytics</div>
+                            <div class="ic-desc">Stakeholder &amp; trade<br>lane performance</div>
+                        </div>
+                        <div class="p6-ic-row"><span class="ic-icon">⚖️</span>
+                            <div class="ic-text">Fiscal Governance</div>
+                            <div class="ic-desc">Audit-ready reports<br>&amp; VAT compliance</div>
+                        </div>
+                        <div class="p6-ic-row"><span class="ic-icon">🤝</span>
+                            <div class="ic-text">Agency Dashboards</div>
+                            <div class="ic-desc">DA, SOA &amp; commission<br>reconciliation</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Closing CTA Block -->
+            <div class="p6-cta-block">
+                <div class="p6-cta-inner">
+
+                    <!-- Left: text column -->
+                    <div class="p6-cta-text-col">
+                        <div class="p6-cta-eyebrow">Ready to Transform?</div>
+                        <div class="p6-cta-headline">
+                            ASYAD's Digital Future<br>
+                            Starts with <em>inTEUtion</em>
+                        </div>
+                        <div class="p6-cta-sub">
+                            The definitive answer to modern global trade complexity —
+                            tightly coupled operations, real-time fiscal intelligence,
+                            and a fortress-grade governance layer built for Oman's 2040 ambitions.
+                        </div>
+                        <div class="p6-cta-tricolor"></div>
+                    </div>
+
+                    <!-- Right: contact cards -->
+                    <div class="p6-cta-contacts">
+                        <div class="p6-cta-contact-row">
+                            <span class="cr-icon">💬</span>
+                            <div class="cr-text">
+                                <div class="cr-label">WhatsApp</div>
+                                <div class="cr-value">Instant Demo Request</div>
+                            </div>
+                        </div>
+                        <div class="p6-cta-contact-row">
+                            <span class="cr-icon">📩</span>
+                            <div class="cr-text">
+                                <div class="cr-label">Email</div>
+                                <div class="cr-value">hello@inteution.com</div>
+                            </div>
+                        </div>
+                        <div class="p6-cta-contact-row">
+                            <span class="cr-icon">🌐</span>
+                            <div class="cr-text">
+                                <div class="cr-label">Platform</div>
+                                <div class="cr-value">www.inteution.com</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer-band">
+            <div class="footer-brand"><img src="inteution-light.png" alt="inTEUtion"></div>
+            <div class="footer-meta">Strategic Intelligence Platform &nbsp;|&nbsp; Powered by AI &nbsp;|&nbsp;
+                Confidential — ASYAD Executive Review</div>
+            <div class="footer-page-num">06 / 06</div>
+        </footer>
+    </article>
+</body>
+
+</html>

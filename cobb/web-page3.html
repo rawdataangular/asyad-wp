@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inTEUtion | ASYAD – Digital Transformation & Data Governance</title>
+    <meta name="description"
+        content="Page 3: Digital Transformation, AI-Ready Ecosystem, Cyber-Resilience and Strategic Human Capabilities for Oman Vision 2040.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =====================================================
+           inTEUtion Digital Brochure CSS v2025.1
+           Page 3: Digital Transformation & Data Governance
+           Target: A4 Portrait | CSS Paged Media Module Level 3
+        ====================================================== */
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                page-break-after: always;
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        /* ── Design Tokens ── */
+        :root {
+            --purple: #7851A9;
+            --purple-dark: #4A2D7A;
+            --purple-light: #9B72CF;
+            --cyan: #00FFFF;
+            --cyan-text: #0099AA;
+            --cyan-mid: #00CCDD;
+            --cyan-dim: rgba(0, 255, 255, 0.12);
+            --red: #C8102E;
+            --green: #009A44;
+            --white: #FFFFFF;
+            --grey-light: #F0F2F5;
+            --grey-mid: #E0E4EC;
+            --text-main: #1C1C1C;
+            --text-muted: #5A5A72;
+            --gold: #C8A84B;
+            --shadow-page: 0 20px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--grey-light);
+            font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 0 60px;
+        }
+
+        /* ── Page Shell ── */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: var(--white);
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-page);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── Shared Utilities ── */
+        .national-accent {
+            height: 6px;
+            width: 100%;
+            flex-shrink: 0;
+            background: linear-gradient(to right,
+                    var(--white) 0% 33.3%,
+                    var(--red) 33.3% 66.6%,
+                    var(--green) 66.6% 100%);
+        }
+
+        .dot-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 8px);
+            grid-template-rows: repeat(3, 8px);
+            gap: 5px;
+        }
+
+        .dot-grid .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot-grid .dot.purple {
+            background: var(--purple-light);
+            opacity: 0.5;
+        }
+
+        .dot-grid .dot.cyan {
+            background: var(--cyan-text);
+            opacity: 0.5;
+        }
+
+        .dot-grid .dot.empty {
+            background: transparent;
+        }
+
+        .footer-band {
+            padding: 6mm 18mm;
+            background: var(--purple-dark);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .footer-band .footer-brand img {
+            height: 28px;
+            width: auto;
+            display: block;
+        }
+
+        .footer-band .footer-meta {
+            font-size: 7pt;
+            color: rgba(255, 255, 255, 0.65);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .footer-band .footer-page-num {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--cyan-mid);
+        }
+
+        /* ══════════════════════════════════════════════════
+           PAGE 3 – SPECIFIC STYLES
+        ══════════════════════════════════════════════════ */
+
+        /* ── Top Bar ── */
+        .p3-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5mm 18mm 4mm;
+            flex-shrink: 0;
+            border-bottom: 1px solid var(--grey-mid);
+        }
+
+        .p3-topbar .brand-logo img {
+            height: 38px;
+            width: auto;
+            display: block;
+        }
+
+        .p3-topbar .chapter-tag {
+            text-align: right;
+        }
+
+        .p3-topbar .chapter-tag .ch-num {
+            font-size: 7pt;
+            color: var(--text-muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .p3-topbar .chapter-tag .ch-title {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--purple-dark);
+        }
+
+        /* ── Hero: Full-width image with dark overlay + text ── */
+        .p3-hero {
+            position: relative;
+            width: 100%;
+            height: 72mm;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .p3-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            display: block;
+        }
+
+        /* Left-to-right overlay: dark left for text, transparent right */
+        .p3-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right,
+                    rgba(26, 10, 60, 0.94) 0%,
+                    rgba(26, 10, 60, 0.70) 45%,
+                    rgba(26, 10, 60, 0.20) 75%,
+                    transparent 100%);
+        }
+
+        /* Bottom fade */
+        .p3-hero-bottom-fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20mm;
+            background: linear-gradient(to bottom, transparent, var(--white));
+        }
+
+        /* SVG circuit overlay on hero */
+        .p3-hero-circuit {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .p3-hero-circuit svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        /* Text sitting on left side of hero */
+        .p3-hero-text {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8mm 14mm 8mm 18mm;
+            z-index: 3;
+        }
+
+        .p3-chapter-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 204, 221, 0.15);
+            border: 1px solid rgba(0, 204, 221, 0.35);
+            color: var(--cyan-mid);
+            font-size: 6.5pt;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .p3-hero-h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20pt;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.15;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 6px;
+        }
+
+        .p3-hero-h1 em {
+            font-style: normal;
+            color: var(--cyan-mid);
+        }
+
+        .p3-hero-tagline {
+            font-size: 8px;
+            color: rgba(255, 255, 255, 0.75);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border-left: 3px solid var(--cyan-mid);
+            padding-left: 10px;
+        }
+
+        /* AI Program badge top-right of hero */
+        .p3-ai-badge {
+            position: absolute;
+            top: 10mm;
+            right: 14mm;
+            background: rgba(26, 10, 60, 0.85);
+            border: 1px solid rgba(0, 204, 221, 0.4);
+            border-radius: 8px;
+            padding: 8px 12px;
+            text-align: center;
+            z-index: 5;
+            backdrop-filter: blur(4px);
+        }
+
+        .p3-ai-badge .ai-icon {
+            font-size: 16pt;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .p3-ai-badge .ai-label {
+            font-size: 6pt;
+            color: var(--cyan-mid);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+        }
+
+        /* ── AI Ecosystem Transition tracker ── */
+        .p3-transition-track {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: 0 18mm;
+            flex-shrink: 0;
+        }
+
+        .p3-tt-node {
+            flex: 1;
+            text-align: center;
+            padding: 9px 8px;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .p3-tt-node.from {
+            background: #F5F0FD;
+            border: 1.5px dashed #C0A8E0;
+        }
+
+        .p3-tt-node.to {
+            background: linear-gradient(135deg, var(--purple-dark), #5A3590);
+            color: var(--white);
+            border: 1.5px solid transparent;
+        }
+
+        .p3-tt-node .tt-label {
+            font-size: 6.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.10em;
+            margin-bottom: 3px;
+        }
+
+        .p3-tt-node.from .tt-label {
+            color: var(--text-muted);
+        }
+
+        .p3-tt-node.to .tt-label {
+            color: var(--cyan-mid);
+        }
+
+        .p3-tt-node .tt-value {
+            font-size: 8pt;
+            line-height: 1.4;
+        }
+
+        .p3-tt-node.from .tt-value {
+            color: var(--red);
+            font-weight: 600;
+        }
+
+        .p3-tt-node.to .tt-value {
+            color: rgba(255, 255, 255, 0.88);
+            font-weight: 600;
+        }
+
+        .p3-tt-arrow {
+            font-size: 18pt;
+            color: var(--purple-light);
+            padding: 0 6px;
+            flex-shrink: 0;
+        }
+
+        /* ── Three Governance Pillars ── */
+        .p3-pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 0 18mm;
+            flex-shrink: 0;
+        }
+
+        .p3-pillar {
+            border-radius: 8px;
+            padding: 14px 13px;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid;
+        }
+
+        .p3-pillar.ai-infra {
+            background: linear-gradient(145deg, #F8F5FF, #F2EBFF);
+            border-top-color: var(--purple);
+        }
+
+        .p3-pillar.cyber {
+            background: linear-gradient(145deg, #EFF9FA, #E4F7F9);
+            border-top-color: var(--cyan-text);
+        }
+
+        .p3-pillar.audit {
+            background: linear-gradient(145deg, #FFF8F0, #FFF2E4);
+            border-top-color: var(--gold);
+        }
+
+        /* Background watermark shape */
+        .p3-pillar::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .p3-pillar .p-icon {
+            font-size: 22pt;
+            margin-bottom: 7px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .p3-pillar .p-title {
+            font-size: 8.5pt;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-infra .p-title {
+            color: var(--purple-dark);
+        }
+
+        .cyber .p-title {
+            color: var(--cyan-text);
+        }
+
+        .audit .p-title {
+            color: #8B6B00;
+        }
+
+        .p3-pillar .p-body {
+            font-size: 7.5pt;
+            color: var(--text-muted);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .p3-pillar .p-body strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .p3-pillar .p-tag {
+            margin-top: 8px;
+            display: inline-block;
+            font-size: 6pt;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-infra .p-tag {
+            background: rgba(120, 81, 169, 0.12);
+            color: var(--purple-dark);
+        }
+
+        .cyber .p-tag {
+            background: rgba(0, 153, 170, 0.12);
+            color: var(--cyan-text);
+        }
+
+        .audit .p-tag {
+            background: rgba(200, 168, 75, 0.15);
+            color: #8B6B00;
+        }
+
+        /* ── Human Capabilities Strip ── */
+        .p3-human-strip {
+            display: flex;
+            gap: 0;
+            margin: 0 18mm;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid var(--grey-mid);
+        }
+
+        .p3-human-strip .hs-left {
+            background: var(--purple-dark);
+            color: var(--white);
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 22%;
+            flex-shrink: 0;
+            gap: 5px;
+        }
+
+        .p3-human-strip .hs-left .hs-icon {
+            font-size: 24pt;
+        }
+
+        .p3-human-strip .hs-left .hs-label {
+            font-size: 7pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--cyan-mid);
+            line-height: 1.3;
+        }
+
+        .p3-human-strip .hs-right {
+            padding: 12px 16px;
+            background: #FAFBFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .p3-human-strip .hs-right h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--purple-dark);
+            margin-bottom: 5px;
+        }
+
+        .p3-human-strip .hs-right p {
+            font-size: 8pt;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .p3-human-strip .hs-right p strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* ── Closing Quote ── */
+        .p3-quote-block {
+            margin: 0 18mm;
+            background: linear-gradient(135deg, var(--purple-dark) 0%, #6A3DA0 55%, var(--purple) 100%);
+            border-radius: 8px;
+            padding: 14px 20px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .p3-quote-block::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 80pt;
+            color: rgba(255, 255, 255, 0.06);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .p3-quote-block::after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.05);
+        }
+
+        .p3-quote-block .q-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 9.5pt;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.92);
+            line-height: 1.65;
+            position: relative;
+            z-index: 1;
+        }
+
+        .p3-quote-block .q-text em {
+            font-style: normal;
+            color: var(--cyan-mid);
+        }
+
+        .p3-quote-block .q-attr {
+            margin-top: 8px;
+            font-size: 7pt;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.55);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Background decoration ── */
+        .p3-bg-rings {
+            position: absolute;
+            top: 30mm;
+            right: -25mm;
+            width: 80mm;
+            height: 80mm;
+            border-radius: 50%;
+            border: 15px solid rgba(120, 81, 169, 0.04);
+            pointer-events: none;
+        }
+
+        .p3-bg-rings-2 {
+            position: absolute;
+            top: 35mm;
+            right: -15mm;
+            width: 55mm;
+            height: 55mm;
+            border-radius: 50%;
+            border: 10px solid rgba(0, 153, 170, 0.05);
+            pointer-events: none;
+        }
+
+        /* ── Body content flow ── */
+        .p3-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4.5mm;
+            padding: 4mm 0 4mm;
+        }
+
+        .p3-dots-inline {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 18mm;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════════
+     PAGE 3 – DIGITAL TRANSFORMATION & DATA GOVERNANCE
+════════════════════════════════════════════════════════════ -->
+    <article class="page" id="page-3">
+
+        <!-- Background rings decoration -->
+        <div class="p3-bg-rings"></div>
+        <div class="p3-bg-rings-2"></div>
+
+        <!-- National Tricolor -->
+        <div class="national-accent"></div>
+
+        <!-- Top Bar -->
+        <header class="p3-topbar">
+            <div class="brand-logo"><img src="inteution-dark.png" alt="inTEUtion Logo"></div>
+            <div class="chapter-tag">
+                <div class="ch-num">Chapter 03 &nbsp;·&nbsp; Technology Architecture</div>
+                <div class="ch-title">Digital Transformation &amp; Data Governance</div>
+            </div>
+        </header>
+
+        <!-- Hero: Cyber Shield image with left-text overlay -->
+        <div class="p3-hero">
+            <img src="3.png" alt="Cybersecurity shield with Omani emblem and digital audit confirmation">
+
+            <!-- Dark left overlay for text legibility -->
+            <div class="p3-hero-overlay"></div>
+
+            <!-- Bottom fade to white -->
+            <div class="p3-hero-bottom-fade"></div>
+
+            <!-- SVG circuit accent lines -->
+            <div class="p3-hero-circuit">
+                <svg viewBox="0 0 800 270" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="#00CCDD" stroke-width="1" fill="none">
+                        <polyline points="0,60 80,60 100,40 180,40 200,20 280,20" />
+                        <polyline points="0,120 60,120 80,100 140,100 160,80 230,80" />
+                        <circle cx="180" cy="40" r="3" fill="#00CCDD" />
+                        <circle cx="140" cy="100" r="3" fill="#00CCDD" />
+                        <polyline points="600,250 660,250 680,230 740,230 760,210 800,210" />
+                        <circle cx="680" cy="230" r="3" fill="#7851A9" />
+                        <polyline points="500,240 560,240 580,220 630,220" />
+                        <circle cx="560" cy="240" r="2" fill="#009A44" />
+                    </g>
+                </svg>
+            </div>
+
+            <!-- AI Program Badge top-right -->
+            <div class="p3-ai-badge">
+                <span class="ai-icon">🤖</span>
+                <div class="ai-label">National AI Program<br>2024 – 2026</div>
+            </div>
+
+            <!-- Hero Text left side -->
+            <div class="p3-hero-text">
+                <div class="p3-chapter-badge">⚡ Digital Transformation</div>
+                <h1 class="p3-hero-h1">
+                    Building the<br>
+                    <em>Digital Soil</em><br>
+                    for AI-Ready Oman
+                </h1>
+                <div class="p3-hero-tagline">Data Governance · Cyber-Resilience · Human Capability</div>
+            </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="p3-body">
+
+            <!-- AI Ecosystem Transition bar: Silos → Digital Ecosystem -->
+            <div class="p3-transition-track">
+                <div class="p3-tt-node from">
+                    <div class="tt-label">Before</div>
+                    <div class="tt-value">Manual &amp; Auto Silos</div>
+                </div>
+                <div class="p3-tt-arrow">→</div>
+                <div class="p3-tt-node to">
+                    <div class="tt-label">inTEUtion Transforms</div>
+                    <div class="tt-value">AI-Ready Ecosystem · SOLS 2040 Aligned</div>
+                </div>
+                <div class="p3-tt-arrow" style="color:var(--cyan-mid);">→</div>
+                <div class="p3-tt-node from"
+                    style="background:linear-gradient(145deg,#E6F7F0,#D4F0E8);border-color:#009A44;">
+                    <div class="tt-label" style="color:var(--green);">Outcome</div>
+                    <div class="tt-value" style="color:#1a6040;font-weight:600;">National Digital Sovereignty</div>
+                </div>
+            </div>
+
+            <!-- Three Governance Pillars -->
+            <div class="p3-pillars">
+
+                <!-- Pillar 1: AI Infrastructure -->
+                <div class="p3-pillar ai-infra">
+                    <span class="p-icon">🏗️</span>
+                    <div class="p-title">Advanced IT Infrastructure</div>
+                    <div class="p-body">
+                        In alignment with the <strong>National Program for AI &amp; Advanced Digital Technologies
+                            (2024–2026)</strong>,
+                        we architect the foundational "Digital Soil" required for AI to become an essential enabler of
+                        the Omani economy.
+                    </div>
+                    <div class="p-tag">AI-Ready Foundation</div>
+                </div>
+
+                <!-- Pillar 2: Cyber Resilience -->
+                <div class="p3-pillar cyber">
+                    <span class="p-icon">🛡️</span>
+                    <div class="p-title">Cyber-Resilience &amp; Security</div>
+                    <div class="p-body">
+                        We provide <strong>enterprise-grade security protocols</strong> ensuring ASYAD's maritime data —
+                        a national strategic asset — is protected against global cyber threats while remaining
+                        <strong>highly available</strong> for critical decision-making.
+                    </div>
+                    <div class="p-tag">National Data Shield</div>
+                </div>
+
+                <!-- Pillar 3: Intelligent Audit -->
+                <div class="p3-pillar audit">
+                    <span class="p-icon">🔍</span>
+                    <div class="p-title">Intelligent Audit Trails</div>
+                    <div class="p-body">
+                        Our solution creates <strong>Immutable Digital Footprints</strong> — unlike legacy systems.
+                        Auditors verify economy, efficiency &amp; effectiveness of shipping operations through
+                        <strong>automated, data-driven reporting</strong>.
+                    </div>
+                    <div class="p-tag">Zero-Trust Compliance</div>
+                </div>
+
+            </div>
+
+            <!-- Strategic Human Capabilities -->
+            <div class="p3-human-strip">
+                <div class="hs-left">
+                    <div class="hs-icon">🎓</div>
+                    <div class="hs-label">Strategic<br>Human<br>Capabilities</div>
+                </div>
+                <div class="hs-right">
+                    <h4>Empowering the Omani Maritime Workforce</h4>
+                    <p>
+                        We educate your teams on the intersection of <strong>maritime operations and fiscal
+                            sustainability</strong>.
+                        By mastering our integrated ERP-logistics architecture, ASYAD personnel gain specialized skills
+                        in
+                        <strong>revenue recognition</strong> and <strong>commercial leakage prevention</strong> —
+                        building the knowledge economy that Vision 2040 demands.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Closing Leadership Quote -->
+            <div class="p3-quote-block">
+                <div class="q-text">
+                    "Oman's location is its destiny, but its technology is its choice. We offer the digital discipline
+                    required to turn the Sultanate's coastline into the world's <em>most efficient trade corridor</em>.
+                    By bridging the technology gap, we don't just support the logistics and maritime sector —
+                    we lead it into the <em>2040 era</em>."
+                </div>
+                <div class="q-attr">— inTEUtion Strategic Vision · ASYAD Digital Transformation Mandate</div>
+            </div>
+
+            <!-- Dot decoration -->
+            <div class="p3-dots-inline">
+                <div class="dot-grid">
+                    <div class="dot purple"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot empty"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot empty"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot empty"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot empty"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot empty"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Page Footer -->
+        <footer class="footer-band">
+            <div class="footer-brand"><img src="inteution-light.png" alt="inTEUtion"></div>
+            <div class="footer-meta">
+                Strategic Intelligence Platform &nbsp;|&nbsp; Powered by AI &nbsp;|&nbsp;
+                Confidential — For ASYAD Executive Review
+            </div>
+            <div class="footer-page-num">03 / 06</div>
+        </footer>
+
+    </article>
+
+</body>
+
+</html>

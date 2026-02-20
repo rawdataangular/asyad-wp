@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inTEUtion | ASYAD – Bridging Present Operations & Vision 2040</title>
+    <meta name="description"
+        content="Page 2: How inTEUtion digital discipline bridges traditional logistics operations with Oman's Vision 2040 strategic targets.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =====================================================
+           inTEUtion Digital Brochure CSS v2025.1
+           Page 2: Bridging the Gap – Present & Vision 2040
+           Target: A4 Portrait | CSS Paged Media Module Level 3
+        ====================================================== */
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                page-break-after: always;
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        /* ── Design Tokens ─────────────────────────────────── */
+        :root {
+            --purple: #7851A9;
+            --purple-dark: #4A2D7A;
+            --purple-light: #9B72CF;
+            --cyan: #00FFFF;
+            --cyan-text: #0099AA;
+            --cyan-mid: #00CCDD;
+            --cyan-dim: rgba(0, 255, 255, 0.12);
+            --red: #C8102E;
+            --green: #009A44;
+            --white: #FFFFFF;
+            --grey-light: #F0F2F5;
+            --grey-mid: #E0E4EC;
+            --text-main: #1C1C1C;
+            --text-muted: #5A5A72;
+            --gold: #C8A84B;
+            --navy: #0D1B3E;
+            --shadow-page: 0 20px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        /* ── Reset & Base ───────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--grey-light);
+            font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 0 60px;
+        }
+
+        /* ── Page Shell ─────────────────────────────────────── */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: var(--white);
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-page);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ══════════════════════════════════════════════════════
+           SHARED UTILITY CLASSES (same as Page 1)
+        ══════════════════════════════════════════════════════ */
+
+        .national-accent {
+            height: 6px;
+            width: 100%;
+            background: linear-gradient(to right,
+                    var(--white) 0% 33.3%,
+                    var(--red) 33.3% 66.6%,
+                    var(--green) 66.6% 100%);
+            flex-shrink: 0;
+        }
+
+        .cyan-accent-line {
+            width: 80px;
+            height: 4px;
+            background: var(--cyan-text);
+            margin: 10px 0 14px;
+        }
+
+        .dot-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 8px);
+            grid-template-rows: repeat(4, 8px);
+            gap: 5px;
+        }
+
+        .dot-grid .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot-grid .dot.purple {
+            background: var(--purple-light);
+            opacity: 0.5;
+        }
+
+        .dot-grid .dot.cyan {
+            background: var(--cyan-text);
+            opacity: 0.5;
+        }
+
+        .dot-grid .dot.empty {
+            background: transparent;
+        }
+
+        .footer-band {
+            padding: 6mm 18mm;
+            background: var(--purple-dark);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .footer-band .footer-brand img {
+            height: 28px;
+            width: auto;
+            display: block;
+        }
+
+        .footer-band .footer-meta {
+            font-size: 7pt;
+            color: rgba(255, 255, 255, 0.65);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .footer-band .footer-page-num {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--cyan-mid);
+        }
+
+        /* ══════════════════════════════════════════════════════
+           PAGE 2 SPECIFIC STYLES
+        ══════════════════════════════════════════════════════ */
+
+        /* ── Top Bar ── */
+        .p2-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5mm 18mm 4mm;
+            flex-shrink: 0;
+            border-bottom: 1px solid var(--grey-mid);
+        }
+
+        .p2-topbar .brand-logo img {
+            height: 38px;
+            width: auto;
+            display: block;
+        }
+
+        .p2-topbar .page-title-tag {
+            text-align: right;
+        }
+
+        .p2-topbar .page-title-tag .chapter {
+            font-size: 7pt;
+            color: var(--text-muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .p2-topbar .page-title-tag .chapter-title {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--purple-dark);
+        }
+
+        /* ── Hero Split: Image left + Title right ── */
+        .p2-hero-split {
+            display: flex;
+            height: 78mm;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* Left: image panel */
+        .p2-hero-img-panel {
+            width: 55%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .p2-hero-img-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+
+        /* Purple-to-white fade on right edge of image */
+        .p2-hero-img-panel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, var(--white));
+        }
+
+        /* Right: title panel */
+        .p2-hero-title-panel {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8mm 14mm 8mm 6mm;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Diagonal decorative stripe behind title panel */
+        .p2-hero-title-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                    rgba(120, 81, 169, 0.05) 0%,
+                    rgba(0, 204, 221, 0.04) 100%);
+        }
+
+        .p2-page-num-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--purple-dark);
+            color: var(--white);
+            font-size: 6.5pt;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .p2-page-num-badge .dot-sep {
+            width: 5px;
+            height: 5px;
+            background: var(--cyan-mid);
+            border-radius: 50%;
+        }
+
+        .p2-hero-h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 19pt;
+            font-weight: 900;
+            color: var(--purple-dark);
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .p2-hero-h1 span {
+            color: var(--cyan-text);
+            display: block;
+        }
+
+        .p2-hero-subline {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--red), var(--purple));
+            border-radius: 2px;
+            margin-bottom: 10px;
+        }
+
+        .p2-hero-tag {
+            font-size: 8pt;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Geometric triangle shapes on hero */
+        .p2-geo-tri-1 {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 20px solid var(--white);
+            z-index: 5;
+        }
+
+        /* ── Section: Bridge Narrative ── */
+        .p2-section {
+            padding: 0 18mm;
+        }
+
+        .p2-section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .p2-section-header .s-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16pt;
+            flex-shrink: 0;
+        }
+
+        .s-icon.purple-bg {
+            background: rgba(120, 81, 169, 0.12);
+        }
+
+        .s-icon.cyan-bg {
+            background: rgba(0, 153, 170, 0.10);
+        }
+
+        .s-icon.red-bg {
+            background: rgba(200, 16, 46, 0.08);
+        }
+
+        .p2-section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 13pt;
+            font-weight: 700;
+            color: var(--purple-dark);
+            line-height: 1.2;
+        }
+
+        .p2-section-header h2 em {
+            font-style: normal;
+            color: var(--cyan-text);
+        }
+
+        .p2-body-text {
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            line-height: 1.72;
+        }
+
+        .p2-body-text strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* ── Bridge Visual: Timeline bar ── */
+        .p2-bridge-bar {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin: 0 18mm;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .p2-bridge-node {
+            flex: 1;
+            padding: 10px 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .p2-bridge-node.past {
+            background: linear-gradient(135deg, #F0EDFA 0%, #E8E0F5 100%);
+            border-top: 3px solid var(--purple-dark);
+        }
+
+        .p2-bridge-node.bridge {
+            background: linear-gradient(135deg, var(--purple-dark) 0%, #5A3590 100%);
+            border-top: 3px solid var(--cyan-mid);
+            color: var(--white);
+        }
+
+        .p2-bridge-node.future {
+            background: linear-gradient(135deg, #E6F7F0 0%, #D4F0E8 100%);
+            border-top: 3px solid var(--green);
+        }
+
+        /* Arrow connectors */
+        .p2-bridge-node.past::after,
+        .p2-bridge-node.bridge::after {
+            content: '→';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16pt;
+            color: var(--purple-light);
+            z-index: 3;
+            font-weight: 900;
+        }
+
+        .p2-bridge-node.bridge::after {
+            color: var(--cyan-mid);
+        }
+
+        .p2-bridge-node .bn-emoji {
+            font-size: 18pt;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .p2-bridge-node .bn-label {
+            font-size: 7pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.10em;
+            margin-bottom: 2px;
+        }
+
+        .p2-bridge-node.past .bn-label {
+            color: var(--purple-dark);
+        }
+
+        .p2-bridge-node.bridge .bn-label {
+            color: var(--cyan-mid);
+        }
+
+        .p2-bridge-node.future .bn-label {
+            color: var(--green);
+        }
+
+        .p2-bridge-node .bn-desc {
+            font-size: 7pt;
+            line-height: 1.45;
+        }
+
+        .p2-bridge-node.past .bn-desc {
+            color: var(--text-muted);
+        }
+
+        .p2-bridge-node.bridge .bn-desc {
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .p2-bridge-node.future .bn-desc {
+            color: #2A6B50;
+        }
+
+        /* ── KPI Commitment Cards ── */
+        .p2-kpi-label {
+            font-size: 8pt;
+            font-weight: 700;
+            color: var(--purple-dark);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .p2-kpi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .p2-kpi-card {
+            border-radius: 8px;
+            padding: 14px 13px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .p2-kpi-card.kpi-economic {
+            background: linear-gradient(145deg, #2A1250 0%, #4A2D7A 100%);
+            color: white;
+        }
+
+        .p2-kpi-card.kpi-knowledge {
+            background: linear-gradient(145deg, #006070 0%, #0099AA 100%);
+            color: white;
+        }
+
+        .p2-kpi-card.kpi-global {
+            background: linear-gradient(145deg, #7A1020 0%, #C8102E 100%);
+            color: white;
+        }
+
+        /* Decorative circle shape */
+        .p2-kpi-card::before {
+            content: '';
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .p2-kpi-card::after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: -10px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .p2-kpi-card .kpi-icon {
+            font-size: 22pt;
+            margin-bottom: 8px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .p2-kpi-card .kpi-metric {
+            font-family: 'Playfair Display', serif;
+            font-size: 20pt;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kpi-economic .kpi-metric {
+            color: #D4AAFF;
+        }
+
+        .kpi-knowledge .kpi-metric {
+            color: #AAFFEE;
+        }
+
+        .kpi-global .kpi-metric {
+            color: #FFD4AA;
+        }
+
+        .p2-kpi-card .kpi-title {
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .p2-kpi-card .kpi-desc {
+            font-size: 7.5pt;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.55;
+            position: relative;
+            z-index: 1;
+            flex-grow: 1;
+        }
+
+        .p2-kpi-card .kpi-tag {
+            margin-top: 8px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 6pt;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+            width: fit-content;
+        }
+
+        /* ── Hub Statement ── */
+        .p2-hub-strip {
+            margin: 0 18mm;
+            background: linear-gradient(to right, #F8F5FF, #F0FFFE);
+            border: 1px solid #DDD7F0;
+            border-left: 5px solid var(--purple);
+            border-radius: 0 8px 8px 0;
+            padding: 11px 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-shrink: 0;
+        }
+
+        .p2-hub-strip .hs-icon {
+            font-size: 26pt;
+            flex-shrink: 0;
+        }
+
+        .p2-hub-strip .hs-text p {
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.65;
+        }
+
+        .p2-hub-strip .hs-text p strong {
+            color: var(--purple-dark);
+        }
+
+        .p2-hub-strip .hs-text p em {
+            font-style: normal;
+            color: var(--cyan-text);
+            font-weight: 600;
+        }
+
+        /* ── Background decoration ── */
+        .p2-bg-arc {
+            position: absolute;
+            top: -30mm;
+            right: -30mm;
+            width: 100mm;
+            height: 100mm;
+            border-radius: 50%;
+            border: 18px solid rgba(120, 81, 169, 0.04);
+            pointer-events: none;
+        }
+
+        .p2-bg-arc-2 {
+            position: absolute;
+            bottom: 20mm;
+            left: -20mm;
+            width: 70mm;
+            height: 70mm;
+            border-radius: 50%;
+            border: 12px solid rgba(0, 153, 170, 0.05);
+            pointer-events: none;
+        }
+
+        .p2-bg-grid-dots {
+            position: absolute;
+            top: 90mm;
+            right: 10mm;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* ── Content flow wrapper ── */
+        .p2-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5mm;
+            padding: 5mm 0;
+        }
+
+        /* Dots inline */
+        .p2-dots-inline {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 18mm;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════════
+     PAGE 2 – BRIDGING THE GAP
+     Present Operations → Vision 2040
+════════════════════════════════════════════════════════════ -->
+    <article class="page" id="page-2">
+
+        <!-- Background decorations -->
+        <div class="p2-bg-arc"></div>
+        <div class="p2-bg-arc-2"></div>
+        <div class="p2-bg-grid-dots">
+            <div class="dot-grid">
+                <div class="dot purple"></div>
+                <div class="dot cyan"></div>
+                <div class="dot purple"></div>
+                <div class="dot empty"></div>
+                <div class="dot cyan"></div>
+                <div class="dot purple"></div>
+                <div class="dot empty"></div>
+                <div class="dot purple"></div>
+                <div class="dot cyan"></div>
+                <div class="dot purple"></div>
+                <div class="dot empty"></div>
+                <div class="dot cyan"></div>
+                <div class="dot cyan"></div>
+                <div class="dot empty"></div>
+                <div class="dot purple"></div>
+                <div class="dot cyan"></div>
+                <div class="dot purple"></div>
+                <div class="dot empty"></div>
+                <div class="dot purple"></div>
+                <div class="dot cyan"></div>
+                <div class="dot empty"></div>
+                <div class="dot purple"></div>
+                <div class="dot cyan"></div>
+                <div class="dot purple"></div>
+            </div>
+        </div>
+
+        <!-- National Tricolor -->
+        <div class="national-accent"></div>
+
+        <!-- Top Bar -->
+        <header class="p2-topbar">
+            <div class="brand-logo"><img src="inteution-dark.png" alt="inTEUtion Logo"></div>
+            <div class="page-title-tag">
+                <div class="chapter">Chapter 02 &nbsp;·&nbsp; Strategic Framework</div>
+                <div class="chapter-title">Bridging Present Operations &amp; Vision 2040</div>
+            </div>
+        </header>
+
+        <!-- Hero: Split layout — Image left, Title right -->
+        <div class="p2-hero-split">
+
+            <!-- Left: Holographic ship image -->
+            <div class="p2-hero-img-panel">
+                <img src="2.png"
+                    alt="Digital holographic ship with analytics overlay – inTEUtion intelligence platform">
+            </div>
+
+            <!-- Right: Page heading -->
+            <div class="p2-hero-title-panel">
+                <div class="p2-page-num-badge">
+                    <span class="dot-sep"></span>
+                    Page 02 of 06
+                </div>
+                <h1 class="p2-hero-h1">
+                    Bridging the Gap
+                    <span>Between Operations<br>&amp; Vision 2040</span>
+                </h1>
+                <div class="p2-hero-subline"></div>
+                <p class="p2-hero-tag">
+                    From traditional port operations to a
+                    <strong style="color:var(--purple-dark);">fully digital ecosystem</strong> —
+                    ASYAD's transformation engine, powered by inTEUtion.
+                </p>
+            </div>
+
+            <!-- Bottom triangle point -->
+            <div class="p2-geo-tri-1"></div>
+        </div>
+
+        <!-- BODY CONTENT -->
+        <div class="p2-body">
+
+            <!-- Bridge Timeline Bar -->
+            <div class="p2-bridge-bar">
+                <div class="p2-bridge-node past">
+                    <span class="bn-emoji">🏭</span>
+                    <div class="bn-label">Present</div>
+                    <div class="bn-desc">Traditional port & logistics operations — siloed data, manual tracking</div>
+                </div>
+                <div class="p2-bridge-node bridge">
+                    <span class="bn-emoji">🔌</span>
+                    <div class="bn-label">inTEUtion Bridge</div>
+                    <div class="bn-desc">Unified digital discipline connecting all maritime national assets</div>
+                </div>
+                <div class="p2-bridge-node future">
+                    <span class="bn-emoji">🚀</span>
+                    <div class="bn-label">Vision 2040</div>
+                    <div class="bn-desc">Top-10 Global LPI · 14% GDP · 300,000 knowledge jobs</div>
+                </div>
+            </div>
+
+            <!-- Narrative section -->
+            <div class="p2-section">
+                <div class="p2-section-header">
+                    <div class="s-icon purple-bg">🌐</div>
+                    <h2>ASYAD: Oman's <em>Multimodal Gateway</em> to the World</h2>
+                </div>
+                <p class="p2-body-text">
+                    The Sultanate's strategic maritime and logistics pillars are the lifeblood of its national economic
+                    success. <strong>Asyad Group is more than a logistics provider</strong> — it is the national steward
+                    of
+                    Oman's economic future. By consolidating the Sultanate's <strong>ports, free zones, and shipping
+                        assets
+                        into one multimodal platform</strong>, Asyad has transformed Oman into a natural global hub,
+                    leveraging
+                    unparalleled access to four major continents. Our mission is to support this momentum by bridging
+                    the
+                    technological divide — ensuring every vessel, every container, every trade lane aligns with the
+                    ambitious growth targets of <strong>SOLS 2040</strong>.
+                </p>
+            </div>
+
+            <!-- Hub Statement Strip -->
+            <div class="p2-hub-strip">
+                <div class="hs-icon">⚓</div>
+                <div class="hs-text">
+                    <p>
+                        inTEUtion contributes the <em>digital discipline</em> necessary to manage national imports
+                        arriving via sea — ensuring that <strong>every vessel, container, and trade transaction</strong>
+                        aligns with the ambitious growth targets of SOLS 2040 and the Global Logistics Performance
+                        Index.
+                    </p>
+                </div>
+            </div>
+
+            <!-- KPI Commitment Cards -->
+            <div class="p2-section">
+                <div class="p2-kpi-label">📊 Our Commitment to Oman's National KPIs</div>
+                <div class="p2-kpi-grid">
+
+                    <!-- KPI 1: Economic -->
+                    <div class="p2-kpi-card kpi-economic">
+                        <span class="kpi-icon">📈</span>
+                        <div class="kpi-metric">14%</div>
+                        <div class="kpi-title">Economic Impact</div>
+                        <div class="kpi-desc">
+                            Driving the logistics sector toward its target contribution to national GDP — building
+                            fiscal sustainability through digital precision.
+                        </div>
+                        <div class="kpi-tag">GDP Target · SOLS 2040</div>
+                    </div>
+
+                    <!-- KPI 2: Knowledge Economy -->
+                    <div class="p2-kpi-card kpi-knowledge">
+                        <span class="kpi-icon">🎓</span>
+                        <div class="kpi-metric">300K</div>
+                        <div class="kpi-title">Knowledge Economy</div>
+                        <div class="kpi-desc">
+                            Supporting the creation of 300,000 specialized, tech-enabled jobs within the maritime
+                            and logistics value chain.
+                        </div>
+                        <div class="kpi-tag">Specialized Jobs · 2040</div>
+                    </div>
+
+                    <!-- KPI 3: Global Competitiveness -->
+                    <div class="p2-kpi-card kpi-global">
+                        <span class="kpi-icon">🏆</span>
+                        <div class="kpi-metric">TOP<br>10</div>
+                        <div class="kpi-title">Global Competitiveness</div>
+                        <div class="kpi-desc">
+                            Providing data integrity needed to secure a Top 10 position in the Global Logistics
+                            Performance Index (LPI).
+                        </div>
+                        <div class="kpi-tag">Global LPI Ranking</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Dots decoration -->
+            <div class="p2-dots-inline">
+                <div class="dot-grid">
+                    <div class="dot purple"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot empty"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot empty"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot empty"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot empty"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot empty"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot empty"></div>
+                    <div class="dot purple"></div>
+                    <div class="dot cyan"></div>
+                    <div class="dot purple"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Page Footer -->
+        <footer class="footer-band">
+            <div class="footer-brand"><img src="inteution-light.png" alt="inTEUtion"></div>
+            <div class="footer-meta">
+                Strategic Intelligence Platform &nbsp;|&nbsp; Powered by AI &nbsp;|&nbsp;
+                Confidential — For ASYAD Executive Review
+            </div>
+            <div class="footer-page-num">02 / 06</div>
+        </footer>
+
+    </article>
+
+</body>
+
+</html>
