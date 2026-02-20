@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oman Vision 2040 - Digital Brochure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* --- Core Setup --- */
+:root {
+    --primary-blue: #003366;
+    --accent-teal: #008080;
+    --text-dark: #333;
+    --white: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #e0e0e0; /* Grey background for web view */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- A4 Page Definition --- */
+.a4-page {
+    width: 210mm;
+    height: 297mm;
+    padding: 20mm;
+    margin: 20px auto;
+    background: var(--white);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Visual Styling (Based on your Samples) --- */
+.page-hero {
+    background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), 
+                url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=1000') center/cover;
+    color: white;
+}
+
+.diagonal-overlay {
+    position: absolute;
+    top: 0; right: 0;
+    width: 100%; height: 40%;
+    background: var(--accent-teal);
+    clip-path: polygon(0 0, 100% 0, 100% 20%, 0 80%);
+    opacity: 0.3;
+}
+
+.content { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; }
+
+.logo { font-weight: bold; font-size: 24px; letter-spacing: 2px; margin-bottom: 50px; }
+.logo span { color: var(--accent-teal); }
+
+.tagline { color: var(--accent-teal); font-size: 1.2rem; margin-bottom: 5px; }
+.main-title { font-size: 4rem; line-height: 1; margin: 0 0 20px 0; font-weight: 800; }
+.intro-text { font-size: 1.2rem; max-width: 80%; line-height: 1.6; opacity: 0.9; }
+
+.pillar-grid {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+.pillar {
+    border-left: 4px solid var(--accent-teal);
+    padding-left: 15px;
+}
+
+/* --- PRINT SETTINGS --- */
+@media print {
+    body { background: none; }
+    .a4-page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        -webkit-print-color-adjust: exact; /* Crucial for background colors */
+    }
+}
+    
+</style>
+<body>
+
+    <div class="a4-page page-hero">
+        <div class="diagonal-overlay"></div>
+        
+        <div class="content">
+            <header>
+                <div class="logo">COMPANY<span>LOGO</span></div>
+            </header>
+            
+            <main>
+                <h2 class="tagline">OMAN VISION 2040</h2>
+                <h1 class="main-title">THE GLOBAL GATEWAY</h1>
+                <p class="intro-text">
+                    A testament to the Sultanate’s bold journey toward a future defined by 
+                    innovation, resilience, and global leadership.
+                </p>
+                
+                <div class="pillar-grid">
+                    <div class="pillar">
+                        <h3>Connectivity</h3>
+                        <p>Harmonizing national assets for seamless trade.</p>
+                    </div>
+                    <div class="pillar">
+                        <h3>Sustainability</h3>
+                        <p>Driving fiscal growth through shipping.</p>
+                    </div>
+                </div>
+            </main>
+            
+            <footer>
+                <p>www.yourcompany.om | Secure National Interest</p>
+            </footer>
+        </div>
+    </div>
+
+    <div class="a4-page">
+        </div>
+
+</body>
+</html>
