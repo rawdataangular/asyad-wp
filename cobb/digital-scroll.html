@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inTEUtion × ASYAD — Digital Intelligence Brochure 2026</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>inTEUtion × ASYAD — Digital Intelligence Platform 2026</title>
+    <meta name="description" content="inTEUtion Strategic Intelligence Platform for ASYAD Group — Oman Vision 2040">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap"
         rel="stylesheet">
@@ -17,9 +18,8 @@
             --CT: #0099AA;
             --R: #C8102E;
             --G: #009A44;
-            --W: #FFFFFF;
-            --F: #C8D9F2;
-            --FL: #EEF4FF;
+            --W: #fff;
+            --WF: #F0F2F5;
             --N: #0D1A2E;
             --N2: #1A0A3C;
             --TM: #1C1C1C;
@@ -35,134 +35,109 @@
             padding: 0;
         }
 
-        html,
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            height: 100%;
-            overflow: hidden;
             font-family: 'Inter', 'Segoe UI', sans-serif;
+            color: var(--TM);
+            background: #fff;
+            overflow-x: hidden;
         }
 
-        /* ─── SCROLL CONTAINER ─── */
-        .sc {
-            height: 100svh;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            scrollbar-width: none;
-        }
-
-        .sc::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* ─── SECTION BASE ─── */
-        section {
-            height: 100svh;
-            scroll-snap-align: start;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* ─── TOP BAR ─── */
-        .topbar {
+        /* NAV */
+        nav.topbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 52px;
+            height: 58px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 40px;
-            z-index: 300;
-            background: rgba(13, 26, 46, .85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 204, 221, .15);
+            padding: 0 5%;
+            z-index: 999;
+            background: rgba(13, 26, 46, .92);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(0, 204, 221, .12);
+            transition: background .3s;
         }
 
-        .topbar img {
+        nav.topbar img {
             height: 28px;
             width: auto;
         }
 
-        .topbar .tbr {
-            font-size: 10px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, .5);
-            letter-spacing: .14em;
-            text-transform: uppercase;
-        }
-
-        /* ─── DOT NAV ─── */
-        .dots {
-            position: fixed;
-            right: 26px;
-            top: 50%;
-            transform: translateY(-50%);
+        nav.topbar .nav-links {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 300;
+            gap: 28px;
+            list-style: none;
         }
 
-        .dots a {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .18);
-            border: 1.5px solid rgba(255, 255, 255, .3);
-            display: block;
-            transition: all .3s;
-            cursor: pointer;
+        nav.topbar .nav-links a {
+            color: rgba(255, 255, 255, .6);
             text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            transition: color .25s;
         }
 
-        .dots a.on,
-        .dots a:hover {
-            background: var(--CM);
-            border-color: var(--CM);
-            transform: scale(1.5);
-            box-shadow: 0 0 10px rgba(0, 204, 221, .6);
+        nav.topbar .nav-links a:hover,
+        nav.topbar .nav-links a.active {
+            color: var(--CM);
         }
 
-        /* ─── ANIMATIONS ─── */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
+        /* SECTION BASE */
+        section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(.94)
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1)
-            }
+        /* OMANI STRIPE */
+        .omani {
+            height: 5px;
+            width: 100%;
+            background: linear-gradient(to right, var(--W) 33.3%, var(--R) 33.3% 66.6%, var(--G) 66.6%);
+            flex-shrink: 0;
         }
 
-        @keyframes kinetic {
-            from {
-                letter-spacing: -.06em;
-                opacity: 0
-            }
-
-            to {
-                letter-spacing: normal;
-                opacity: 1
-            }
+        /* ANIMATE ON SCROLL */
+        .anim {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity .7s cubic-bezier(.16, 1, .3, 1), transform .7s cubic-bezier(.16, 1, .3, 1);
         }
 
+        .anim.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .anim-d1 {
+            transition-delay: .1s;
+        }
+
+        .anim-d2 {
+            transition-delay: .2s;
+        }
+
+        .anim-d3 {
+            transition-delay: .3s;
+        }
+
+        .anim-d4 {
+            transition-delay: .4s;
+        }
+
+        .anim-d5 {
+            transition-delay: .5s;
+        }
+
+        /* KEYFRAMES */
         @keyframes pulse {
 
             0%,
@@ -172,12 +147,12 @@
             }
 
             50% {
-                opacity: .3;
+                opacity: .4;
                 transform: scale(.6)
             }
         }
 
-        @keyframes bounce {
+        @keyframes float {
 
             0%,
             100% {
@@ -185,7 +160,7 @@
             }
 
             50% {
-                transform: translateY(8px)
+                transform: translateY(-12px)
             }
         }
 
@@ -201,97 +176,192 @@
             }
         }
 
-        @keyframes mesh {
-            from {
-                opacity: .6;
-                transform: scale(1)
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0
             }
 
+            100% {
+                background-position: 200% 0
+            }
+        }
+
+        @keyframes spin {
             to {
-                opacity: 1;
-                transform: scale(1.08)
+                transform: rotate(360deg)
             }
         }
 
-        .au {
-            animation: fadeUp .7s cubic-bezier(.16, 1, .3, 1) both;
-            animation-timeline: view(block);
-            animation-range: entry 0% entry 35%;
+        /* SHARED */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 204, 221, .12);
+            border: 1px solid rgba(0, 204, 221, .3);
+            color: var(--CM);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 20px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            width: fit-content;
         }
 
-        .ai {
-            animation: fadeIn .6s cubic-bezier(.16, 1, .3, 1) both;
-            animation-timeline: view(block);
-            animation-range: entry 5% entry 40%;
+        .eyebrow .bdot {
+            width: 6px;
+            height: 6px;
+            background: var(--CM);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .ak {
-            animation: kinetic .9s cubic-bezier(.16, 1, .3, 1) both;
-            animation-timeline: view(block);
-            animation-range: entry 0% entry 40%;
+        .dark-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--PD);
+            color: #fff;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 16px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            width: fit-content;
         }
 
-        .gi:hover {
-            filter: drop-shadow(0 0 9px rgba(0, 204, 221, .5));
-            transform: scale(1.08);
-        }
-
-        .gi {
-            transition: filter .3s, transform .3s;
+        .light-badge {
+            background: rgba(0, 204, 221, .15);
+            border: 1px solid rgba(0, 204, 221, .35);
+            color: var(--CM);
+            font-size: 9px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 16px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
             display: inline-block;
         }
 
-        /* ─── OMANI LINE ─── */
-        .omani {
-            height: 3px;
-            flex-shrink: 0;
-            background: linear-gradient(to right, var(--W) 33.3%, var(--R) 33.3% 66.6%, var(--G) 66.6%);
+        .sh {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(24px, 3.2vw, 46px);
+            font-weight: 900;
+            color: var(--PD);
+            line-height: 1.15;
         }
 
-        /* ══════════════════════════════════════════════
-   S1 – VISION GATE (full-bleed cinematic hero)
-══════════════════════════════════════════════ */
+        .sh em {
+            font-style: normal;
+            color: var(--CT);
+        }
+
+        .sh.lt {
+            color: #fff;
+        }
+
+        .sh.lt em {
+            color: var(--CM);
+        }
+
+        .body-text {
+            font-size: clamp(12px, 1.1vw, 14px);
+            color: var(--TS);
+            line-height: 1.72;
+        }
+
+        .body-text strong {
+            color: var(--TM);
+            font-weight: 600;
+        }
+
+        .ctn {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 7px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        /* ─── SECTION 1: VISION GATE ─── */
         #s1 {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             background: var(--N);
         }
 
-        #s1 .bg {
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(160deg, rgba(13, 26, 46, .94) 0%, rgba(26, 10, 60, .88) 40%, rgba(45, 21, 96, .75) 70%, rgba(13, 26, 46, .92) 100%);
-            z-index: 1;
-        }
-
-        #s1 .grid-overlay {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            background-image: linear-gradient(rgba(120, 81, 169, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(120, 81, 169, .05) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
-        #s1 .bg-img {
+        .s1-bg {
             position: absolute;
             inset: 0;
             z-index: 0;
         }
 
-        #s1 .bg-img img {
+        .s1-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: .35;
+            opacity: .28;
         }
 
-        #s1::before {
-            content: '';
+        .s1-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(155deg, rgba(13, 26, 46, .97) 0%, rgba(26, 10, 60, .91) 42%, rgba(45, 21, 96, .78) 72%, rgba(13, 26, 46, .95) 100%);
+        }
+
+        .s1-grid {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-image: linear-gradient(rgba(120, 81, 169, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(120, 81, 169, .05) 1px, transparent 1px);
+            background-size: 56px 56px;
+        }
+
+        .s1-glow {
             position: absolute;
             inset: 0;
             z-index: 2;
-            background: radial-gradient(ellipse 70% 60% at 75% 30%, rgba(0, 204, 221, .08) 0%, transparent 55%),
-                radial-gradient(ellipse 50% 70% at 10% 75%, rgba(120, 81, 169, .14) 0%, transparent 55%);
-            animation: mesh 9s ease-in-out infinite alternate;
+            background: radial-gradient(ellipse 60% 50% at 70% 25%, rgba(0, 204, 221, .08) 0%, transparent 55%), radial-gradient(ellipse 40% 60% at 15% 80%, rgba(120, 81, 169, .14) 0%, transparent 55%);
+            animation: blob 12s ease-in-out infinite;
+        }
+
+        /* blob shapes */
+        .blob {
+            position: absolute;
+            border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+            animation: blob 10s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .blob1 {
+            width: 350px;
+            height: 350px;
+            background: rgba(120, 81, 169, .08);
+            top: -80px;
+            right: 15%;
+            z-index: 2;
+        }
+
+        .blob2 {
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 204, 221, .06);
+            bottom: 10%;
+            left: 5%;
+            z-index: 2;
+            animation-delay: -5s;
         }
 
         .s1-inner {
@@ -300,56 +370,40 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 52px 8% 0;
+            padding: 80px 5% 50px;
         }
 
-        .s1-top {
-            display: flex;
-            align-items: flex-start;
-            gap: 0;
+        .s1-content {
             flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6%;
+            align-items: center;
         }
 
         .s1-left {
-            flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding-right: 5%;
-            gap: 28px;
+            gap: 26px;
         }
 
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0, 204, 221, .11);
-            border: 1px solid rgba(0, 204, 221, .30);
-            color: var(--CM);
-            font-size: 11px;
-            font-weight: 700;
-            padding: 6px 16px;
-            border-radius: 24px;
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            width: fit-content;
+        .s1-quote-line {
+            display: flex;
+            gap: 4px;
         }
 
-        .eyebrow .dot {
-            width: 7px;
-            height: 7px;
-            background: var(--CM);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
+        .s1-quote-line span {
+            width: 4px;
+            height: 50px;
+            border-radius: 2px;
         }
 
         .s1-h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(40px, 5.5vw, 76px);
+            font-size: clamp(36px, 5vw, 70px);
             font-weight: 900;
             color: #fff;
-            line-height: 1.05;
+            line-height: 1.07;
             letter-spacing: -.03em;
         }
 
@@ -361,98 +415,149 @@
             background-clip: text;
         }
 
-        .s1-quote {
-            font-size: clamp(14px, 1.5vw, 18px);
-            color: rgba(255, 255, 255, .65);
-            font-style: italic;
+        .s1-sub {
             border-left: 3px solid var(--CM);
-            padding-left: 18px;
-            line-height: 1.6;
+            padding-left: 16px;
         }
 
-        .s1-quote strong {
-            color: var(--CM);
-            font-style: normal;
+        .s1-sub p {
+            font-size: clamp(11px, 1.1vw, 14px);
+            color: rgba(255, 255, 255, .62);
+            line-height: 1.7;
         }
 
-        .s1-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
-        }
-
-        .s1-stat {
+        .s1-vs {
             background: rgba(255, 255, 255, .07);
-            border: 1px solid rgba(255, 255, 255, .10);
-            border-radius: 14px;
-            padding: 18px 20px;
-            backdrop-filter: blur(8px);
-        }
-
-        .s1-stat .n {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(24px, 3vw, 36px);
-            font-weight: 900;
-            color: var(--CM);
-            line-height: 1;
-        }
-
-        .s1-stat .l {
-            font-size: 10px;
-            color: rgba(255, 255, 255, .45);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            margin-top: 5px;
-        }
-
-        .s1-right {
-            width: 42%;
-            position: relative;
+            border: 1px solid rgba(0, 204, 221, .2);
+            border-left: 4px solid var(--CM);
+            border-radius: 0 12px 12px 0;
+            padding: 16px 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 14px;
+            backdrop-filter: blur(6px);
         }
 
-        .s1-right .hero-img {
-            width: 100%;
-            height: 80%;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, .5);
-            border: 1px solid rgba(120, 81, 169, .2);
-            opacity: .9;
-        }
-
-        .s1-right::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 22px;
-            background: linear-gradient(135deg, rgba(0, 204, 221, .3), rgba(120, 81, 169, .3));
-            z-index: -1;
-            filter: blur(6px);
-        }
-
-        .s1-bottom {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-            color: rgba(255, 255, 255, .25);
-            font-size: 10px;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            padding-bottom: 20px;
-            animation: bounce 2s ease-in-out infinite;
+        .s1-vs .vi {
+            font-size: 26px;
             flex-shrink: 0;
         }
 
-        /* ══════════════════════════════════════════════
-   S2 – SALES & PRICING INTELLIGENCE
-══════════════════════════════════════════════ */
+        .s1-vs h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--CM);
+            margin-bottom: 4px;
+        }
+
+        .s1-vs p {
+            font-size: 10.5px;
+            color: rgba(255, 255, 255, .6);
+            line-height: 1.6;
+        }
+
+        .s1-vsbadge {
+            background: rgba(0, 204, 221, .14);
+            border: 1px solid rgba(0, 204, 221, .32);
+            color: var(--CM);
+            border-radius: 12px;
+            padding: 10px 14px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .s1-vsbadge .vbn {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .s1-vsbadge .vbl {
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            opacity: .7;
+            margin-top: 2px;
+        }
+
+        .s1-right {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .pillars-label {
+            font-size: 9px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, .38);
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .pillar-card {
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .09);
+            border-radius: 14px;
+            padding: 18px 18px;
+            backdrop-filter: blur(8px);
+            transition: transform .3s, background .3s;
+        }
+
+        .pillar-card:hover {
+            background: rgba(255, 255, 255, .12);
+            transform: translateY(-3px);
+        }
+
+        .pillar-card .pi {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .pillar-card h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .pillar-card p {
+            font-size: 10px;
+            color: rgba(255, 255, 255, .52);
+            line-height: 1.6;
+        }
+
+        .pillar-card.p-red {
+            border-top: 2px solid var(--R);
+        }
+
+        .pillar-card.p-grn {
+            border-top: 2px solid var(--G);
+        }
+
+        .pillar-card.p-cya {
+            border-top: 2px solid var(--CM);
+        }
+
+        .s1-footer {
+            text-align: center;
+            font-size: 9px;
+            color: rgba(255, 255, 255, .25);
+            letter-spacing: .1em;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        /* ─── SECTION 2: BRIDGING THE GAP ─── */
         #s2 {
-            background: linear-gradient(160deg, var(--FL) 0%, var(--W) 55%, #E8F4FF 100%);
+            background: linear-gradient(160deg, #F0EDFA 0%, #fff 55%, #E8F7FF 100%);
         }
 
         #s2::before {
@@ -463,174 +568,1091 @@
             right: 0;
             height: 5px;
             background: linear-gradient(to right, var(--PD), var(--CT));
+            z-index: 1;
         }
 
         .s2-inner {
-            flex: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 5% 60px;
+        }
+
+        .s2-hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding: 52px 0 0;
-            overflow: hidden;
+            gap: 5%;
+            align-items: center;
+            margin-bottom: 50px;
         }
 
-        .s2-img-col {
+        .s2-img-wrap {
             position: relative;
+            border-radius: 18px;
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(74, 45, 122, .18);
         }
 
-        .s2-img-col img {
+        .s2-img-wrap img {
             width: 100%;
-            height: 100%;
+            height: 360px;
             object-fit: cover;
             object-position: center;
             display: block;
         }
 
-        .s2-img-col::after {
+        .s2-img-wrap::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to right, transparent 30%, rgba(238, 244, 255, .95) 100%);
+            background: linear-gradient(to right, transparent 30%, rgba(240, 237, 250, .9) 100%);
         }
 
         .s2-img-label {
             position: absolute;
-            bottom: 30px;
-            left: 30px;
+            bottom: 20px;
+            left: 20px;
             z-index: 2;
-        }
-
-        .s2-img-label .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
             background: rgba(26, 10, 60, .85);
             border: 1px solid rgba(0, 204, 221, .4);
             color: var(--CM);
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 700;
             padding: 5px 12px;
-            border-radius: 20px;
+            border-radius: 14px;
             letter-spacing: .1em;
             text-transform: uppercase;
             backdrop-filter: blur(8px);
         }
 
-        .s2-content {
+        .s2-text {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 40px 6% 30px 5%;
-            gap: 24px;
-            overflow: auto;
+            gap: 18px;
         }
 
-        .section-tag {
+        /* Bridge bar */
+        .bridge-bar {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            gap: 0;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
-        .section-tag .num {
-            background: var(--PD);
-            color: #fff;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            font-size: 12px;
+        .bn {
+            flex: 1;
+            padding: 12px 13px;
+            text-align: center;
+            position: relative;
+        }
+
+        .bn.past {
+            background: linear-gradient(135deg, #F0EDFA, #E8E0F5);
+            border-top: 3px solid var(--PD);
+        }
+
+        .bn.bridge {
+            background: linear-gradient(135deg, var(--PD), #5A3590);
+            border-top: 3px solid var(--CM);
+        }
+
+        .bn.future {
+            background: linear-gradient(135deg, #E6F7F0, #D4F0E8);
+            border-top: 3px solid var(--G);
+        }
+
+        .bn::after {
+            content: '→';
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
             font-weight: 900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            z-index: 3;
+            color: var(--PL);
         }
 
-        .section-tag h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(22px, 2.5vw, 34px);
-            font-weight: 700;
-            color: var(--PD);
-        }
-
-        .section-tag h2 em {
-            font-style: normal;
-            color: var(--CT);
-        }
-
-        .section-tag.lt h2 {
-            color: #fff;
-        }
-
-        .section-tag.lt h2 em {
+        .bn.bridge::after {
             color: var(--CM);
         }
 
-        .section-tag.lt .num {
-            background: var(--CT);
+        .bn.future::after {
+            display: none;
         }
 
-        .feature-stack {
+        .bni {
+            font-size: 18px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .bnl {
+            font-size: 6.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: 2px;
+        }
+
+        .bn.past .bnl {
+            color: var(--PD);
+        }
+
+        .bn.bridge .bnl {
+            color: var(--CM);
+        }
+
+        .bn.future .bnl {
+            color: var(--G);
+        }
+
+        .bnd {
+            font-size: 7px;
+            line-height: 1.4;
+        }
+
+        .bn.past .bnd {
+            color: var(--TS);
+        }
+
+        .bn.bridge .bnd {
+            color: rgba(255, 255, 255, .78);
+        }
+
+        .bn.future .bnd {
+            color: #2A6B50;
+        }
+
+        /* Hub strip */
+        .hub-strip {
+            background: linear-gradient(to right, #F8F5FF, #F0FFFE);
+            border: 1px solid #DDD7F0;
+            border-left: 5px solid var(--P);
+            border-radius: 0 10px 10px 0;
+            padding: 14px 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .hub-strip .hi {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .hub-strip p {
+            font-size: 11.5px;
+            color: var(--TS);
+            line-height: 1.7;
+        }
+
+        .hub-strip p strong {
+            color: var(--PD);
+        }
+
+        .hub-strip p em {
+            font-style: normal;
+            color: var(--CT);
+            font-weight: 600;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .kc {
+            border-radius: 12px;
+            padding: 18px 16px;
+            position: relative;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            color: #fff;
+            transition: transform .3s;
         }
 
-        .feat-card {
-            background: var(--W);
-            border: 1px solid rgba(120, 81, 169, .10);
-            border-left: 4px solid;
-            border-radius: 14px;
-            padding: 18px 22px;
-            box-shadow: 0 3px 20px rgba(120, 81, 169, .06);
-            transition: transform .3s, box-shadow .3s;
+        .kc:hover {
+            transform: translateY(-4px);
         }
 
-        .feat-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 34px rgba(120, 81, 169, .13);
+        .kc::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .07);
         }
 
-        .feat-card.fp {
-            border-left-color: var(--P);
+        .kc.ke {
+            background: linear-gradient(145deg, #2A1250, #4A2D7A);
         }
 
-        .feat-card.fc {
-            border-left-color: var(--CT);
+        .kc.kk {
+            background: linear-gradient(145deg, #006070, #0099AA);
         }
 
-        .feat-card.fg {
-            border-left-color: var(--G);
+        .kc.kg {
+            background: linear-gradient(145deg, #7A1020, #C8102E);
         }
 
-        .feat-head {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .kc .ki {
+            font-size: 22px;
             margin-bottom: 8px;
         }
 
-        .feat-icon {
-            font-size: 22px;
+        .kc .km {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 4px;
         }
 
-        .feat-title {
-            font-size: 14px;
+        .kc.ke .km {
+            color: #D4AAFF;
+        }
+
+        .kc.kk .km {
+            color: #AAFFEE;
+        }
+
+        .kc.kg .km {
+            color: #FFD4AA;
+        }
+
+        .kc .kt {
+            font-size: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-bottom: 5px;
+            color: rgba(255, 255, 255, .9);
+        }
+
+        .kc .kd {
+            font-size: 8px;
+            color: rgba(255, 255, 255, .68);
+            line-height: 1.55;
+            flex-grow: 1;
+        }
+
+        .kc .ktag {
+            margin-top: 10px;
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .18);
+            color: rgba(255, 255, 255, .85);
+            font-size: 6px;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        /* ─── SECTION 3: DIGITAL TRANSFORMATION ─── */
+        #s3 {
+            background: var(--N2);
+        }
+
+        .s3-img-top {
+            position: relative;
+            width: 100%;
+            height: clamp(260px, 38vh, 380px);
+            overflow: hidden;
+        }
+
+        .s3-img-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            display: block;
+        }
+
+        .s3-img-top .ov {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(26, 10, 60, .95) 0%, rgba(26, 10, 60, .75) 45%, rgba(26, 10, 60, .3) 78%, transparent 100%);
+        }
+
+        .s3-img-top .ov2 {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, var(--N2) 100%);
+        }
+
+        .s3-img-top .hero-text {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px 5%;
+        }
+
+        .s3-img-top .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(24px, 3.5vw, 48px);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.12;
+            margin-bottom: 10px;
+        }
+
+        .s3-img-top .hero-text h1 em {
+            font-style: normal;
+            color: var(--CM);
+        }
+
+        .s3-img-top .hero-text p {
+            font-size: 10px;
+            color: rgba(255, 255, 255, .65);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            border-left: 3px solid var(--CM);
+            padding-left: 10px;
+        }
+
+        .s3-ai-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(26, 10, 60, .85);
+            border: 1px solid rgba(0, 204, 221, .4);
+            border-radius: 10px;
+            padding: 9px 13px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .s3-ai-badge .abi {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .s3-ai-badge .abt {
+            font-size: 7px;
+            color: var(--CM);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            line-height: 1.4;
+        }
+
+        .s3-body {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 5% 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .tt-bar {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .ttn {
+            flex: 1;
+            text-align: center;
+            padding: 10px 10px;
+        }
+
+        .ttn.tf {
+            background: #F5F0FD;
+            border: 1.5px dashed #C0A8E0;
+        }
+
+        .ttn.to {
+            background: linear-gradient(135deg, var(--PD), #5A3590);
+            color: #fff;
+            border: 1.5px solid transparent;
+        }
+
+        .ttn.tg {
+            background: linear-gradient(145deg, #E6F7F0, #D4F0E8);
+            border: 1.5px solid var(--G);
+        }
+
+        .tt-arr {
+            font-size: 18px;
+            color: var(--PL);
+            padding: 0 6px;
+            flex-shrink: 0;
+        }
+
+        .ttn .ttl {
+            font-size: 7px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: 3px;
+        }
+
+        .ttn.tf .ttl {
+            color: var(--TS);
+        }
+
+        .ttn.to .ttl {
+            color: var(--CM);
+        }
+
+        .ttn.tg .ttl {
+            color: var(--G);
+        }
+
+        .ttn .ttv {
+            font-size: 9px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .ttn.tf .ttv {
+            color: var(--R);
+        }
+
+        .ttn.to .ttv {
+            color: rgba(255, 255, 255, .9);
+        }
+
+        .ttn.tg .ttv {
+            color: #1a6040;
+        }
+
+        .pillars3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .p3card {
+            border-radius: 12px;
+            padding: 18px 16px;
+            border-top: 4px solid;
+            transition: transform .3s;
+        }
+
+        .p3card:hover {
+            transform: translateY(-3px);
+        }
+
+        .p3card.ai3 {
+            background: linear-gradient(145deg, #F8F5FF, #F0E8FF);
+            border-top-color: var(--P);
+        }
+
+        .p3card.cy3 {
+            background: linear-gradient(145deg, #EFF9FA, #E4F7F9);
+            border-top-color: var(--CT);
+        }
+
+        .p3card.au3 {
+            background: linear-gradient(145deg, #FFF8F0, #FFF2E4);
+            border-top-color: var(--AU);
+        }
+
+        .p3card .pci {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .p3card .pct {
+            font-size: 9px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .p3card.ai3 .pct {
+            color: var(--PD);
+        }
+
+        .p3card.cy3 .pct {
+            color: var(--CT);
+        }
+
+        .p3card.au3 .pct {
+            color: #8B6B00;
+        }
+
+        .p3card .pcb {
+            font-size: 8px;
+            color: var(--TS);
+            line-height: 1.6;
+        }
+
+        .p3card .pcb strong {
+            color: var(--TM);
+            font-weight: 600;
+        }
+
+        .p3card .pctag {
+            margin-top: 9px;
+            display: inline-block;
+            font-size: 6.5px;
+            font-weight: 700;
+            padding: 2px 9px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        .p3card.ai3 .pctag {
+            background: rgba(120, 81, 169, .12);
+            color: var(--PD);
+        }
+
+        .p3card.cy3 .pctag {
+            background: rgba(0, 153, 170, .12);
+            color: var(--CT);
+        }
+
+        .p3card.au3 .pctag {
+            background: rgba(200, 168, 75, .15);
+            color: #8B6B00;
+        }
+
+        .s3-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .human-strip {
+            display: flex;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .hs-l {
+            background: var(--PD);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 24%;
+            flex-shrink: 0;
+            gap: 6px;
+        }
+
+        .hs-l .hsi {
+            font-size: 24px;
+        }
+
+        .hs-l .hsl {
+            font-size: 7px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--CM);
+            line-height: 1.3;
+        }
+
+        .hs-r {
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, .06);
+            flex-grow: 1;
+        }
+
+        .hs-r h4 {
+            font-size: 10px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .hs-r p {
+            font-size: 8px;
+            color: rgba(255, 255, 255, .62);
+            line-height: 1.65;
+        }
+
+        .hs-r p strong {
+            color: rgba(255, 255, 255, .88);
+            font-weight: 600;
+        }
+
+        .quote3 {
+            background: linear-gradient(135deg, var(--PD) 0%, #6A3DA0 55%, var(--P) 100%);
+            border-radius: 12px;
+            padding: 18px 22px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote3::before {
+            content: '"';
+            position: absolute;
+            top: -14px;
+            left: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 86px;
+            color: rgba(255, 255, 255, .06);
+            line-height: 1;
+        }
+
+        .quote3 .qt {
+            font-family: 'Playfair Display', serif;
+            font-size: 9.5px;
+            font-style: italic;
+            color: rgba(255, 255, 255, .9);
+            line-height: 1.65;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote3 .qt em {
+            font-style: normal;
+            color: var(--CM);
+        }
+
+        .quote3 .qa {
+            margin-top: 9px;
+            font-size: 7px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, .48);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media(max-width:900px) {
+            .s1-content {
+                grid-template-columns: 1fr;
+            }
+
+            .s2-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pillars3 {
+                grid-template-columns: 1fr;
+            }
+
+            .s3-bottom {
+                grid-template-columns: 1fr;
+            }
+
+            nav.topbar .nav-links {
+                display: none;
+            }
+        }
+
+        @media(max-width:600px) {
+            .pillar-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bridge-bar {
+                flex-direction: column;
+            }
+
+            .bn::after {
+                display: none;
+            }
+
+            .s3-img-top .hero-text {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="topbar">
+        <img src="inteution-light.png" alt="inTEUtion">
+        <ul class="nav-links">
+            <li><a href="#s1">Vision</a></li>
+            <li><a href="#s2">Bridge</a></li>
+            <li><a href="#s3">Digital</a></li>
+            <li><a href="#s4">Operations</a></li>
+            <li><a href="#s5">Financial</a></li>
+            <li><a href="#s6">Governance</a></li>
+        </ul>
+        <span
+            style="font-size:9px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.12em;text-transform:uppercase">ASYAD
+            GROUP &nbsp;·&nbsp; VISION 2040</span>
+    </nav>
+
+    <!-- ══════ S1: VISION GATE — Page 1 ══════ -->
+    <section id="s1">
+        <div class="s1-bg"><img src="1.png" alt="Port of Salalah"></div>
+        <div class="s1-overlay"></div>
+        <div class="s1-grid"></div>
+        <div class="s1-glow"></div>
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="omani"></div>
+        <div class="s1-inner">
+            <div class="s1-content">
+                <div class="s1-left">
+                    <div class="eyebrow anim"><span class="bdot"></span>🌐 Oman Vision 2040 &nbsp;·&nbsp; Strategic
+                        Blueprint</div>
+                    <div class="anim anim-d1">
+                        <h1 class="s1-h1">Oman's location is its <em>destiny</em>,<br>but its technology is its
+                            <em>choice</em>.
+                        </h1>
+                    </div>
+                    <div class="s1-sub anim anim-d2">
+                        <p>Port of Salalah &nbsp;·&nbsp; Digital Intelligence &nbsp;·&nbsp; Maritime Sovereignty<br><br>
+                            VISION 2040 has transformed the Sultanate into a beacon of strategic growth — positioning
+                            Oman as an indispensable gateway in the global logistics landscape. <strong
+                                style="color:rgba(255,255,255,.82)">ASYAD Group is the national steward of Oman's
+                                economic future.</strong> By consolidating the Sultanate's ports, free zones, and
+                            shipping assets into one multimodal platform, ASYAD has transformed Oman into a natural
+                            global hub, leveraging unparalleled access to four major continents.</p>
+                    </div>
+                    <div class="s1-vs anim anim-d3">
+                        <div class="vi">🛡️</div>
+                        <div style="flex:1">
+                            <h3>Unified Digital Discipline</h3>
+                            <p>By implementing a unified digital discipline, we secure your National Interest, protect
+                                fiscal borders from commercial leakage, and empower the Omani workforce to lead the
+                                global maritime stage with data-driven precision.</p>
+                        </div>
+                        <div class="s1-vsbadge">
+                            <div class="vbn">TOP<br>10</div>
+                            <div class="vbl">Global<br>Target 2040</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s1-right anim anim-d2">
+                    <div class="pillars-label">⬡ Four Strategic Pillars of Excellence</div>
+                    <div class="pillar-grid">
+                        <div class="pillar-card">
+                            <div class="pi">🔗</div>
+                            <h4>Pioneering Commercial Connectivity</h4>
+                            <p>Harmonizing national assets to create a seamless bridge between local industries and
+                                international trade lanes.</p>
+                        </div>
+                        <div class="pillar-card p-red">
+                            <div class="pi">📈</div>
+                            <h4>Elevating the National Economy</h4>
+                            <p>Driving the mandate through a diversified and robust shipping sector as a pillar of
+                                fiscal sustainability.</p>
+                        </div>
+                        <div class="pillar-card p-grn">
+                            <div class="pi">🌍</div>
+                            <h4>Strengthening Global Presence</h4>
+                            <p>Securing Oman's rank among the world's elite logistics hubs by attracting premier
+                                international shipping lines.</p>
+                        </div>
+                        <div class="pillar-card p-cya">
+                            <div class="pi">⚙️</div>
+                            <h4>Strategic Market Integration</h4>
+                            <p>Weaving the Sultanate into global production and service supply chains — at the heart of
+                                international commerce.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="s1-footer anim anim-d4">Strategic Intelligence Platform &nbsp;|&nbsp; Powered by AI
+                &nbsp;|&nbsp; Confidential — For ASYAD Executive Review &nbsp;|&nbsp; <strong style="color:var(--CM)">01
+                    / 06</strong></div>
+        </div>
+    </section>
+
+    <!-- ══════ S2: BRIDGING THE GAP — Page 2 ══════ -->
+    <section id="s2">
+        <div class="s2-inner">
+            <div style="text-align:center;margin-bottom:36px" class="anim">
+                <div class="dark-badge" style="margin-bottom:12px">Chapter 02 &nbsp;·&nbsp; Strategic Framework</div>
+                <div class="sh" style="font-size:clamp(28px,3.5vw,48px)">Bridging Present Operations<br>&amp; <em>Vision
+                        2040</em></div>
+                <p style="font-size:13px;color:var(--TS);margin-top:10px">From traditional port operations to a <strong
+                        style="color:var(--PD)">fully digital ecosystem</strong> — ASYAD's transformation engine,
+                    powered by inTEUtion.</p>
+            </div>
+            <div class="s2-hero">
+                <div class="s2-img-wrap anim">
+                    <img src="2.png" alt="Digital holographic ship with analytics overlay">
+                    <div class="s2-img-label">🔌 inTEUtion Bridge &nbsp;·&nbsp; ASYAD Digital Platform</div>
+                </div>
+                <div class="s2-text">
+                    <div class="bridge-bar anim anim-d1">
+                        <div class="bn past"><span class="bni">🏭</span>
+                            <div class="bnl">Present</div>
+                            <div class="bnd">Traditional port &amp; logistics — siloed data, manual tracking</div>
+                        </div>
+                        <div class="bn bridge"><span class="bni">🔌</span>
+                            <div class="bnl">inTEUtion Bridge</div>
+                            <div class="bnd">Unified digital discipline connecting all maritime national assets</div>
+                        </div>
+                        <div class="bn future"><span class="bni">🚀</span>
+                            <div class="bnl">Vision 2040</div>
+                            <div class="bnd">Top-10 Global LPI · 14% GDP · 300,000 knowledge jobs</div>
+                        </div>
+                    </div>
+                    <div class="hub-strip anim anim-d2">
+                        <div class="hi">⚓</div>
+                        <p>inTEUtion contributes the <em>digital discipline</em> necessary to manage national imports
+                            arriving via sea — ensuring that <strong>every vessel, container, and trade
+                                transaction</strong> aligns with the ambitious growth targets of SOLS 2040 and the
+                            Global Logistics Performance Index.</p>
+                    </div>
+                    <div class="sh anim anim-d3" style="font-size:16px;margin-bottom:8px">📊 Our Commitment to Oman's
+                        <em>National KPIs</em>
+                    </div>
+                    <div class="kpi-grid anim anim-d3">
+                        <div class="kc ke"><span class="ki">📈</span>
+                            <div class="km">14%</div>
+                            <div class="kt">Economic Impact</div>
+                            <div class="kd">Driving the logistics sector toward its target contribution to national GDP
+                                — building fiscal sustainability through digital precision.</div>
+                            <div class="ktag">GDP Target · SOLS 2040</div>
+                        </div>
+                        <div class="kc kk"><span class="ki">🎓</span>
+                            <div class="km">300K</div>
+                            <div class="kt">Knowledge Economy</div>
+                            <div class="kd">Supporting the creation of 300,000 specialized, tech-enabled jobs within the
+                                maritime and logistics value chain.</div>
+                            <div class="ktag">Specialized Jobs · 2040</div>
+                        </div>
+                        <div class="kc kg"><span class="ki">🏆</span>
+                            <div class="km">TOP<br>10</div>
+                            <div class="kt">Global Competitiveness</div>
+                            <div class="kd">Providing data integrity needed to secure a Top 10 position in the Global
+                                Logistics Performance Index (LPI).</div>
+                            <div class="ktag">Global LPI Ranking</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:right;font-size:9px;color:var(--TS);margin-top:20px">Strategic Intelligence Platform
+                &nbsp;|&nbsp; Powered by AI &nbsp;|&nbsp; Confidential — For ASYAD Executive Review &nbsp;|&nbsp;
+                <strong style="color:var(--PD)">02 / 06</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ S3: DIGITAL TRANSFORMATION — Page 3 ══════ -->
+    <section id="s3">
+        <div class="s3-img-top">
+            <img src="3.png" alt="Cybersecurity shield with Omani emblem and digital audit confirmation">
+            <div class="ov"></div>
+            <div class="ov2"></div>
+            <div class="hero-text anim">
+                <div class="light-badge" style="margin-bottom:12px">⚡ Digital Transformation</div>
+                <h1>Building the<br><em>"Digital Soil"</em><br>for AI-Ready Oman</h1>
+                <p>Data Governance · Cyber-Resilience · Human Capability</p>
+            </div>
+            <div class="s3-ai-badge">
+                <span class="abi">🤖</span>
+                <div class="abt">National AI Program<br>2024 – 2026</div>
+            </div>
+        </div>
+        <div class="s3-body">
+            <div class="tt-bar anim">
+                <div class="ttn tf">
+                    <div class="ttl">Before</div>
+                    <div class="ttv">Manual &amp; Auto Silos</div>
+                </div>
+                <div class="tt-arr">→</div>
+                <div class="ttn to">
+                    <div class="ttl">inTEUtion Transforms</div>
+                    <div class="ttv">AI-Ready Ecosystem · SOLS 2040 Aligned</div>
+                </div>
+                <div class="tt-arr" style="color:var(--CM)">→</div>
+                <div class="ttn tg">
+                    <div class="ttl">Outcome</div>
+                    <div class="ttv">National Digital Sovereignty</div>
+                </div>
+            </div>
+            <div class="pillars3">
+                <div class="p3card ai3 anim anim-d1">
+                    <span class="pci">🏗️</span>
+                    <div class="pct">Advanced IT Infrastructure</div>
+                    <div class="pcb">In alignment with the <strong>National Program for AI &amp; Advanced Digital
+                            Technologies (2024–2026)</strong>, we architect the foundational "Digital Soil" required for
+                        AI to become an essential enabler of the Omani economy.</div>
+                    <div class="pctag">AI-Ready Foundation</div>
+                </div>
+                <div class="p3card cy3 anim anim-d2">
+                    <span class="pci">🛡️</span>
+                    <div class="pct">Cyber-Resilience &amp; Security</div>
+                    <div class="pcb">We provide <strong>enterprise-grade security protocols</strong> ensuring ASYAD's
+                        maritime data — a national strategic asset — is protected against global cyber threats while
+                        remaining <strong>highly available</strong> for critical decision-making.</div>
+                    <div class="pctag">National Data Shield</div>
+                </div>
+                <div class="p3card au3 anim anim-d3">
+                    <span class="pci">🔍</span>
+                    <div class="pct">Intelligent Audit Trails</div>
+                    <div class="pcb">Our solution creates <strong>Immutable Digital Footprints</strong> — unlike legacy
+                        systems. Auditors verify economy, efficiency &amp; effectiveness of shipping operations through
+                        <strong>automated, data-driven reporting</strong>.
+                    </div>
+                    <div class="pctag">Zero-Trust Compliance</div>
+                </div>
+            </div>
+            <div class="s3-bottom">
+                <div class="human-strip anim">
+                    <div class="hs-l">
+                        <div class="hsi">🎓</div>
+                        <div class="hsl">Strategic<br>Human<br>Capabilities</div>
+                    </div>
+                    <div class="hs-r">
+                        <h4>Empowering the Omani Maritime Workforce</h4>
+                        <p>We educate your teams on the intersection of <strong>maritime operations and fiscal
+                                sustainability</strong>. By mastering our integrated ERP-logistics architecture, ASYAD
+                            personnel gain specialized skills in <strong>revenue recognition</strong> and
+                            <strong>commercial leakage prevention</strong> — building the knowledge economy that Vision
+                            2040 demands.
+                        </p>
+                    </div>
+                </div>
+                <div class="quote3 anim anim-d1">
+                    <div class="qt">"Oman's location is its destiny, but its technology is its choice. We offer the
+                        digital discipline required to turn the Sultanate's coastline into the world's <em>most
+                            efficient trade corridor</em>. By bridging the technology gap, we don't just support the
+                        logistics and maritime sector — we lead it into the <em>2040 era</em>."</div>
+                    <div class="qa">— inTEUtion Strategic Vision · ASYAD Digital Transformation Mandate</div>
+                </div>
+            </div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,.28)">Strategic Intelligence Platform
+                &nbsp;|&nbsp; Powered by AI &nbsp;|&nbsp; Confidential &nbsp;|&nbsp; <strong style="color:var(--CM)">03
+                    / 06</strong></div>
+        </div>
+    </section>
+
+    <style>
+        /* ─── SECTION 4: OPERATIONAL INTELLIGENCE ─── */
+        #s4 {
+            background: linear-gradient(160deg, #F8F5FF 0%, #fff 55%, #F0FFFE 100%);
+        }
+
+        #s4::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--CT), var(--P));
+            z-index: 1;
+        }
+
+        .s4-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 70px 5% 55px;
+        }
+
+        .s4-top {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .s4-top .badge-set {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .challenge {
+            background: #FFF5F7;
+            border-left: 4px solid var(--R);
+            border-radius: 0 8px 8px 0;
+            padding: 10px 16px;
+            margin: 12px 0;
+        }
+
+        .challenge p {
+            font-size: 11px;
+            color: #8B1A2A;
+            font-style: italic;
+            line-height: 1.55;
+        }
+
+        .s4-cols {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 4%;
+            align-items: start;
+        }
+
+        .pricing-block {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 6px 30px rgba(74, 45, 122, .10);
+            border-top: 4px solid var(--P);
+        }
+
+        .pricing-block .block-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .pricing-block .block-head .bhi {
+            font-size: 26px;
+        }
+
+        .pricing-block .block-head h3 {
+            font-size: 15px;
             font-weight: 700;
             color: var(--PD);
         }
 
-        .feat-card.fc .feat-title {
-            color: var(--CT);
+        .pricing-block ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .feat-card.fg .feat-title {
-            color: #1B6B3A;
-        }
-
-        .feat-desc {
-            font-size: 12px;
+        .pricing-block ul li {
+            font-size: 11.5px;
             color: var(--TS);
-            line-height: 1.65;
+            line-height: 1.55;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        .pricing-block ul li::before {
+            content: '▸';
+            color: var(--P);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .pricing-block ul li strong {
+            color: var(--TM);
+            font-weight: 600;
         }
 
         .wa-pill {
@@ -640,462 +1662,465 @@
             background: #E8F5E9;
             border: 1px solid #A5D6A7;
             color: #1B5E20;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             padding: 5px 12px;
-            border-radius: 20px;
+            border-radius: 16px;
             width: fit-content;
-            margin-top: 8px;
+            margin-top: 12px;
         }
 
-        /* ══════════════════════════════════════════════
-   S3 – SLOT SOVEREIGNTY (full-width bento)
-══════════════════════════════════════════════ */
-        #s3 {
-            background: var(--W);
-        }
-
-        #s3::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, var(--CT), var(--G));
-        }
-
-        .s3-inner {
-            flex: 1;
+        .slot-showcase {
             display: flex;
             flex-direction: column;
-            padding: 52px 5% 20px;
             gap: 16px;
-            overflow: hidden;
         }
 
-        .s3-hero {
-            position: relative;
-            flex-shrink: 0;
-            height: clamp(160px, 28vh, 260px);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 40px rgba(0, 153, 170, .15);
-        }
-
-        .s3-hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            display: block;
-        }
-
-        .s3-hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(13, 26, 46, .75) 0%, transparent 55%);
-        }
-
-        .s3-hero-cap {
-            position: absolute;
-            bottom: 16px;
-            left: 20px;
-            right: 20px;
-            z-index: 2;
+        .slot-label {
             display: flex;
             align-items: center;
             gap: 10px;
             flex-wrap: wrap;
         }
 
-        .s3-hero-cap .hbadge {
-            background: rgba(0, 204, 221, .18);
-            border: 1px solid rgba(0, 204, 221, .4);
-            color: var(--CM);
+        .slot-label .sl-badge {
+            background: rgba(0, 153, 170, .12);
+            border: 1px solid rgba(0, 153, 170, .28);
+            color: var(--CT);
             font-size: 9px;
             font-weight: 700;
             padding: 4px 10px;
             border-radius: 14px;
-            letter-spacing: .1em;
+            letter-spacing: .08em;
             text-transform: uppercase;
         }
 
-        .s3-hero-cap .htitle {
+        .slot-label .sl-title {
             font-size: 13px;
             font-weight: 700;
-            color: #fff;
-        }
-
-        .s3-features {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
-            flex: 1;
-            min-height: 0;
-        }
-
-        .sf {
-            border-radius: 14px;
-            padding: 18px 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            border: 1px solid;
-            border-left: 4px solid;
-        }
-
-        .sf.s1c {
-            background: linear-gradient(145deg, #F0FFFE, #E2F9FF);
-            border-color: rgba(0, 153, 170, .18);
-            border-left-color: var(--CT);
-        }
-
-        .sf.s2c {
-            background: linear-gradient(145deg, #F8F5FF, #F0E8FF);
-            border-color: rgba(120, 81, 169, .15);
-            border-left-color: var(--P);
-        }
-
-        .sf.s3c {
-            background: linear-gradient(145deg, #FFF8F0, #FFF0DC);
-            border-color: rgba(200, 168, 75, .20);
-            border-left-color: var(--AU);
-        }
-
-        .sf.s4c {
-            background: linear-gradient(145deg, #F0FDF4, #E4F9EC);
-            border-color: rgba(0, 154, 68, .18);
-            border-left-color: var(--G);
-        }
-
-        .sf .sfi {
-            font-size: 28px;
-        }
-
-        .sf .sft {
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .s1c .sft {
-            color: var(--CT);
-        }
-
-        .s2c .sft {
             color: var(--PD);
         }
 
-        .s3c .sft {
-            color: #7A5500;
+        .slot-label .sl-title em {
+            font-style: normal;
+            color: var(--CT);
         }
 
-        .s4c .sft {
-            color: #1B6B3A;
+        .slot-img {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0, 153, 170, .15);
+            border: 1px solid rgba(0, 153, 170, .2);
         }
 
-        .sf .sfd {
-            font-size: 11.5px;
-            color: var(--TS);
-            line-height: 1.6;
-            flex: 1;
+        .slot-img img {
+            width: 100%;
+            display: block;
+            height: 220px;
+            object-fit: cover;
+            object-position: center center;
         }
 
-        /* ══════════════════════════════════════════════
-   S4 – FINANCIAL FORTRESS (dark, full-bleed)
-══════════════════════════════════════════════ */
-        #s4 {
-            background: linear-gradient(160deg, var(--N) 0%, var(--N2) 50%, #0D2020 100%);
-        }
-
-        #s4::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 60% 50% at 90% 20%, rgba(0, 204, 221, .06) 0%, transparent 55%),
-                radial-gradient(ellipse 50% 60% at 5% 80%, rgba(120, 81, 169, .10) 0%, transparent 55%);
-        }
-
-        .s4-inner {
-            position: relative;
-            z-index: 2;
-            flex: 1;
+        .slot-pills {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding-top: 52px;
-            overflow: hidden;
+            gap: 10px;
         }
 
-        .s4-left {
+        .slot-pill {
+            border-radius: 10px;
+            padding: 12px 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            border-left: 3px solid;
+            transition: transform .3s;
+        }
+
+        .slot-pill:hover {
+            transform: translateX(3px);
+        }
+
+        .slot-pill.p1 {
+            background: linear-gradient(145deg, #F0FFFE, #E2F9FF);
+            border-left-color: var(--CT);
+        }
+
+        .slot-pill.p2 {
+            background: linear-gradient(145deg, #F8F5FF, #EFE8FF);
+            border-left-color: var(--P);
+        }
+
+        .slot-pill.p3 {
+            background: linear-gradient(145deg, #FFF8F0, #FFF0DC);
+            border-left-color: var(--AU);
+        }
+
+        .slot-pill.p4 {
+            background: linear-gradient(145deg, #F0FDF4, #E4F9EC);
+            border-left-color: var(--G);
+        }
+
+        .slot-pill .pil-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .slot-pill .pt-title {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--PD);
+            margin-bottom: 3px;
+        }
+
+        .slot-pill .pt-desc {
+            font-size: 9px;
+            color: var(--TS);
+            line-height: 1.5;
+        }
+
+        /* ─── SECTION 5: FINANCIAL ARCHITECTURE ─── */
+        #s5 {
+            background: var(--N);
+        }
+
+        .s5-hero {
             position: relative;
+            width: 100%;
+            height: clamp(260px, 40vh, 400px);
             overflow: hidden;
         }
 
-        .s4-left img {
+        .s5-hero img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 30%;
+            object-position: center 35%;
             display: block;
         }
 
-        .s4-left::after {
-            content: '';
+        .s5-hero .s5-ov {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to right, transparent 25%, var(--N2) 100%);
+            background: linear-gradient(to bottom, rgba(26, 10, 60, .55) 0%, rgba(26, 10, 60, .35) 50%, var(--N) 100%);
         }
 
-        .s4-left-badge {
+        .s5-hero .s5-ov2 {
             position: absolute;
-            bottom: 24px;
-            left: 24px;
-            z-index: 2;
+            inset: 0;
+            background: linear-gradient(to right, rgba(26, 10, 60, .85), transparent 55%);
         }
 
-        .s4-left-badge span {
+        .s5-hero-text {
+            position: absolute;
+            bottom: clamp(20px, 4%, 40px);
+            left: 5%;
+            z-index: 3;
+        }
+
+        .s5-hero-text .hbadge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(0, 204, 221, .15);
-            border: 1px solid rgba(0, 204, 221, .35);
+            gap: 5px;
+            background: rgba(0, 204, 221, .18);
+            border: 1px solid rgba(0, 204, 221, .40);
             color: var(--CM);
-            font-size: 10px;
+            font-size: 8px;
             font-weight: 700;
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 16px;
-            letter-spacing: .1em;
+            letter-spacing: .08em;
             text-transform: uppercase;
-            backdrop-filter: blur(8px);
+            margin-bottom: 8px;
+            width: fit-content;
         }
 
-        .s4-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 40px 6% 30px 5%;
-            gap: 22px;
-            overflow: auto;
-        }
-
-        .s4-headline {
+        .s5-hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(22px, 2.8vw, 38px);
+            font-size: clamp(22px, 3.2vw, 44px);
+            font-weight: 900;
             color: #fff;
             line-height: 1.15;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
         }
 
-        .s4-headline em {
+        .s5-hero-text h1 em {
             font-style: normal;
             color: var(--CM);
         }
 
-        .s4-sub {
-            font-size: 12.5px;
-            color: rgba(255, 255, 255, .55);
-            line-height: 1.7;
-            max-width: 500px;
+        .s5-hero-text p {
+            font-size: 9px;
+            color: rgba(255, 255, 255, .68);
+            margin-top: 5px;
+            letter-spacing: .08em;
         }
 
-        .s4-flow {
+        .s5-flow {
+            position: absolute;
+            top: clamp(16px, 3%, 30px);
+            right: 5%;
             display: flex;
-            gap: 8px;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 3;
+        }
+
+        .fstep {
+            background: rgba(26, 10, 60, .78);
+            border: 1px solid rgba(0, 204, 221, .35);
+            border-radius: 7px;
+            padding: 6px 12px;
+            display: flex;
             align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(4px);
         }
 
-        .s4-step {
-            flex: 1;
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid rgba(0, 204, 221, .18);
-            border-radius: 12px;
-            padding: 14px 12px;
-            text-align: center;
-            transition: background .3s;
+        .fstep .fsi {
+            font-size: 13px;
         }
 
-        .s4-step:hover {
-            background: rgba(0, 204, 221, .10);
-        }
-
-        .s4-step .sfi {
-            font-size: 22px;
-            margin-bottom: 6px;
-        }
-
-        .s4-step .sfl {
-            font-size: 10px;
+        .fstep .fst {
+            font-size: 8px;
             font-weight: 700;
+            color: rgba(255, 255, 255, .88);
+            letter-spacing: .04em;
+        }
+
+        .fstep .fstag {
+            font-size: 6.5px;
             color: var(--CM);
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: .07em;
-            margin-bottom: 3px;
         }
 
-        .s4-step .sfd {
-            font-size: 10px;
-            color: rgba(255, 255, 255, .45);
-            line-height: 1.4;
+        .s5-body {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 5% 55px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
         }
 
-        .s4-arr {
-            color: rgba(0, 204, 221, .35);
-            font-size: 18px;
-            flex-shrink: 0;
+        .s5-challenge {
+            background: rgba(200, 16, 46, .08);
+            border-left: 4px solid var(--R);
+            border-radius: 0 8px 8px 0;
+            padding: 10px 16px;
         }
 
-        .s4-cards {
+        .s5-challenge p {
+            font-size: 11px;
+            color: #FF8FA3;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .s5-abc {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            gap: 16px;
         }
 
-        .dark-card {
-            background: rgba(255, 255, 255, .055);
-            border: 1px solid rgba(255, 255, 255, .07);
-            border-top: 3px solid;
+        .abc-block {
             border-radius: 14px;
-            padding: 16px 14px;
-            transition: background .3s;
+            padding: 20px 18px;
+            border-top: 3px solid;
+            position: relative;
+            overflow: hidden;
+            transition: transform .3s;
         }
 
-        .dark-card:hover {
-            background: rgba(255, 255, 255, .09);
+        .abc-block:hover {
+            transform: translateY(-4px);
         }
 
-        .dark-card.dc1 {
-            border-top-color: var(--PL);
+        .abc-block::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .04);
         }
 
-        .dark-card.dc2 {
+        .abc-block.bm {
+            background: linear-gradient(145deg, #F8F5FF, #EFE8FF);
+            border-top-color: var(--P);
+        }
+
+        .abc-block.br {
+            background: linear-gradient(145deg, #F0FDF4, #E4F7EC);
             border-top-color: var(--G);
         }
 
-        .dark-card.dc3 {
+        .abc-block.ba {
+            background: linear-gradient(145deg, #FFFBF0, #FFF4DA);
             border-top-color: var(--AU);
         }
 
-        .dc-icon {
+        .abc-block .ab-icon {
             font-size: 22px;
+            display: block;
             margin-bottom: 8px;
         }
 
-        .dc-title {
-            font-size: 12px;
+        .abc-block .ab-title {
+            font-size: 10px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 9px;
+            line-height: 1.2;
         }
 
-        .dc1 .dc-title {
-            color: var(--PL);
+        .abc-block.bm .ab-title {
+            color: var(--PD);
         }
 
-        .dc2 .dc-title {
-            color: #4ADE80;
+        .abc-block.br .ab-title {
+            color: #1B6B3A;
         }
 
-        .dc3 .dc-title {
+        .abc-block.ba .ab-title {
+            color: #7A5500;
+        }
+
+        .abc-block ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .abc-block ul li {
+            font-size: 8.5px;
+            color: var(--TS);
+            line-height: 1.5;
+            display: flex;
+            gap: 6px;
+            align-items: flex-start;
+        }
+
+        .abc-block ul li::before {
+            content: '▸';
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .abc-block.bm ul li::before {
+            color: var(--P);
+        }
+
+        .abc-block.br ul li::before {
+            color: var(--G);
+        }
+
+        .abc-block.ba ul li::before {
             color: var(--AU);
         }
 
-        .dc-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .dc-list li {
-            font-size: 10.5px;
-            color: rgba(255, 255, 255, .55);
-            line-height: 1.5;
-            display: flex;
-            gap: 5px;
-        }
-
-        .dc-list li::before {
-            content: '▸';
-            color: rgba(0, 204, 221, .45);
-            flex-shrink: 0;
-        }
-
-        .zdp {
-            background: linear-gradient(135deg, rgba(0, 204, 221, .08), rgba(120, 81, 169, .08));
-            border: 1px solid rgba(0, 204, 221, .18);
-            border-radius: 12px;
-            padding: 14px 18px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .zdp-i {
-            font-size: 24px;
-        }
-
-        .zdp-t {
-            flex: 1;
-            font-size: 11px;
-            color: rgba(255, 255, 255, .7);
-            line-height: 1.55;
-        }
-
-        .zdp-t strong {
-            color: var(--CM);
-        }
-
-        .zdp-n {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 900;
-            color: var(--CM);
-            text-align: center;
-            flex-shrink: 0;
-            line-height: 1;
-        }
-
-        .zdp-n small {
-            display: block;
-            font-family: 'Inter', sans-serif;
-            font-size: 9px;
-            color: rgba(255, 255, 255, .4);
-            text-transform: uppercase;
-            letter-spacing: .06em;
+        .abc-block ul li strong {
+            color: var(--TM);
             font-weight: 600;
         }
 
-        /* ══════════════════════════════════════════════
-   S5 – DATA GOVERNANCE FORTRESS
-══════════════════════════════════════════════ */
-        #s5 {
-            background: linear-gradient(160deg, var(--FL) 0%, var(--W) 60%, #F5F0FF 100%);
+        .abc-block .ab-tag {
+            margin-top: 10px;
+            display: inline-block;
+            font-size: 6.5px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
         }
 
-        #s5::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, var(--PD), var(--R));
+        .abc-block.bm .ab-tag {
+            background: rgba(120, 81, 169, .12);
+            color: var(--PD);
         }
 
-        .s5-inner {
-            flex: 1;
+        .abc-block.br .ab-tag {
+            background: rgba(0, 154, 68, .12);
+            color: #1B6B3A;
+        }
+
+        .abc-block.ba .ab-tag {
+            background: rgba(200, 168, 75, .15);
+            color: #7A5500;
+        }
+
+        .zdp-strip {
+            background: linear-gradient(135deg, var(--PD), #5A3590);
+            border-radius: 12px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .zdp-strip .zi {
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .zdp-strip .zt h4 {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--CM);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-bottom: 4px;
+        }
+
+        .zdp-strip .zt p {
+            font-size: 9px;
+            color: rgba(255, 255, 255, .8);
+            line-height: 1.55;
+        }
+
+        .zdp-strip .zs {
+            margin-left: auto;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .zdp-strip .zs .sn {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--CM);
+            line-height: 1;
+        }
+
+        .zdp-strip .zs .sl {
+            font-size: 7px;
+            color: rgba(255, 255, 255, .55);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        /* ─── SECTION 6: GOVERNANCE & INSIGHTS ─── */
+        #s6 {
+            background: var(--N2);
+        }
+
+        .s6-hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding-top: 52px;
             overflow: hidden;
+            min-height: clamp(220px, 35vh, 340px);
         }
 
-        .s5-left {
+        .s6-img {
             position: relative;
             overflow: hidden;
         }
 
-        .s5-left img {
+        .s6-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -1103,332 +2128,334 @@
             display: block;
         }
 
-        .s5-left::after {
+        .s6-img::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to right, transparent 35%, rgba(238, 244, 255, .97) 100%);
+            background: linear-gradient(to right, transparent 40%, var(--N2) 100%);
         }
 
-        .s5-stats-overlay {
-            position: absolute;
-            bottom: 24px;
-            left: 24px;
-            z-index: 2;
-            display: flex;
-            gap: 10px;
-        }
-
-        .s5-stat {
-            background: rgba(255, 255, 255, .92);
-            border: 1px solid rgba(120, 81, 169, .15);
-            border-radius: 12px;
-            padding: 12px 16px;
-            text-align: center;
-            backdrop-filter: blur(8px);
-        }
-
-        .s5-stat .n {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(20px, 2.5vw, 28px);
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .s5s1 .n {
-            color: var(--PD);
-        }
-
-        .s5s2 .n {
-            color: var(--CT);
-        }
-
-        .s5s3 .n {
-            color: var(--G);
-        }
-
-        .s5-stat .l {
-            font-size: 9px;
-            font-weight: 700;
-            color: var(--TS);
-            text-transform: uppercase;
-            letter-spacing: .06em;
-            margin-top: 3px;
-            line-height: 1.3;
-        }
-
-        .s5-right {
+        .s6-hero-text {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 40px 6% 30px 5%;
-            gap: 18px;
-            overflow: auto;
+            padding: 30px 5% 30px 3%;
+            gap: 14px;
         }
 
+        .s6-stat-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .ssb {
+            border-radius: 10px;
+            padding: 10px 14px;
+            text-align: center;
+            color: #fff;
+            flex: 1;
+            min-width: 70px;
+        }
+
+        .ssb.s1b {
+            background: linear-gradient(135deg, var(--PD), #5A3590);
+        }
+
+        .ssb.s2b {
+            background: linear-gradient(135deg, #006070, var(--CT));
+        }
+
+        .ssb.s3b {
+            background: linear-gradient(135deg, #7A5500, var(--AU));
+        }
+
+        .ssb .sn {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--CM);
+            line-height: 1;
+        }
+
+        .ssb .sl {
+            font-size: 7px;
+            color: rgba(255, 255, 255, .6);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-top: 2px;
+        }
+
+        .s6-body {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 5% 55px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* Fortress grid */
         .fortress-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 14px;
-            flex: 1;
         }
 
-        .fc2 {
-            background: #FAFBFF;
-            border-radius: 14px;
-            padding: 18px 18px;
-            border-left: 4px solid;
-            transition: box-shadow .3s, transform .3s;
-        }
-
-        .fc2:hover {
-            box-shadow: 0 8px 28px rgba(120, 81, 169, .14);
-            transform: translateY(-2px);
-        }
-
-        .fc2a {
-            border-left-color: var(--P);
-        }
-
-        .fc2b {
-            border-left-color: var(--CT);
-        }
-
-        .fc2c {
-            border-left-color: var(--AU);
-        }
-
-        .fc2d {
-            border-left-color: var(--G);
-        }
-
-        .fc2-h {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            margin-bottom: 8px;
-        }
-
-        .fc2-icon {
-            font-size: 20px;
-        }
-
-        .fc2-title {
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .fc2a .fc2-title {
-            color: var(--PD);
-        }
-
-        .fc2b .fc2-title {
-            color: var(--CT);
-        }
-
-        .fc2c .fc2-title {
-            color: #7A5500;
-        }
-
-        .fc2d .fc2-title {
-            color: #1B6B3A;
-        }
-
-        .fc2-body {
-            font-size: 11.5px;
-            color: var(--TS);
-            line-height: 1.6;
-        }
-
-        .fc2-body strong {
-            font-weight: 700;
-        }
-
-        /* ══════════════════════════════════════════════
-   S6 – 360° FISCAL HEALTH & INSIGHTS
-══════════════════════════════════════════════ */
-        #s6 {
-            background: linear-gradient(160deg, var(--N2) 0%, var(--N) 45%, #0A1505 100%);
-        }
-
-        #s6::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 65% 45% at 90% 15%, rgba(0, 204, 221, .07) 0%, transparent 55%),
-                radial-gradient(ellipse 50% 55% at 8% 85%, rgba(120, 81, 169, .10) 0%, transparent 55%);
-        }
-
-        #s6::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, var(--PL), var(--CM), var(--G));
-        }
-
-        .s6-inner {
-            position: relative;
-            z-index: 2;
-            flex: 1;
+        .fc {
+            border-radius: 12px;
+            padding: 16px 18px;
             display: flex;
             flex-direction: column;
-            padding: 52px 6% 20px;
-            gap: 20px;
-            overflow: hidden;
+            gap: 8px;
+            transition: transform .3s;
         }
 
-        .s6-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
-        }
-
-        .s6s {
-            background: rgba(255, 255, 255, .06);
-            border: 1px solid rgba(255, 255, 255, .09);
-            border-top: 4px solid;
-            border-radius: 16px;
-            padding: 20px 16px;
-            text-align: center;
-            transition: background .3s;
-        }
-
-        .s6s:hover {
-            background: rgba(255, 255, 255, .10);
-        }
-
-        .s6s.a {
-            border-top-color: var(--PL);
-        }
-
-        .s6s.b {
-            border-top-color: var(--CM);
-        }
-
-        .s6s.c {
-            border-top-color: #4ADE80;
-        }
-
-        .s6s.d {
-            border-top-color: var(--AU);
-        }
-
-        .s6s .n {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 4vw, 48px);
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .s6s.a .n {
-            color: var(--PL);
-        }
-
-        .s6s.b .n {
-            color: var(--CM);
-        }
-
-        .s6s.c .n {
-            color: #4ADE80;
-        }
-
-        .s6s.d .n {
-            color: var(--AU);
-        }
-
-        .s6s .l {
-            font-size: 10px;
-            color: rgba(255, 255, 255, .4);
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            margin-top: 6px;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        .s6-insights {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
-        }
-
-        .s6ic {
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(255, 255, 255, .08);
-            border-radius: 14px;
-            padding: 18px 12px;
-            text-align: center;
-            transition: background .3s, border-color .3s, transform .3s;
-        }
-
-        .s6ic:hover {
-            background: rgba(0, 204, 221, .11);
-            border-color: rgba(0, 204, 221, .28);
+        .fc:hover {
             transform: translateY(-3px);
         }
 
-        .s6ic .ii {
-            font-size: 28px;
-            margin-bottom: 10px;
-            display: block;
+        .fc.fca {
+            background: rgba(74, 45, 122, .25);
+            border: 1px solid rgba(120, 81, 169, .2);
         }
 
-        .s6ic .il {
-            font-size: 11px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, .80);
-            line-height: 1.3;
+        .fc.fcb {
+            background: rgba(0, 96, 112, .25);
+            border: 1px solid rgba(0, 204, 221, .2);
         }
 
-        .s6ic .is {
-            font-size: 10px;
-            color: rgba(255, 255, 255, .38);
-            margin-top: 5px;
-            line-height: 1.3;
+        .fc.fcc {
+            background: rgba(26, 10, 60, .4);
+            border: 1px solid rgba(120, 81, 169, .15);
         }
 
-        .s6-cta {
-            background: linear-gradient(135deg, rgba(120, 81, 169, .24), rgba(0, 204, 221, .10));
-            border: 1px solid rgba(0, 204, 221, .22);
-            border-radius: 18px;
-            padding: 24px 32px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-shrink: 0;
-            position: relative;
-            overflow: hidden;
+        .fc.fcd {
+            background: rgba(74, 45, 122, .2);
+            border: 1px solid rgba(0, 204, 221, .12);
         }
 
-        .s6-cta::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 80% 50%, rgba(0, 204, 221, .09) 0%, transparent 55%);
-        }
-
-        .s6ct {
-            flex: 1;
-            position: relative;
-            z-index: 1;
-        }
-
-        .s6ct .ey {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--CM);
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            margin-bottom: 8px;
+        .fc .fc-head {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .s6ct .ey::before {
+        .fc .fci {
+            font-size: 20px;
+        }
+
+        .fc .fct {
+            font-size: 10px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .fc .fcb-body {
+            font-size: 9px;
+            color: rgba(255, 255, 255, .62);
+            line-height: 1.6;
+        }
+
+        .fc .fcb-body strong {
+            color: rgba(255, 255, 255, .85);
+            font-weight: 600;
+        }
+
+        .s6-lower {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* Fiscal panel */
+        .fiscal-panel {
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 14px;
+            padding: 20px 22px;
+        }
+
+        .fiscal-panel .fp-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .fiscal-panel .fp-num {
+            background: var(--PD);
+            color: #fff;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .fiscal-panel h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .fiscal-panel ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .fiscal-panel ul li {
+            font-size: 9px;
+            color: rgba(255, 255, 255, .65);
+            line-height: 1.55;
+            display: flex;
+            gap: 7px;
+            align-items: flex-start;
+        }
+
+        .fiscal-panel ul li::before {
+            content: '▸';
+            color: var(--CM);
+            flex-shrink: 0;
+        }
+
+        .fiscal-panel ul li strong {
+            color: rgba(255, 255, 255, .88);
+            font-weight: 600;
+        }
+
+        /* Insights panel */
+        .insights-panel {
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 14px;
+            padding: 20px 22px;
+        }
+
+        .insights-panel .ip-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .insights-panel .ip-num {
+            background: var(--CT);
+            color: #fff;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .insights-panel h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .ic-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .07);
+        }
+
+        .ic-row:last-child {
+            border-bottom: none;
+        }
+
+        .ic-row .ico {
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .ic-row .ict {
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--CM);
+        }
+
+        .ic-row .icd {
+            font-size: 8px;
+            color: rgba(255, 255, 255, .5);
+            margin-left: auto;
+            text-align: right;
+            line-height: 1.35;
+        }
+
+        /* CTA */
+        .cta-block {
+            background: linear-gradient(135deg, var(--PD) 0%, #5A3590 45%, var(--N2) 100%);
+            border-radius: 14px;
+            padding: 24px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-block::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 204, 221, .18) 0%, transparent 70%);
+        }
+
+        .cta-block::after {
+            content: '';
+            position: absolute;
+            bottom: -35px;
+            left: 20px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(120, 81, 169, .25) 0%, transparent 70%);
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .cta-text {
+            flex-grow: 1;
+        }
+
+        .cta-ey {
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--CM);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .cta-ey::before {
             content: '';
             display: inline-block;
             width: 22px;
@@ -1437,499 +2464,484 @@
             border-radius: 1px;
         }
 
-        .s6ct .hl {
+        .cta-h {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(22px, 3vw, 34px);
+            font-size: clamp(18px, 2.5vw, 28px);
+            font-weight: 900;
             color: #fff;
             line-height: 1.2;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
         }
 
-        .s6ct .hl em {
+        .cta-h em {
             font-style: normal;
             color: var(--CM);
         }
 
-        .s6ct .su {
-            font-size: 12px;
-            color: rgba(255, 255, 255, .6);
-            line-height: 1.7;
-            max-width: 600px;
+        .cta-sub {
+            font-size: 9.5px;
+            color: rgba(255, 255, 255, .62);
+            line-height: 1.55;
         }
 
-        .s6-tricolor {
+        .cta-tc {
             height: 3px;
-            background: linear-gradient(to right, var(--W) 33.3%, var(--R) 33.3% 66.6%, var(--G) 66.6%);
-            opacity: .4;
             border-radius: 2px;
+            background: linear-gradient(to right, var(--W) 33.3%, var(--R) 33.3% 66.6%, var(--G) 66.6%);
+            opacity: .35;
             margin-top: 12px;
         }
 
-        .s6-contacts {
+        .cta-contacts {
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 8px;
             flex-shrink: 0;
-            position: relative;
-            z-index: 1;
         }
 
-        .s6cr {
+        .cr {
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, .07);
             border: 1px solid rgba(255, 255, 255, .12);
-            border-radius: 11px;
-            padding: 10px 16px;
-            min-width: 190px;
-            transition: background .3s;
+            border-radius: 9px;
+            padding: 8px 14px;
+            min-width: 160px;
         }
 
-        .s6cr:hover {
-            background: rgba(255, 255, 255, .13);
-        }
-
-        .s6cr .cri {
-            font-size: 18px;
+        .cr .cri {
+            font-size: 14px;
             flex-shrink: 0;
         }
 
-        .s6cr .crl {
-            font-size: 9px;
-            color: rgba(255, 255, 255, .4);
+        .cr .crl {
+            font-size: 7px;
+            color: rgba(255, 255, 255, .5);
             text-transform: uppercase;
-            letter-spacing: .07em;
+            letter-spacing: .06em;
             font-weight: 600;
         }
 
-        .s6cr .crv {
-            font-size: 12px;
+        .cr .crv {
+            font-size: 9px;
             color: #fff;
             font-weight: 700;
         }
 
-        .s6-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding-bottom: 4px;
-            flex-shrink: 0;
+        /* RESPONSIVE S4-S6 */
+        @media(max-width:900px) {
+            .s4-cols {
+                grid-template-columns: 1fr;
+            }
+
+            .s5-abc {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .s6-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .s6-lower {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-inner {
+                flex-direction: column;
+            }
+
+            .fortress-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
-        .s6-logo img {
-            height: 24px;
-            filter: brightness(0) invert(1);
-            opacity: .45;
-        }
+        @media(max-width:600px) {
+            .s5-abc {
+                grid-template-columns: 1fr;
+            }
 
-        .s6-logo span {
-            font-size: 10px;
-            color: rgba(255, 255, 255, .28);
-            letter-spacing: .14em;
-            text-transform: uppercase;
+            .slot-pills {
+                grid-template-columns: 1fr;
+            }
+
+            .fortress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .s5-flow {
+                display: none;
+            }
         }
     </style>
-</head>
 
-<body>
-
-    <header class="topbar">
-        <div><img src="inteution-dark.png" alt="inTEUtion"></div>
-        <div class="tbr">inTEUtion × ASYAD &nbsp;·&nbsp; Digital Intelligence Brochure 2026</div>
-    </header>
-
-    <nav class="dots" id="dotnav">
-        <a href="#s1" class="on" title="Vision"></a>
-        <a href="#s2" title="Pricing"></a>
-        <a href="#s3" title="Slot"></a>
-        <a href="#s4" title="Financial"></a>
-        <a href="#s5" title="Governance"></a>
-        <a href="#s6" title="Conclusion"></a>
-    </nav>
-
-    <div class="sc" id="sc">
-
-        <!-- S1: VISION GATE -->
-        <section id="s1">
-            <div class="grid-overlay"></div>
-            <div class="bg-img"><img src="2.png" alt="Smart Port"></div>
-            <div class="bg"></div>
-            <div class="s1-inner">
-                <div class="s1-top">
-                    <div class="s1-left">
-                        <div class="eyebrow au"><span class="dot"></span>Oman Vision 2040 · ASYAD Group · Platform
-                            Overview</div>
-                        <h1 class="s1-h1 ak">The Definitive<br>Platform for<br><em>Maritime Intelligence</em></h1>
-                        <p class="s1-quote au">"We don't just bridge the gap —&nbsp;<strong>we eliminate
-                                it.</strong>"<br>Tightly coupled operations &amp; real-time fiscal ecosystem for the
-                            modern shipping enterprise.</p>
-                        <div class="s1-stats">
-                            <div class="s1-stat ai">
-                                <div class="n">100%</div>
-                                <div class="l">Audit Compliant</div>
-                            </div>
-                            <div class="s1-stat ai">
-                                <div class="n">0</div>
-                                <div class="l">Manual Bridges</div>
-                            </div>
-                            <div class="s1-stat ai">
-                                <div class="n">1-Click</div>
-                                <div class="l">P&amp;L Reports</div>
-                            </div>
-                            <div class="s1-stat ai">
-                                <div class="n">360°</div>
-                                <div class="l">Fiscal Health</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="s1-right ai">
-                        <img class="hero-img" src="pricing.png" alt="inTEUtion Pricing Intelligence HUD">
-                    </div>
+    <!-- ══════ S4: OPERATIONAL INTELLIGENCE — Page 4 ══════ -->
+    <section id="s4">
+        <div class="omani"></div>
+        <div class="s4-inner">
+            <div class="s4-top anim">
+                <div class="badge-set">
+                    <div class="dark-badge">Chapter 04 &nbsp;·&nbsp; Operational Intelligence</div>
+                    <div class="light-badge">📦 Slot Management · 📊 Pricing Intelligence</div>
                 </div>
-                <div class="s1-bottom">
-                    <span>↓</span><span>scroll to explore</span>
-                </div>
+                <div class="sh" style="font-size:clamp(26px,3vw,44px);text-align:center">Why inTEUtion? —
+                    Eliminating<br><em>Operational Blind Spots</em></div>
+                <p style="font-size:12px;color:var(--TS);margin-top:10px;font-style:italic">"We don't just bridge the
+                    gap — <strong>we eliminate it.</strong>" &nbsp;·&nbsp; Tightly Coupled Operations &amp; Financial
+                    Ecosystem</p>
             </div>
-            <div class="omani"></div>
-        </section>
-
-        <!-- S2: PRICING INTELLIGENCE -->
-        <section id="s2">
-            <div class="s2-inner">
-                <div class="s2-img-col">
-                    <img src="pricing.png" alt="Pricing Yield Intelligence">
-                    <div class="s2-img-label">
-                        <div class="badge">⚡ Pricing Yield Engine — Live</div>
-                    </div>
-                </div>
-                <div class="s2-content">
-                    <div class="section-tag au">
-                        <div class="num">01</div>
-                        <h2>Sales &amp; <em>Pricing Intelligence</em></h2>
-                    </div>
-                    <div class="feature-stack">
-                        <div class="feat-card fp au">
-                            <div class="feat-head"><span class="feat-icon gi">📊</span>
-                                <div class="feat-title">Pricing Yield Engine</div>
-                            </div>
-                            <div class="feat-desc">Replaces guesstimates with math — simulating ICD, Transshipment &amp;
-                                POD costs for instant <strong>Net Profit projections at quotation approval</strong>.
-                                Zero blind approvals.</div>
-                        </div>
-                        <div class="feat-card fc au">
-                            <div class="feat-head"><span class="feat-icon gi">📡</span>
-                                <div class="feat-title">Live Slot Visibility</div>
-                            </div>
-                            <div class="feat-desc">Sales reps view slot availability &amp; buy rates for port pairs
-                                during the quoting process — ensuring commercially viable commitments before booking.
-                            </div>
-                        </div>
-                        <div class="feat-card fg au">
-                            <div class="feat-head"><span class="feat-icon gi">💬</span>
-                                <div class="feat-title">inTEUtion Connect</div>
-                            </div>
-                            <div class="feat-desc">Quotations, BLs, CROs, DOs, Invoices shared instantly via WhatsApp
-                                &amp; Email — platform-native, zero manual forwarding.</div>
-                            <div class="wa-pill">WhatsApp Business API — Real-time quotes in seconds, not days</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="challenge anim">
+                <p>Is your Trade/Sales Desk approving quotations flying blind to underlying cost risks? Without
+                    real-time cost-simulation, you may be committing shipments that <strong>look profitable but are
+                        eroding margins.</strong></p>
             </div>
-            <div class="omani"></div>
-        </section>
-
-        <!-- S3: SLOT SOVEREIGNTY -->
-        <section id="s3">
-            <div class="s3-inner">
-                <div class="section-tag au">
-                    <div class="num">02</div>
-                    <h2
-                        style="font-family:'Playfair Display',serif;font-size:clamp(20px,2.4vw,32px);font-weight:700;color:var(--PD);">
-                        Inventory &amp; <em style="font-style:normal;color:var(--CT);">Slot Sovereignty</em></h2>
+            <div class="s4-cols" style="margin-top:24px">
+                <div class="pricing-block anim">
+                    <div class="block-head">
+                        <span class="bhi">📊</span>
+                        <h3>A. Sales &amp; Pricing Intelligence</h3>
+                    </div>
+                    <ul>
+                        <li><strong>Pricing Yield Engine:</strong> Replaces guesstimates with math — simulating ICD,
+                            Transshipment &amp; POD costs for instant Net Profit projections at quotation approval.</li>
+                        <li><strong>Live Slot Visibility:</strong> Sales reps view slot availability &amp; buy rates for
+                            port pairs during the quoting process.</li>
+                        <li><strong>inTEUtion Connect:</strong> Quotations, BLs, CROs, DOs, Invoices shared instantly
+                            via WhatsApp &amp; Email.</li>
+                    </ul>
+                    <div class="wa-pill">💬 WhatsApp Business API — Real-time quotes in seconds, not days</div>
                 </div>
-                <div class="s3-hero ai">
-                    <img src="slot.png" alt="inTEUtion Slot Dashboard">
-                    <div class="s3-hero-cap">
-                        <span class="hbadge">📦 Live Platform Dashboard</span>
-                        <span class="htitle">Real-Time Slot Intelligence — Gatekeeper · Yard Visibility · Dead
-                            Freight</span>
+                <div class="slot-showcase anim anim-d2">
+                    <div class="slot-label">
+                        <span class="sl-badge">📦 Live Platform</span>
+                        <div class="sl-title"><em>Slot Intelligence</em> — Real-Time Dashboard View</div>
                     </div>
-                </div>
-                <div class="s3-features">
-                    <div class="sf s1c au">
-                        <span class="sfi gi">🏗️</span>
-                        <div class="sft">Real-Time Yard Visibility</div>
-                        <div class="sfd">Booking desk views container availability on-screen — eliminating phantom
-                            bookings instantly. Full yard-to-vessel traceability.</div>
+                    <div class="slot-img">
+                        <img src="slot.png"
+                            alt="inTEUtion Slot Management Dashboard: Real-Time Yard Visibility, Slot Gatekeeper, Dead Freight Dashboards">
                     </div>
-                    <div class="sf s2c au">
-                        <span class="sfi gi">🔒</span>
-                        <div class="sft">Slot Gatekeeper</div>
-                        <div class="sfd">Slot Opening must be defined before booking initiation — systematically
-                            preventing unauthorized over-booking and capacity bloat.</div>
-                    </div>
-                    <div class="sf s3c au">
-                        <span class="sfi gi">📉</span>
-                        <div class="sft">Dead Freight Dashboards</div>
-                        <div class="sfd">Instant access to unutilized slots, expiring contracts &amp; rollover
-                            monitoring — turning dead weight into actionable intelligence.</div>
-                    </div>
-                    <div class="sf s4c au">
-                        <span class="sfi gi">🔗</span>
-                        <div class="sft">Strategic Consolidation</div>
-                        <div class="sfd">Slot-related rates embedded to optimize purchase costs at the booking stage —
-                            ensuring every slot decision is financially informed.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="omani"></div>
-        </section>
-
-        <!-- S4: FINANCIAL FORTRESS -->
-        <section id="s4">
-            <div class="s4-inner">
-                <div class="s4-left">
-                    <img src="mvoecode.png" alt="Move-Code Engine">
-                    <div class="s4-left-badge"><span>⚙️ Move-Code Engine — Active</span></div>
-                </div>
-                <div class="s4-right">
-                    <div class="section-tag lt au">
-                        <div class="num">03</div>
-                        <h2>Financial Architecture &amp; <em>Revenue Protection</em></h2>
-                    </div>
-                    <div class="au">
-                        <p class="s4-headline">Every Physical Move is a<br><em>Real-Time Accounting Entry</em></p>
-                        <p class="s4-sub" style="margin-top:10px;">The Move-Code engine permanently eliminates the gap
-                            between physical shipping events and financial recognition — zero lag, zero manual bridges,
-                            zero disputes.</p>
-                    </div>
-                    <div class="s4-flow au">
-                        <div class="s4-step">
-                            <div class="sfi gi">🚪</div>
-                            <div class="sfl">Gate-In</div>
-                            <div class="sfd">Auto accounting</div>
-                        </div>
-                        <div class="s4-arr">→</div>
-                        <div class="s4-step">
-                            <div class="sfi gi">🚢</div>
-                            <div class="sfl">Load</div>
-                            <div class="sfd">Revenue recognized</div>
-                        </div>
-                        <div class="s4-arr">→</div>
-                        <div class="s4-step">
-                            <div class="sfi gi">🔁</div>
-                            <div class="sfl">Transship</div>
-                            <div class="sfd">SOA updated</div>
-                        </div>
-                        <div class="s4-arr">→</div>
-                        <div class="s4-step">
-                            <div class="sfi gi">📋</div>
-                            <div class="sfl">Delivery</div>
-                            <div class="sfd">DO locked</div>
-                        </div>
-                    </div>
-                    <div class="s4-cards">
-                        <div class="dark-card dc1 ai">
-                            <div class="dc-icon gi">⚙️</div>
-                            <div class="dc-title">Move-Code Engine</div>
-                            <ul class="dc-list">
-                                <li>Instant fiscal recognition on every move</li>
-                                <li>Zero-Dispute Protocol — auto slot-contract matching</li>
-                            </ul>
-                        </div>
-                        <div class="dark-card dc2 ai">
-                            <div class="dc-icon gi">🔒</div>
-                            <div class="dc-title">Revenue Firewalls</div>
-                            <ul class="dc-list">
-                                <li>DO Lock: expired DOs blocked until charges paid</li>
-                                <li>Damage Firewall &amp; BL Security checkpoints</li>
-                                <li>Upfront detention collection mandated</li>
-                            </ul>
-                        </div>
-                        <div class="dark-card dc3 ai">
-                            <div class="dc-icon gi">🤝</div>
-                            <div class="dc-title">Agency Governance</div>
-                            <ul class="dc-list">
-                                <li>Closed-loop SOA — master contracts embedded</li>
-                                <li>Commission validated vs. vessel DA automatically</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="zdp ai">
-                        <span class="zdp-i gi">⚖️</span>
-                        <div class="zdp-t"><strong>Zero-Dispute Protocol</strong> — Every container mapped to a specific
-                            slot agreement. Vendor invoices automatically validated; discrepancies flagged instantly
-                            before payment.</div>
-                        <div class="zdp-n">100%<small>Fiscal Footprint</small></div>
-                    </div>
-                </div>
-            </div>
-            <div class="omani"></div>
-        </section>
-
-        <!-- S5: DATA GOVERNANCE -->
-        <section id="s5">
-            <div class="s5-inner">
-                <div class="s5-left">
-                    <img src="audit.png" alt="Fortress Architecture">
-                    <div class="s5-stats-overlay">
-                        <div class="s5-stat s5s1 ai">
-                            <div class="n">100%</div>
-                            <div class="l">Audit Compliant</div>
-                        </div>
-                        <div class="s5-stat s5s2 ai">
-                            <div class="n">0</div>
-                            <div class="l">Manual Bridges</div>
-                        </div>
-                        <div class="s5-stat s5s3 ai">
-                            <div class="n">1-Click</div>
-                            <div class="l">P&amp;L Reports</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="s5-right">
-                    <div class="section-tag au">
-                        <div class="num">04</div>
-                        <h2>Data Governance: <em>The Fortress Architecture</em></h2>
-                    </div>
-                    <div class="fortress-grid">
-                        <div class="fc2 fc2a au">
-                            <div class="fc2-h"><span class="fc2-icon gi">🏢</span>
-                                <div class="fc2-title">Office-Level Isolation</div>
-                            </div>
-                            <div class="fc2-body">Local offices &amp; agents <strong>restricted to their own
-                                    data</strong> — blind to global activities unless explicitly authorized at system
-                                level.</div>
-                        </div>
-                        <div class="fc2 fc2b au">
-                            <div class="fc2-h"><span class="fc2-icon gi">🔐</span>
-                                <div class="fc2-title">Encrypted Commercial Data</div>
-                            </div>
-                            <div class="fc2-body"><strong>Buy Rates, Sell Rates &amp; Agency Commissions</strong>
-                                strictly encrypted — protecting ASYAD's commercial edge and pricing advantage.</div>
-                        </div>
-                        <div class="fc2 fc2c au">
-                            <div class="fc2-h"><span class="fc2-icon gi">🕵️</span>
-                                <div class="fc2-title">Party Confidentiality</div>
-                            </div>
-                            <div class="fc2-body">Prevents cross-party exposure — ensuring <strong>strictly governed
-                                    tariff showcases</strong> with zero leakage between competing principals.</div>
-                        </div>
-                        <div class="fc2 fc2d au">
-                            <div class="fc2-h"><span class="fc2-icon gi">📋</span>
-                                <div class="fc2-title">Immutable Audit Trail</div>
-                            </div>
-                            <div class="fc2-body"><strong>Every action leaves a digital footprint</strong> — full
-                                operational integrity, regulator-ready compliance and historical traceability.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="omani"></div>
-        </section>
-
-        <!-- S6: CONCLUSION / INSIGHTS -->
-        <section id="s6">
-            <div class="s6-inner">
-                <div class="s6-stats">
-                    <div class="s6s a au">
-                        <div class="n">360°</div>
-                        <div class="l">Fiscal Health &amp; ERPNext</div>
-                    </div>
-                    <div class="s6s b au">
-                        <div class="n">100%</div>
-                        <div class="l">Audit Compliance</div>
-                    </div>
-                    <div class="s6s c au">
-                        <div class="n">0</div>
-                        <div class="l">Manual Reconciliation</div>
-                    </div>
-                    <div class="s6s d au">
-                        <div class="n">VAT</div>
-                        <div class="l">Oman VAT Built-In</div>
-                    </div>
-                </div>
-                <div class="s6-insights">
-                    <div class="s6ic ai"><span class="ii gi">⚡</span>
-                        <div class="il">Financial Velocity</div>
-                        <div class="is">Cash-flow &amp; revenue recognition speed</div>
-                    </div>
-                    <div class="s6ic ai"><span class="ii gi">🛡️</span>
-                        <div class="il">Operational Integrity</div>
-                        <div class="is">Move-code compliance &amp; slot utilization</div>
-                    </div>
-                    <div class="s6ic ai"><span class="ii gi">📈</span>
-                        <div class="il">Commercial Analytics</div>
-                        <div class="is">Stakeholder &amp; trade lane performance</div>
-                    </div>
-                    <div class="s6ic ai"><span class="ii gi">⚖️</span>
-                        <div class="il">Fiscal Governance</div>
-                        <div class="is">Audit-ready reports &amp; VAT compliance</div>
-                    </div>
-                    <div class="s6ic ai"><span class="ii gi">🤝</span>
-                        <div class="il">Agency Dashboards</div>
-                        <div class="is">DA, SOA &amp; commission reconciliation</div>
-                    </div>
-                </div>
-                <div class="s6-cta au">
-                    <div class="s6ct">
-                        <div class="ey">Ready to Transform?</div>
-                        <div class="hl">ASYAD's Digital Future Starts with <em>inTEUtion</em></div>
-                        <div class="su">The definitive answer to modern global trade complexity — tightly coupled
-                            operations, real-time fiscal intelligence, and a fortress-grade governance layer built for
-                            Oman's Vision 2040 ambitions and top-10 global shipping ranking.</div>
-                        <div class="s6-tricolor"></div>
-                    </div>
-                    <div class="s6-contacts">
-                        <div class="s6cr"><span class="cri gi">💬</span>
+                    <div class="slot-pills">
+                        <div class="slot-pill p1">
+                            <span class="pil-icon">🏗️</span>
                             <div>
-                                <div class="crl">WhatsApp</div>
-                                <div class="crv">Instant Demo Request</div>
+                                <div class="pt-title">Real-Time Yard Visibility</div>
+                                <div class="pt-desc">Booking desk views container availability on-screen — eliminating
+                                    phantom bookings instantly.</div>
                             </div>
                         </div>
-                        <div class="s6cr"><span class="cri gi">📩</span>
+                        <div class="slot-pill p2">
+                            <span class="pil-icon">🔒</span>
                             <div>
-                                <div class="crl">Email</div>
-                                <div class="crv">hello@inteution.com</div>
+                                <div class="pt-title">Slot Gatekeeper</div>
+                                <div class="pt-desc">Slot Opening must be defined before initiating a booking —
+                                    preventing unauthorized over-booking.</div>
                             </div>
                         </div>
-                        <div class="s6cr"><span class="cri gi">🌐</span>
+                        <div class="slot-pill p3">
+                            <span class="pil-icon">📉</span>
                             <div>
-                                <div class="crl">Platform</div>
-                                <div class="crv">www.inteution.com</div>
+                                <div class="pt-title">Dead Freight Dashboards</div>
+                                <div class="pt-desc">Instant access to unutilized slots, expiring contracts &amp;
+                                    rollover monitoring.</div>
+                            </div>
+                        </div>
+                        <div class="slot-pill p4">
+                            <span class="pil-icon">🔗</span>
+                            <div>
+                                <div class="pt-title">Strategic Consolidation</div>
+                                <div class="pt-desc">Slot-related rates embedded to optimize purchase costs at the
+                                    booking stage.</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="s6-logo">
-                    <img src="inteution-light.png" alt="inTEUtion">
-                    <span>Strategic Intelligence Platform · Powered by AI · Confidential — ASYAD Executive Review</span>
+            </div>
+            <div style="text-align:right;font-size:9px;color:var(--TS);margin-top:24px">Strategic Intelligence Platform
+                &nbsp;|&nbsp; Powered by AI &nbsp;|&nbsp; Confidential — ASYAD Executive Review &nbsp;|&nbsp; <strong
+                    style="color:var(--PD)">04 / 06</strong></div>
+        </div>
+    </section>
+
+    <!-- ══════ S5: FINANCIAL ARCHITECTURE — Page 5 ══════ -->
+    <section id="s5">
+        <div class="s5-hero">
+            <img src="mvoecode.png" alt="Port crane with Move-Code particle stream uploading to cloud ledger">
+            <div class="s5-ov"></div>
+            <div class="s5-ov2"></div>
+            <div class="s5-flow">
+                <div class="fstep"><span class="fsi">🚪</span>
+                    <div>
+                        <div class="fst">Gate-In → Accounting Entry</div>
+                        <div class="fstag">Auto-triggered · Zero lag</div>
+                    </div>
+                </div>
+                <div class="fstep"><span class="fsi">🚢</span>
+                    <div>
+                        <div class="fst">Load → Revenue Recognized</div>
+                        <div class="fstag">Real-time fiscal footprint</div>
+                    </div>
+                </div>
+                <div class="fstep"><span class="fsi">🔁</span>
+                    <div>
+                        <div class="fst">Transshipment → SOA Updated</div>
+                        <div class="fstag">Slot contract matched</div>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div class="s5-hero-text anim">
+                <div class="hbadge">⚡ Financial Architecture</div>
+                <h1>Every Physical Move is a<br><em>Real-Time Accounting Entry</em></h1>
+                <p>Move-Code Engine · Revenue Firewalls · Agency Governance</p>
+            </div>
+        </div>
+        <div class="s5-body">
+            <div style="display:flex;align-items:center;gap:10px" class="anim">
+                <div class="s5-abc"
+                    style="width:28px;height:28px;background:var(--PD);border-radius:50%;font-size:12px;font-weight:900;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                    2</div>
+                <div class="sh lt" style="font-size:18px">Financial Architecture &amp; <em>Revenue Protection</em></div>
+            </div>
+            <div class="s5-challenge anim">
+                <p>Are 'Liabilities' arising from physical movements that leave no immediate fiscal footprint? Is
+                    Finance manually bridging the gap between shipping data and your ERP? inTEUtion's Move-Code engine
+                    eliminates this permanently.</p>
+            </div>
+            <div class="s5-abc">
+                <div class="abc-block bm anim">
+                    <span class="ab-icon">⚙️</span>
+                    <div class="ab-title">A. The "Move-Code" Engine</div>
+                    <ul>
+                        <li><strong>Instant Fiscal Recognition:</strong> Gate-In, Load, Transshipment events
+                            auto-trigger accounting entries — zero lag.</li>
+                        <li><strong>Zero-Dispute Protocol:</strong> Every container mapped to a slot agreement; vendor
+                            invoices checked and discrepancies flagged instantly.</li>
+                    </ul>
+                    <div class="ab-tag">Physical = Financial</div>
+                </div>
+                <div class="abc-block br anim anim-d1">
+                    <span class="ab-icon">🔒</span>
+                    <div class="ab-title">B. Revenue &amp; Recovery Firewalls</div>
+                    <ul>
+                        <li><strong>DO Lock:</strong> Expired Delivery Orders blocked — re-issuance requires confirmed
+                            demurrage &amp; storage payment.</li>
+                        <li><strong>Damage Firewall:</strong> Damage exceeding limits auto-tagged as customer liability;
+                            docs clearance gated on repair approval.</li>
+                        <li><strong>BL Security:</strong> Bill of Lading = financial checkpoint; goods title transfers
+                            only after payment confirmed. Covers Switch BLs.</li>
+                        <li><strong>Upfront Collection:</strong> Advance detention recovery mandated via import invoice.
+                        </li>
+                    </ul>
+                    <div class="ab-tag">Zero Revenue Leakage</div>
+                </div>
+                <div class="abc-block ba anim anim-d2">
+                    <span class="ab-icon">🤝</span>
+                    <div class="ab-title">C. Agency Governance</div>
+                    <ul>
+                        <li><strong>Closed-Loop SOA:</strong> Master Agency Contracts embedded — system validates every
+                            commission and every penny via vessel-wise DA &amp; periodic DA.</li>
+                        <li>Eliminates manual "Trust" in Excel-based disbursement accounts.</li>
+                        <li>Defends against commission over-payments &amp; SOA discrepancies.</li>
+                    </ul>
+                    <div class="ab-tag">Commission Integrity</div>
+                </div>
+            </div>
+            <div class="zdp-strip anim">
+                <span class="zi">⚖️</span>
+                <div class="zt">
+                    <h4>The Zero-Dispute Protocol</h4>
+                    <p>Every container mapped to a specific slot agreement. Vendor invoices are automatically validated
+                        against system records — discrepancies flagged instantly, commissions verified, and zero manual
+                        reconciliation required.</p>
+                </div>
+                <div class="zs">
+                    <div class="sn">100%</div>
+                    <div class="sl">Fiscal<br>Footprint</div>
+                </div>
+            </div>
+            <div style="text-align:right;font-size:9px;color:rgba(255,255,255,.3)">Strategic Intelligence Platform
+                &nbsp;|&nbsp; Powered by AI &nbsp;|&nbsp; Confidential — ASYAD Executive Review &nbsp;|&nbsp; <strong
+                    style="color:var(--CM)">05 / 06</strong></div>
+        </div>
+    </section>
 
-    </div>
+    <!-- ══════ S6: DATA GOVERNANCE & INSIGHTS — Page 6 ══════ -->
+    <section id="s6">
+        <div class="s6-hero">
+            <div class="s6-img">
+                <img src="audit.png"
+                    alt="Purple data governance shield: Office-Level Isolation, Encrypted Buy Rates, 100% Audit Compliance">
+            </div>
+            <div class="s6-hero-text anim">
+                <div class="light-badge" style="margin-bottom:10px"><span
+                        style="width:6px;height:6px;background:var(--CM);border-radius:50%;display:inline-block;margin-right:5px"></span>Fortress
+                    Architecture</div>
+                <div class="sh lt" style="font-size:clamp(20px,2.6vw,38px)">Data Governance,<br><em>360° Fiscal
+                        Health</em><br>&amp; Intelligent Insights</div>
+                <p style="font-size:10px;color:rgba(255,255,255,.55);line-height:1.6;margin-top:8px">Protecting ASYAD's
+                    commercial secrets through system-enforced boundaries while delivering one-click financial
+                    intelligence.</p>
+                <div class="s6-stat-badges" style="margin-top:12px">
+                    <div class="ssb s1b">
+                        <div class="sn">100%</div>
+                        <div class="sl">Audit<br>Compliant</div>
+                    </div>
+                    <div class="ssb s2b">
+                        <div class="sn">0</div>
+                        <div class="sl">Manual<br>Bridges</div>
+                    </div>
+                    <div class="ssb s3b">
+                        <div class="sn">1-Click</div>
+                        <div class="sl">P&amp;L &amp;<br>Reports</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="s6-body">
+            <div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px" class="anim">
+                    <div
+                        style="background:var(--PD);color:#fff;width:26px;height:26px;border-radius:50%;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                        3</div>
+                    <div class="sh lt" style="font-size:18px">Data Governance: The <em>"Fortress Architecture"</em>
+                    </div>
+                </div>
+                <div class="fortress-grid">
+                    <div class="fc fca anim">
+                        <div class="fc-head"><span class="fci">🏢</span>
+                            <div class="fct">Office-Level Isolation</div>
+                        </div>
+                        <div class="fcb-body">Local offices and agents are <strong>restricted to their own data</strong>
+                            — blind to global activities of other offices unless explicitly authorized.</div>
+                    </div>
+                    <div class="fc fcb anim anim-d1">
+                        <div class="fc-head"><span class="fci">🔐</span>
+                            <div class="fct">Encrypted Commercial Data</div>
+                        </div>
+                        <div class="fcb-body"><strong>Buy Rates, Sell Rates &amp; Agency Commissions</strong> are
+                            strictly encrypted — protecting ASYAD's commercial edge and pricing intelligence.</div>
+                    </div>
+                    <div class="fc fcc anim anim-d2">
+                        <div class="fc-head"><span class="fci">🕵️</span>
+                            <div class="fct">Party Confidentiality</div>
+                        </div>
+                        <div class="fcb-body">Prevents cross-party exposure visibility and ensures <strong>strictly
+                                governed tariff showcases</strong> — no leakage between competing principals.</div>
+                    </div>
+                    <div class="fc fcd anim anim-d3">
+                        <div class="fc-head"><span class="fci">📋</span>
+                            <div class="fct">Immutable Audit Trail</div>
+                        </div>
+                        <div class="fcb-body"><strong>Comprehensive digital footprints</strong> for every system action
+                            — ensuring full operational integrity and regulator-ready compliance.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="s6-lower">
+                <div class="fiscal-panel anim">
+                    <div class="fp-head">
+                        <div class="fp-num">4</div>
+                        <h3>360° Fiscal Health &amp; ERPNext</h3>
+                    </div>
+                    <ul>
+                        <li><strong>ERPNext Coupled Architecture:</strong> Every transaction follows a strict path from
+                            vessel slot to end ledger — 100% audit-compliant.</li>
+                        <li><strong>One-Click Intelligence:</strong> Instant P&amp;L (booking-wise), Balance Sheets, and
+                            all accounting statements.</li>
+                        <li><strong>Operational Integrity:</strong> VGM before Gate-In, ICD/Transshipment confirmations,
+                            move-code overlap prevention.</li>
+                        <li><strong>Oman VAT Compliance:</strong> Full support for Oman VAT requirements built-in.</li>
+                    </ul>
+                    <div style="margin-top:14px">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+                            <div
+                                style="background:var(--CT);color:#fff;width:26px;height:26px;border-radius:50%;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                                5</div>
+                            <div class="sh lt" style="font-size:14px">inTEUtion <em>Insights</em></div>
+                        </div>
+                        <div class="insights-panel" style="background:transparent;border:none;padding:0">
+                            <div class="ic-row"><span class="ico">⚡</span>
+                                <div class="ict">Financial Velocity</div>
+                                <div class="icd">Cash-flow, revenue<br>recognition speed</div>
+                            </div>
+                            <div class="ic-row"><span class="ico">🛡️</span>
+                                <div class="ict">Operational Integrity</div>
+                                <div class="icd">Move-code compliance<br>&amp; slot utilization</div>
+                            </div>
+                            <div class="ic-row"><span class="ico">📈</span>
+                                <div class="ict">Commercial Analytics</div>
+                                <div class="icd">Stakeholder &amp; trade<br>lane performance</div>
+                            </div>
+                            <div class="ic-row"><span class="ico">⚖️</span>
+                                <div class="ict">Fiscal Governance</div>
+                                <div class="icd">Audit-ready reports<br>&amp; VAT compliance</div>
+                            </div>
+                            <div class="ic-row"><span class="ico">🤝</span>
+                                <div class="ict">Agency Dashboards</div>
+                                <div class="icd">DA, SOA &amp; commission<br>reconciliation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-block anim anim-d1">
+                    <div class="cta-inner">
+                        <div class="cta-text">
+                            <div class="cta-ey">Ready to Transform?</div>
+                            <div class="cta-h">ASYAD's Digital Future<br>Starts with <em>inTEUtion</em></div>
+                            <div class="cta-sub">The definitive answer to modern global trade complexity — tightly
+                                coupled operations, real-time fiscal intelligence, and a fortress-grade governance layer
+                                built for Oman's 2040 ambitions.</div>
+                            <div class="cta-tc"></div>
+                        </div>
+                        <div class="cta-contacts">
+                            <div class="cr"><span class="cri">💬</span>
+                                <div>
+                                    <div class="crl">WhatsApp</div>
+                                    <div class="crv">Instant Demo Request</div>
+                                </div>
+                            </div>
+                            <div class="cr"><span class="cri">📩</span>
+                                <div>
+                                    <div class="crl">Email</div>
+                                    <div class="crv">hello@inteution.com</div>
+                                </div>
+                            </div>
+                            <div class="cr"><span class="cri">🌐</span>
+                                <div>
+                                    <div class="crl">Platform</div>
+                                    <div class="crv">www.inteution.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="text-align:center;font-size:9px;color:rgba(255,255,255,.28);border-top:1px solid rgba(255,255,255,.08);padding-top:16px;margin-top:8px">
+                Strategic Intelligence Platform &nbsp;|&nbsp; Powered by AI &nbsp;|&nbsp; Confidential — For ASYAD
+                Executive Review &nbsp;|&nbsp; <strong style="color:var(--CM)">06 / 06</strong></div>
+        </div>
+    </section>
 
     <script>
-        const secs = document.querySelectorAll('.sc section');
-        const dls = document.querySelectorAll('.dots a');
-        const obs = new IntersectionObserver(en => {
-            en.forEach(e => {
-                if (e.isIntersecting && e.intersectionRatio >= 0.5) {
-                    dls.forEach(d => d.classList.remove('on'));
-                    const i = [...secs].indexOf(e.target);
-                    if (dls[i]) dls[i].classList.add('on');
+        // Animate on scroll
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.anim').forEach(el => obs.observe(el));
+
+        // Active nav highlight
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    navLinks.forEach(a => a.classList.remove('active'));
+                    const link = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
+                    if (link) link.classList.add('active');
                 }
             });
-        }, { threshold: 0.5 });
-        secs.forEach(s => obs.observe(s));
-        dls.forEach(a => a.addEventListener('click', e => {
-            e.preventDefault();
-            const t = document.querySelector(a.getAttribute('href'));
-            if (t) t.scrollIntoView({ behavior: 'smooth' });
-        }));
+        }, { threshold: 0.4 });
+        sections.forEach(s => sObs.observe(s));
     </script>
 </body>
 
