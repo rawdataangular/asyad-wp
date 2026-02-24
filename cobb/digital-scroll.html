@@ -1510,8 +1510,7 @@
                 <div class="p3card cy3">
                     <span class="pci">⚓</span>
                     <div class="pct">Maritime &amp; Logistics</div>
-                    <div class="pcb">AI-driven <strong>predictive analytics</strong> are standard in ports. Features
-                        include autonomous vehicles and real-time commercial leakage prevention via ERP.</div>
+                    <div class="pcb">AI-driven <strong>predictive analytics</strong>, autonomous operations, and real-time ERP intelligence.</div>
                 </div>
                 <div class="p3card ai3">
                     <span class="pci">🔋</span>
@@ -1653,16 +1652,16 @@
             font-size: 11.5px;
             color: var(--TS);
             line-height: 1.55;
-            display: flex;
-            gap: 8px;
-            align-items: flex-start;
+            position: relative;
+            padding-left: 14px;
         }
 
         .pricing-block ul li::before {
             content: '▸';
             color: var(--P);
-            flex-shrink: 0;
-            margin-top: 1px;
+            position: absolute;
+            left: 0;
+            top: 1px;
         }
 
         .pricing-block ul li strong {
@@ -2017,15 +2016,15 @@
             font-size: 10px;
             color: var(--TS);
             line-height: 1.5;
-            display: flex;
-            gap: 6px;
-            align-items: flex-start;
+            position: relative;
+            padding-left: 12px;
         }
 
         .abc-block ul li::before {
             content: '▸';
-            flex-shrink: 0;
-            margin-top: 1px;
+            position: absolute;
+            left: 0;
+            top: 1px;
         }
 
         .abc-block.bm ul li::before {
@@ -2334,15 +2333,16 @@
             font-size: 9px;
             color: rgba(255, 255, 255, .65);
             line-height: 1.55;
-            display: flex;
-            gap: 7px;
-            align-items: flex-start;
+            position: relative;
+            padding-left: 13px;
         }
 
         .fiscal-panel ul li::before {
             content: '▸';
             color: var(--CM);
-            flex-shrink: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
         .fiscal-panel ul li strong {
