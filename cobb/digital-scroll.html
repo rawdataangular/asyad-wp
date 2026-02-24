@@ -1832,6 +1832,11 @@
             position: absolute;
             bottom: clamp(20px, 4%, 40px);
             left: 5%;
+            right: 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
             z-index: 3;
         }
 
@@ -1874,13 +1879,10 @@
         }
 
         .s5-flow {
-            position: absolute;
-            top: clamp(16px, 3%, 30px);
-            right: 5%;
             display: flex;
-            flex-direction: column;
-            gap: 6px;
-            z-index: 3;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 10px;
         }
 
         .fstep {
@@ -1895,21 +1897,22 @@
         }
 
         .fstep .fsi {
-            font-size: 13px;
+            font-size: 22px;
         }
 
         .fstep .fst {
-            font-size: 8px;
+            font-size: 11px;
             font-weight: 700;
             color: rgba(255, 255, 255, .88);
             letter-spacing: .04em;
         }
 
         .fstep .fstag {
-            font-size: 6.5px;
+            font-size: 8.5px;
             color: var(--CM);
             font-weight: 700;
             text-transform: uppercase;
+            margin-top: 3px;
         }
 
         .s5-body {
@@ -2548,6 +2551,16 @@
 
         /* RESPONSIVE S4-S6 */
         @media(max-width:900px) {
+            .s5-hero-text {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .s5-flow {
+                justify-content: flex-start;
+                margin-top: 6px;
+            }
+
             .s4-cols {
                 grid-template-columns: 1fr;
             }
@@ -2584,10 +2597,6 @@
 
             .fortress-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .s5-flow {
-                display: none;
             }
         }
     </style>
@@ -2680,33 +2689,36 @@
                 <img src="mvoecode.png" alt="Port crane with Move-Code particle stream uploading to cloud ledger">
                 <div class="s5-ov"></div>
                 <div class="s5-ov2"></div>
-                <div class="s5-flow">
-                    <div class="fstep"><span class="fsi">🚪</span>
-                        <div>
-                            <div class="fst">Gate-In → Accounting Entry</div>
-                            <div class="fstag">Auto-triggered · Zero lag</div>
-                        </div>
-                    </div>
-                    <div class="fstep"><span class="fsi">🚢</span>
-                        <div>
-                            <div class="fst">Load → Revenue Recognized</div>
-                            <div class="fstag">Real-time fiscal footprint</div>
-                        </div>
-                    </div>
-                    <div class="fstep"><span class="fsi">🔁</span>
-                        <div>
-                            <div class="fst">Transshipment → SOA Updated</div>
-                            <div class="fstag">Slot contract matched</div>
-                        </div>
-                    </div>
-                </div>
                 <div class="s5-hero-text anim">
-                    <div class="hbadge">⚡ Financial Architecture</div>
-                    <h2
-                        style="font-family:'Playfair Display', serif;font-size:clamp(20px,2.8vw,36px);font-weight:800;color:#fff;line-height:1.2;text-shadow:0 2px 10px rgba(0,0,0,.5);margin:6px 0;">
-                        Every Physical Move is a<br><em style="color:var(--CM);font-style:normal;">Real-Time Accounting
-                            Entry</em></h2>
-                    <p>Move-Code Engine · Revenue Firewalls · Agency Governance</p>
+                    <div class="s5-ht-left">
+                        <div class="hbadge">⚡ Financial Architecture</div>
+                        <h2
+                            style="font-family:'Playfair Display', serif;font-size:clamp(20px,2.8vw,36px);font-weight:800;color:#fff;line-height:1.2;text-shadow:0 2px 10px rgba(0,0,0,.5);margin:6px 0;">
+                            Every Physical Move is a<br><em style="color:var(--CM);font-style:normal;">Real-Time Accounting
+                                Entry</em></h2>
+                        <p>Move-Code Engine · Revenue Firewalls · Agency Governance</p>
+                    </div>
+
+                    <div class="s5-flow">
+                        <div class="fstep"><span class="fsi">🚪</span>
+                            <div>
+                                <div class="fst">Gate-In → Accounting Entry</div>
+                                <div class="fstag">Auto-triggered · Zero lag</div>
+                            </div>
+                        </div>
+                        <div class="fstep"><span class="fsi">🚢</span>
+                            <div>
+                                <div class="fst">Load → Revenue Recognized</div>
+                                <div class="fstag">Real-time fiscal footprint</div>
+                            </div>
+                        </div>
+                        <div class="fstep"><span class="fsi">🔁</span>
+                            <div>
+                                <div class="fst">Transshipment → SOA Updated</div>
+                                <div class="fstag">Slot contract matched</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="s5-body">
