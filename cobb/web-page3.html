@@ -507,6 +507,13 @@
             color: #8B6B00;
         }
 
+        .p3-pillars.compact { gap: 6px; }
+        .p3-pillars.compact .p3-pillar { padding: 9px 11px; border-radius: 6px; }
+        .p3-pillars.compact .p-icon { font-size: 16pt; margin-bottom: 2px; }
+        .p3-pillars.compact .p-title { font-size: 9pt; margin-bottom: 3px; line-height: 1.1; }
+        .p3-pillars.compact .p-body { font-size: 7.5pt; line-height: 1.25; }
+        .p3-pillars.compact .p-tag { font-size: 5.5pt; padding: 2px 6px; margin-top: 5px; }
+
         /* ── Human Capabilities Strip ── */
         .p3-human-strip {
             display: flex;
@@ -660,14 +667,48 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            gap: 4.5mm;
-            padding: 4mm 0 4mm;
+            gap: 2mm;
+            padding: 2mm 0 2mm;
         }
 
         .p3-dots-inline {
             display: flex;
             justify-content: flex-end;
             padding-right: 18mm;
+            margin-top: auto;
+        }
+
+        /* ── Hub Strip ── */
+        .hub-strip {
+            background: linear-gradient(to right, #F8F5FF, #F0FFFE);
+            border: 1px solid #DDD7F0;
+            border-left: 5px solid var(--purple-dark);
+            border-radius: 0 10px 10px 0;
+            padding: 10px 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .hub-strip .hi {
+            font-size: 18pt;
+            flex-shrink: 0;
+        }
+
+        .hub-strip p {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .hub-strip p strong {
+            color: var(--purple-dark);
+        }
+
+        .hub-strip p em {
+            font-style: normal;
+            color: var(--cyan-mid);
+            font-weight: 600;
         }
     </style>
 </head>
@@ -721,11 +762,6 @@
                 </svg>
             </div>
 
-            <!-- AI Program Badge top-right -->
-            <div class="p3-ai-badge">
-                <span class="ai-icon">🤖</span>
-                <div class="ai-label">National AI Program<br>2024 – 2026</div>
-            </div>
 
             <!-- Hero Text left side -->
             <div class="p3-hero-text">
@@ -741,96 +777,150 @@
 
         <!-- BODY -->
         <div class="p3-body">
-
-            <!-- AI Ecosystem Transition bar: Silos → Digital Ecosystem -->
-            <div class="p3-transition-track">
-                <div class="p3-tt-node from">
-                    <div class="tt-label">Before</div>
-                    <div class="tt-value">Manual &amp; Auto Silos</div>
-                </div>
-                <div class="p3-tt-arrow">→</div>
-                <div class="p3-tt-node to">
-                    <div class="tt-label">inTEUtion Transforms</div>
-                    <div class="tt-value">AI-Ready Ecosystem · SOLS 2040 Aligned</div>
-                </div>
-                <div class="p3-tt-arrow" style="color:var(--cyan-mid);">→</div>
-                <div class="p3-tt-node from"
-                    style="background:linear-gradient(145deg,#E6F7F0,#D4F0E8);border-color:#009A44;">
-                    <div class="tt-label" style="color:var(--green);">Outcome</div>
-                    <div class="tt-value" style="color:#1a6040;font-weight:600;">National Digital Sovereignty</div>
-                </div>
+            <div class="hub-strip anim anim-d1" style="margin:0 18mm 1mm;">
+                <div class="hi">🌱</div>
+                <p>Oman is in a high-growth phase of its <strong style="color:var(--cyan-mid)">National AI Program
+                        (2024–2026)</strong>. It is "architecting" a sovereign digital ecosystem. This is known as the
+                    <em>"Digital Soil"</em>. It moves Oman beyond isolated silos into a unified, AI-ready economy.</p>
+            </div>
+            
+            <!-- Header: AI Strategy -->
+            <div style="margin: 0 18mm 0; font-size: 10pt; font-weight: 700; color: var(--purple-dark); border-bottom: 1px solid var(--grey-mid); padding-bottom: 2px;">
+                National <span style="color: var(--cyan-text);">AI Strategy</span>
             </div>
 
             <!-- Three Governance Pillars -->
-            <div class="p3-pillars">
+            <div class="p3-pillars compact">
 
                 <!-- Pillar 1: AI Infrastructure -->
                 <div class="p3-pillar ai-infra">
-                    <span class="p-icon">🏗️</span>
-                    <div class="p-title">Advanced IT Infrastructure</div>
+                    <span class="p-icon">🧠</span>
+                    <div class="p-title">Sovereign AI</div>
                     <div class="p-body">
-                        In alignment with the <strong>National Program for AI &amp; Advanced Digital Technologies
-                            (2024–2026)</strong>,
-                        we architect the foundational "Digital Soil" required for AI to become an essential enabler of
-                        the Omani economy.
+                        <strong>"Oman GPT"</strong> and Luban LLM train on local data for secure, context-aware independence.
                     </div>
-                    <div class="p-tag">AI-Ready Foundation</div>
                 </div>
 
                 <!-- Pillar 2: Cyber Resilience -->
                 <div class="p3-pillar cyber">
-                    <span class="p-icon">🛡️</span>
-                    <div class="p-title">Cyber-Resilience &amp; Security</div>
+                    <span class="p-icon">🔬</span>
+                    <div class="p-title">The AI Studio</div>
                     <div class="p-body">
-                        We provide <strong>enterprise-grade security protocols</strong> ensuring ASYAD's maritime data —
-                        a national strategic asset — is protected against global cyber threats while remaining
-                        <strong>highly available</strong> for critical decision-making.
+                        A collaborative hub connecting specialists with sectors for <strong>experimental AI projects</strong>.
                     </div>
-                    <div class="p-tag">National Data Shield</div>
                 </div>
 
                 <!-- Pillar 3: Intelligent Audit -->
                 <div class="p3-pillar audit">
-                    <span class="p-icon">🔍</span>
-                    <div class="p-title">Intelligent Audit Trails</div>
+                    <span class="p-icon">📊</span>
+                    <div class="p-title">Open Data Platforms</div>
                     <div class="p-body">
-                        Our solution creates <strong>Immutable Digital Footprints</strong> — unlike legacy systems.
-                        Auditors verify economy, efficiency &amp; effectiveness of shipping operations through
-                        <strong>automated, data-driven reporting</strong>.
+                        A national platform offering structured data for entrepreneurs to build <strong>localized apps</strong>.
                     </div>
-                    <div class="p-tag">Zero-Trust Compliance</div>
                 </div>
 
+            </div>
+
+            <!-- Header: Infrastructure & Cyber-Resilience -->
+            <div style="margin: 0 18mm 0; font-size: 10pt; font-weight: 700; color: var(--purple-dark); border-bottom: 1px solid var(--grey-mid); padding-bottom: 2px;">
+                Infrastructure &amp; <span style="color: var(--cyan-text);">Cyber-Resilience</span>
+            </div>
+
+            <div class="p3-pillars compact">
+                <!-- Data Centers -->
+                <div class="p3-pillar audit">
+                    <span class="p-icon">⚡</span>
+                    <div class="p-title">Advanced Data Centers</div>
+                    <div class="p-body">
+                        Coastal regions host gigawatt-scale <strong>Green Data Centers</strong> spanning 18+ undersea cables.
+                    </div>
+                </div>
+
+                <!-- Cyber Security -->
+                <div class="p3-pillar cyber">
+                    <span class="p-icon">🛡️</span>
+                    <div class="p-title">Cybersecurity Leadership</div>
+                    <div class="p-body">
+                        Enforcing <strong>Intelligent Audit Trails</strong> to protect strategic national assets.
+                    </div>
+                </div>
+
+                <!-- Cloud First -->
+                <div class="p3-pillar ai-infra">
+                    <span class="p-icon">☁️</span>
+                    <div class="p-title">Cloud-First Mandate</div>
+                    <div class="p-body">
+                        Transitioning <strong>80% of public services</strong> from legacy hardware to scalable hybrid clouds.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header: Sector-Specific Transformation -->
+            <div style="margin: 0 18mm 0; font-size: 10pt; font-weight: 700; color: var(--purple-dark); border-bottom: 1px solid var(--grey-mid); padding-bottom: 2px;">
+                Sector-Specific <span style="color: var(--cyan-text);">Transformation</span>
+            </div>
+
+            <div class="p3-pillars compact">
+                <!-- Maritime -->
+                <div class="p3-pillar cyber">
+                    <span class="p-icon">⚓</span>
+                    <div class="p-title">Maritime &amp; Logistics</div>
+                    <div class="p-body">
+                        Deploying <strong>predictive analytics</strong> and autonomous operations to run proactive smart ports.
+                    </div>
+                </div>
+
+                <!-- Energy -->
+                <div class="p3-pillar ai-infra">
+                    <span class="p-icon">🔋</span>
+                    <div class="p-title">Energy</div>
+                    <div class="p-body">
+                        AI-powered <strong>smart grid management</strong> optimizing green hydrogen production.
+                    </div>
+                </div>
+
+                <!-- Digital Identity -->
+                <div class="p3-pillar audit">
+                    <span class="p-icon">🆔</span>
+                    <div class="p-title">Digital Identity</div>
+                    <div class="p-body">
+                        Electronic national IDs enable a seamless, highly secure <strong>"e-KYC"</strong> ecosystem.
+                    </div>
+                </div>
             </div>
 
             <!-- Strategic Human Capabilities -->
-            <div class="p3-human-strip">
-                <div class="hs-left">
-                    <div class="hs-icon">🎓</div>
-                    <div class="hs-label">Strategic<br>Human<br>Capabilities</div>
-                </div>
-                <div class="hs-right">
-                    <h4>Empowering the Omani Maritime Workforce</h4>
-                    <p>
-                        We educate your teams on the intersection of <strong>maritime operations and fiscal
-                            sustainability</strong>.
-                        By mastering our integrated ERP-logistics architecture, ASYAD personnel gain specialized skills
-                        in
-                        <strong>revenue recognition</strong> and <strong>commercial leakage prevention</strong> —
-                        building the knowledge economy that Vision 2040 demands.
-                    </p>
-                </div>
+            <div style="margin: 0 18mm 0; font-size: 10pt; font-weight: 700; color: var(--purple-dark); border-bottom: 1px solid var(--grey-mid); padding-bottom: 2px;">
+                Strategic <span style="color: var(--cyan-text);">Human Capabilities</span>
             </div>
 
-            <!-- Closing Leadership Quote -->
-            <div class="p3-quote-block">
-                <div class="q-text">
-                    "Oman's location is its destiny, but its technology is its choice. We offer the digital discipline
-                    required to turn the Sultanate's coastline into the world's <em>most efficient trade corridor</em>.
-                    By bridging the technology gap, we don't just support the logistics and maritime sector —
-                    we lead it into the <em>2040 era</em>."
+            <div class="p3-pillars compact">
+                <!-- Makeen Program -->
+                <div class="p3-pillar cyber">
+                    <span class="p-icon">👨‍💻</span>
+                    <div class="p-title">Makeen Program</div>
+                    <div class="p-body">
+                        Training thousands of Omanis in <strong>data science, cybersecurity, and AI ethics</strong>.
+                    </div>
                 </div>
-                <div class="q-attr">— inTEUtion Strategic Vision · ASYAD Digital Transformation Mandate</div>
+
+                <!-- AI in Education -->
+                <div class="p3-pillar audit">
+                    <span class="p-icon">🏫</span>
+                    <div class="p-title">AI in Education</div>
+                    <div class="p-body">
+                        Integrating AI problem-solving directly into foundational <strong>school curricula</strong>.
+                    </div>
+                </div>
+
+                <!-- Maritime Workforce -->
+                <div class="p3-pillar ai-infra">
+                    <span class="p-icon">🎓</span>
+                    <div class="p-title">Maritime Workforce</div>
+                    <div class="p-body">
+                        Upskilling teams with <strong>fiscal sustainability</strong> to prevent commercial leakage.
+                    </div>
+                </div>
             </div>
 
             <!-- Dot decoration -->
