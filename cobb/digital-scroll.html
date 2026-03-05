@@ -1283,6 +1283,321 @@
                 width: 90%;
             }
         }
+        /* ─── INTERACTIVE SENSING ─── */
+        .framing-q-box {
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(0, 204, 221, .2);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(12px);
+            margin-top: 20px;
+        }
+
+        .framing-q-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .framing-q-sub {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 24px;
+        }
+
+        .priority-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .priority-btn {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .15);
+            color: #fff;
+            padding: 14px 18px;
+            border-radius: 12px;
+            text-align: left;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all .25s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .priority-btn::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, .3);
+            flex-shrink: 0;
+            transition: all .25s ease;
+        }
+
+        .priority-btn:hover {
+            background: rgba(255, 255, 255, .15);
+            transform: translateY(-2px);
+        }
+
+        .priority-btn.selected {
+            background: rgba(0, 204, 221, .15);
+            border-color: var(--CM);
+            color: var(--CM);
+        }
+
+        .priority-btn.selected::before {
+            border-color: var(--CM);
+            background: var(--CM);
+            box-shadow: inset 0 0 0 3px rgba(0, 204, 221, .3);
+        }
+        
+        .priority-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Progressive Disclosure & Soft Commits */
+        .expand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--CM);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: color .2s;
+        }
+        
+        .expand-link:hover {
+            color: var(--PL);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, margin-top 0.4s ease;
+        }
+
+        .collapsible-content.open {
+            max-height: 500px; /* arbitrary large height */
+            margin-top: 12px;
+        }
+
+        .soft-commit-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .soft-commit-btn {
+            background: rgba(0, 204, 221, .08);
+            border: 1px solid rgba(0, 204, 221, .25);
+            color: var(--CM);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .soft-commit-btn:hover {
+            background: rgba(0, 204, 221, .2);
+            color: var(--CT);
+        }
+
+        .soft-commit-btn.clicked {
+            background: var(--CM);
+            color: #fff;
+            border-color: var(--CM);
+        }
+
+        .soft-commit-btn.clicked::after {
+            content: '✓';
+            font-weight: 900;
+        }
+
+        /* Maturity Slider */
+        .mirror-moment {
+            background: linear-gradient(135deg, rgba(26, 10, 60, .9), rgba(13, 26, 46, .95));
+            border: 1px solid rgba(0, 204, 221, .3);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .mirror-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .mirror-sub {
+            font-size: 12px;
+            color: rgba(255, 255, 255, .6);
+            margin-bottom: 24px;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            padding: 0 10px;
+        }
+
+        .slider-track {
+            height: 4px;
+            background: rgba(255, 255, 255, .1);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .slider-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--CM);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .slider-points {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: -6px;
+            left: 0;
+            right: 0;
+        }
+
+        .slider-point {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #1A0A3C;
+            border: 2px solid rgba(255, 255, 255, .3);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .slider-point:hover, .slider-point.active {
+            border-color: var(--CM);
+            background: var(--CM);
+            box-shadow: 0 0 10px rgba(0, 204, 221, .5);
+        }
+
+        .slider-label {
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, .5);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+
+        .slider-point.active .slider-label {
+            color: #fff;
+        }
+
+        .mirror-feedback {
+            min-height: 40px;
+            font-size: 13px;
+            color: var(--CM);
+            font-style: italic;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s;
+        }
+
+        .mirror-feedback.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Meeting Accelerator */
+        .meeting-accel-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .accel-btn {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .2);
+            padding: 14px 20px;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accel-btn::after {
+            content: '→';
+            font-size: 16px;
+            opacity: 0.5;
+            transition: all 0.25s ease;
+        }
+
+        .accel-btn:hover {
+            background: rgba(255, 255, 255, .15);
+            border-color: var(--CM);
+            transform: translateY(-2px);
+        }
+
+        .accel-btn:hover::after {
+            opacity: 1;
+            color: var(--CM);
+            transform: translateX(4px);
+        }
+        
+        .accel-btn.selected {
+            background: var(--CM);
+            border-color: var(--CM);
+            color: #000;
+        }
+        
+        .accel-btn.selected::after {
+            content: '✓';
+            color: #000;
+            opacity: 1;
+            transform: none;
+        }
+
+        @media(max-width: 600px) {
+            .priority-grid { grid-template-columns: 1fr; }
+            .slider-label { font-size: 8px; transform: translateX(-50%) rotate(45deg); top: 30px; transform-origin: top left; }
+            .mirror-moment { padding: 30px 15px; margin-bottom: 70px; }
+        }
     </style>
 </head>
 
@@ -1316,11 +1631,11 @@
                     <div class="eyebrow anim"><span class="bdot"></span>🌐 Oman Vision 2040 &nbsp;·&nbsp; Strategic
                         Blueprint</div>
                     <div class="anim anim-d1">
-                        <h1 class="s1-h1">Oman's location is its <em>destiny</em>,<br>but its technology is its
+                        <h1 class="s1-h1" id="hero-headline">Oman's location is its <em>destiny</em>,<br>but its technology is its
                             <em>choice</em>.
                         </h1>
                     </div>
-                    <div class="s1-sub anim anim-d2">
+                    <div class="s1-sub anim anim-d2" id="hero-subtext">
                         <p>
                             VISION 2040 has transformed the Sultanate into a beacon of strategic growth — positioning
                             Oman as an indispensable gateway in the global logistics landscape. <strong
@@ -1329,46 +1644,31 @@
                             shipping assets into one multimodal platform, ASYAD has transformed Oman into a natural
                             global hub, leveraging unparalleled access to four major continents.</p>
                     </div>
-                    <!-- <div class="s1-vs anim anim-d3">
-                        <div class="vi">🛡️</div>
-                        <div style="flex:1">
-                            <h3>Unified Digital Discipline</h3>
-                            <p>By implementing a unified digital discipline, we secure your National Interest, protect
-                                fiscal borders from commercial leakage, and empower the Omani workforce to lead the
-                                global maritime stage with data-driven precision.</p>
-                        </div>
-                        <div class="s1-vsbadge">
-                            <div class="vbn">TOP<br>10</div>
-                            <div class="vbl">Global<br>Target 2040</div>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="s1-right anim anim-d2">
-                    <div class="pillars-label">⬡ Four Strategic Pillars of Excellence</div>
-                    <div class="pillar-grid">
-                        <div class="pillar-card">
-                            <div class="pi">🔗</div>
-                            <h4>Pioneering Commercial Connectivity</h4>
-                            <p>Harmonizing national assets to create a seamless bridge between local industries and
-                                international trade lanes.</p>
-                        </div>
-                        <div class="pillar-card p-red">
-                            <div class="pi">📈</div>
-                            <h4>Elevating the National Economy</h4>
-                            <p>Driving the mandate through a diversified and robust shipping sector as a pillar of
-                                fiscal sustainability.</p>
-                        </div>
-                        <div class="pillar-card p-grn">
-                            <div class="pi">🌍</div>
-                            <h4>Strengthening Global Presence</h4>
-                            <p>Securing Oman's rank among the world's elite logistics hubs by attracting premier
-                                international shipping lines.</p>
-                        </div>
-                        <div class="pillar-card p-cya">
-                            <div class="pi">⚙️</div>
-                            <h4>Strategic Market Integration</h4>
-                            <p>Weaving the Sultanate into global production and service supply chains — at the heart of
-                                international commerce.</p>
+                    <div class="framing-q-box">
+                        <div class="framing-q-title">What is the hardest part of running a shipping organization at scale today?</div>
+                        <div class="framing-q-sub">Select your primary focus areas to customize this briefing (Choose up to 2).</div>
+                        
+                        <div class="priority-grid">
+                            <button class="priority-btn" data-priority="fleet">
+                                Fleet &amp; asset utilization
+                            </button>
+                            <button class="priority-btn" data-priority="revenue">
+                                Commercial rates &amp; revenue leakage
+                            </button>
+                            <button class="priority-btn" data-priority="finance">
+                                Financial visibility &amp; forecasting
+                            </button>
+                            <button class="priority-btn" data-priority="fragmentation">
+                                Digital fragmentation across entities
+                            </button>
+                            <button class="priority-btn" data-priority="governance">
+                                Governance, compliance &amp; audit
+                            </button>
+                            <button class="priority-btn" data-priority="ai">
+                                AI readiness / data foundations
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2621,6 +2921,10 @@
                 <p>Is your Trade/Sales Desk approving quotations flying blind to underlying cost risks? Without
                     real-time cost-simulation, you may be committing shipments that <strong>look profitable but are
                         eroding margins.</strong></p>
+                <div class="soft-commit-row" style="margin-top:10px;">
+                    <div class="soft-commit-btn" data-commit="cost-blindness-struggle">We struggle with this today</div>
+                    <div class="soft-commit-btn" data-commit="cost-blindness-priority">This is a priority</div>
+                </div>
             </div>
             <div class="s4-cols" style="margin-top:24px">
                 <div class="pricing-block anim">
@@ -2628,58 +2932,62 @@
                         <span class="bhi">📊</span>
                         <h3>Sales &amp; Pricing Intelligence</h3>
                     </div>
-                    <ul>
-                        <li><strong>Pricing Yield Engine:</strong> Replaces guesstimates with math — simulating ICD,
-                            Transshipment &amp; POD costs for instant Net Profit projections at quotation approval.</li>
-                        <li><strong>Live Slot Visibility:</strong> Sales reps view slot availability &amp; buy rates for
-                            port pairs during the quoting process.</li>
-                        <li><strong>inTEUtion Connect:</strong> Quotations, BLs, CROs, DOs, Invoices shared instantly
-                            via WhatsApp &amp; Email.</li>
-                    </ul>
-                    <div class="wa-pill">💬 WhatsApp Business API — Real-time quotes in seconds, not days</div>
+                    <p style="font-size:12px;color:var(--TS);line-height:1.55;margin-bottom:10px;">Eliminating guesstimates with mathematical precision at the quotation stage.</p>
+                    
+                    <div class="expand-link" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Hide Details' : '▸ Explore how this works'">▸ Explore how this works</div>
+                    <div class="collapsible-content">
+                        <ul>
+                            <li><strong>Pricing Yield Engine:</strong> Simulating ICD, Transshipment &amp; POD costs for instant Net Profit projections at quotation approval.</li>
+                            <li><strong>Live Slot Visibility:</strong> Sales reps view slot availability &amp; buy rates for port pairs during the quoting process.</li>
+                            <li><strong>inTEUtion Connect:</strong> Quotations, BLs, CROs, DOs, Invoices shared instantly via WhatsApp &amp; Email.</li>
+                        </ul>
+                        <div class="wa-pill">💬 WhatsApp Business API — Real-time quotes in seconds</div>
+                    </div>
                 </div>
                 <div class="slot-showcase anim anim-d2">
                     <div class="slot-label">
                         <span class="sl-badge">📦 Live Platform</span>
                         <div class="sl-title"><em>Slot Intelligence</em> — Real-Time Dashboard View</div>
                     </div>
-                    <div class="slot-img">
-                        <img src="slot.png"
-                            alt="inTEUtion Slot Management Dashboard: Real-Time Yard Visibility, Slot Gatekeeper, Dead Freight Dashboards">
+                    
+                    <div class="expand-link" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Hide Dashboard View' : '▸ Show Dashboard Interface'">▸ Show Dashboard Interface</div>
+                    <div class="collapsible-content">
+                        <div class="slot-img" style="margin-top:14px; margin-bottom: 16px;">
+                            <img src="slot.png" alt="inTEUtion Slot Management Dashboard: Real-Time Yard Visibility, Slot Gatekeeper, Dead Freight Dashboards">
+                        </div>
+                        <div class="slot-pills">
+                            <div class="slot-pill p1">
+                                <span class="pil-icon">🏗️</span>
+                                <div>
+                                    <div class="pt-title">Real-Time Yard Visibility</div>
+                                    <div class="pt-desc">Booking desk views container availability on-screen — eliminating phantom bookings.</div>
+                                </div>
+                            </div>
+                            <div class="slot-pill p2">
+                                <span class="pil-icon">🔒</span>
+                                <div>
+                                    <div class="pt-title">Slot Gatekeeper</div>
+                                    <div class="pt-desc">Slot Opening must be defined before initiating a booking.</div>
+                                </div>
+                            </div>
+                            <div class="slot-pill p3">
+                                <span class="pil-icon">📉</span>
+                                <div>
+                                    <div class="pt-title">Dead Freight Dashboards</div>
+                                    <div class="pt-desc">Instant access to unutilized slots &amp; expiring contracts.</div>
+                                </div>
+                            </div>
+                            <div class="slot-pill p4">
+                                <span class="pil-icon">🔗</span>
+                                <div>
+                                    <div class="pt-title">Strategic Consolidation</div>
+                                    <div class="pt-desc">Slot-related rates embedded to optimize purchase costs.</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="slot-pills">
-                        <div class="slot-pill p1">
-                            <span class="pil-icon">🏗️</span>
-                            <div>
-                                <div class="pt-title">Real-Time Yard Visibility</div>
-                                <div class="pt-desc">Booking desk views container availability on-screen — eliminating
-                                    phantom bookings instantly.</div>
-                            </div>
-                        </div>
-                        <div class="slot-pill p2">
-                            <span class="pil-icon">🔒</span>
-                            <div>
-                                <div class="pt-title">Slot Gatekeeper</div>
-                                <div class="pt-desc">Slot Opening must be defined before initiating a booking —
-                                    preventing unauthorized over-booking.</div>
-                            </div>
-                        </div>
-                        <div class="slot-pill p3">
-                            <span class="pil-icon">📉</span>
-                            <div>
-                                <div class="pt-title">Dead Freight Dashboards</div>
-                                <div class="pt-desc">Instant access to unutilized slots, expiring contracts &amp;
-                                    rollover monitoring.</div>
-                            </div>
-                        </div>
-                        <div class="slot-pill p4">
-                            <span class="pil-icon">🔗</span>
-                            <div>
-                                <div class="pt-title">Strategic Consolidation</div>
-                                <div class="pt-desc">Slot-related rates embedded to optimize purchase costs at the
-                                    booking stage.</div>
-                            </div>
-                        </div>
+                    <div class="soft-commit-row">
+                        <div class="soft-commit-btn" data-commit="slot-visibility-relevant">This visibility is relevant to us</div>
                     </div>
                 </div>
             </div>
@@ -2734,67 +3042,71 @@
                         Finance manually bridging the gap between shipping data and your ERP? inTEUtion's Move-Code
                         engine
                         eliminates this permanently.</p>
+                    <div class="soft-commit-row" style="margin-top:10px;">
+                        <div class="soft-commit-btn" data-commit="erp-gap-struggle">Bridging ERP & Ops is a struggle</div>
+                        <div class="soft-commit-btn" data-commit="erp-gap-exploring">We are exploring solutions here</div>
+                    </div>
                 </div>
                 <div class="s5-abc">
                     <div class="abc-block bm anim">
                         <span class="ab-icon">⚙️</span>
                         <div class="ab-title">The "Move-Code" Engine</div>
-                        <ul>
-                            <li><strong>Instant Fiscal Recognition:</strong> Gate-In, Load, Transshipment events
-                                auto-trigger accounting entries — zero lag.</li>
-                            <li><strong>Zero-Dispute Protocol:</strong> Every container mapped to a slot agreement;
-                                vendor
-                                invoices checked and discrepancies flagged instantly.</li>
-                        </ul>
-                        <div class="ab-tag">Physical = Financial</div>
+                        <p style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:10px;">Physical = Financial. Every move instantly reflects in accounting.</p>
+                        
+                        <div class="expand-link" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Collapse' : '▸ View Protocol'">▸ View Protocol</div>
+                        <div class="collapsible-content">
+                            <ul>
+                                <li><strong>Instant Fiscal Recognition:</strong> Gate-In, Load, Transshipment events
+                                    auto-trigger accounting entries — zero lag.</li>
+                                <li><strong>Zero-Dispute Protocol:</strong> Every container mapped to a slot agreement;
+                                    vendor
+                                    invoices checked and discrepancies flagged instantly.</li>
+                            </ul>
+                            <div class="ab-tag">Physical = Financial</div>
+                        </div>
                     </div>
                     <div class="abc-block br anim anim-d1">
                         <span class="ab-icon">🔒</span>
                         <div class="ab-title">Revenue &amp; Recovery Firewalls</div>
-                        <ul>
-                            <li><strong>DO Lock:</strong> Expired Delivery Orders blocked — re-issuance requires
-                                confirmed
-                                demurrage &amp; storage payment.</li>
-                            <li><strong>Damage Firewall:</strong> Damage exceeding limits auto-tagged as customer
-                                liability;
-                                docs clearance gated on repair approval.</li>
-                            <li><strong>BL Security:</strong> Bill of Lading = financial checkpoint; goods title
-                                transfers
-                                only after payment confirmed. Covers Switch BLs.</li>
-                            <li><strong>Upfront Collection:</strong> Advance detention recovery mandated via import
-                                invoice.
-                            </li>
-                        </ul>
-                        <div class="ab-tag">Zero Revenue Leakage</div>
+                        <p style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:10px;">Enforced stops that protect balance sheets from leakage.</p>
+                        
+                        <div class="expand-link" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Collapse' : '▸ View Firewalls'">▸ View Firewalls</div>
+                        <div class="collapsible-content">
+                            <ul>
+                                <li><strong>DO Lock:</strong> Expired Delivery Orders blocked — re-issuance requires
+                                    confirmed
+                                    demurrage &amp; storage payment.</li>
+                                <li><strong>Damage Firewall:</strong> Damage exceeding limits auto-tagged as customer
+                                    liability;
+                                    docs clearance gated on repair approval.</li>
+                                <li><strong>BL Security:</strong> Bill of Lading = financial checkpoint; goods title
+                                    transfers
+                                    only after payment confirmed. Covers Switch BLs.</li>
+                                <li><strong>Upfront Collection:</strong> Advance detention recovery mandated via import
+                                    invoice.
+                                </li>
+                            </ul>
+                            <div class="ab-tag">Zero Revenue Leakage</div>
+                        </div>
                     </div>
                     <div class="abc-block ba anim anim-d2">
                         <span class="ab-icon">🤝</span>
                         <div class="ab-title">Agency Governance</div>
-                        <ul>
-                            <li><strong>Closed-Loop SOA:</strong> Master Agency Contracts embedded — system validates
-                                every
-                                commission and every penny via vessel-wise DA &amp; periodic DA.</li>
-                            <li>Eliminates manual "Trust" in Excel-based disbursement accounts.</li>
-                            <li>Defends against commission over-payments &amp; SOA discrepancies.</li>
-                        </ul>
-                        <div class="ab-tag">Commission Integrity</div>
+                        <p style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:10px;">Eliminating manual trust in Excel-based disbursements.</p>
+                        
+                        <div class="expand-link" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Collapse' : '▸ View Governance'">▸ View Governance</div>
+                        <div class="collapsible-content">
+                            <ul>
+                                <li><strong>Closed-Loop SOA:</strong> Master Agency Contracts embedded — system validates
+                                    every
+                                    commission and every penny via vessel-wise DA &amp; periodic DA.</li>
+                                <li>Eliminates manual "Trust" in Excel-based disbursement accounts.</li>
+                                <li>Defends against commission over-payments &amp; SOA discrepancies.</li>
+                            </ul>
+                            <div class="ab-tag">Commission Integrity</div>
+                        </div>
                     </div>
                 </div>
-                <!-- <div class="zdp-strip anim">
-                    <span class="zi">⚖️</span>
-                    <div class="zt">
-                        <h4>The Zero-Dispute Protocol</h4>
-                        <p>Every container mapped to a specific slot agreement. Vendor invoices are automatically
-                            validated
-                            against system records — discrepancies flagged instantly, commissions verified, and zero
-                            manual
-                            reconciliation required.</p>
-                    </div>
-                    <div class="zs">
-                        <div class="sn">100%</div>
-                        <div class="sl">Fiscal<br>Footprint</div>
-                    </div>
-                </div> -->
             </div>
         </div> <!-- Closes S5 wrapper -->
 
@@ -2960,37 +3272,34 @@
             <div class="cta-block anim anim-d1" style="border-radius:24px;padding:40px 5%;">
                 <div class="cta-inner">
                     <div class="cta-text">
-                        <div class="cta-ey">Ready to Transform?</div>
-                        <div class="cta-h">ASYAD's Digital Future<br>Starts with <em>inTEUtion</em></div>
-                        <div class="cta-sub">The definitive answer to modern global trade complexity — tightly
-                            coupled operations, real-time fiscal intelligence, and a fortress-grade governance layer
-                            built for Oman's 2040 ambitions.</div>
-                        <div class="cta-tc"></div>
+                        <div class="cta-ey">Help Us Prepare</div>
+                        <div class="cta-h">Guide our April Discussion</div>
+                        <div class="cta-sub" style="margin-bottom: 20px;">We want our upcoming meeting to be incredibly dense with value. What should we focus on?</div>
+                        
+                        <div class="meeting-accel-options" id="meeting-options">
+                            <div class="accel-btn" data-topic="Financial Deep Dive">Show us a financial deep dive (Move-Code & ERNNext)</div>
+                            <div class="accel-btn" data-topic="Operational Control">Focus on operational control (Slot Yield & Revenue Protection)</div>
+                            <div class="accel-btn" data-topic="Architecture Mapping">Map inTEUtion against our current ASYAD architecture</div>
+                            <div class="accel-btn" data-topic="Implementation ROI">Walk us through implementation timelines and immediate ROI</div>
+                        </div>
+
                     </div>
-                    <div class="cta-contacts">
-                        <div class="cr"><span class="cri">💬</span>
+                    <div class="cta-contacts" style="align-self: center;">
+                        <div class="cr" style="margin-bottom: 20px;"><span class="cri">👥</span>
                             <div>
-                                <div class="crl">WhatsApp</div>
-                                <div class="crv">Instant Demo Request</div>
+                                <div class="crl">The inTEUtion Team</div>
+                                <div class="crv" style="font-size: 12px; line-height: 1.4; color: rgba(255,255,255,0.7)">Your responses on this page<br>help us tailor a highly specific<br>presentation for ASYAD Group.</div>
                             </div>
                         </div>
                         <div class="cr"><span class="cri">📩</span>
                             <div>
-                                <div class="crl">Email</div>
+                                <div class="crl">Direct Contact</div>
                                 <div class="crv">hello@inteution.com</div>
-                            </div>
-                        </div>
-                        <div class="cr"><span class="cri">🌐</span>
-                            <div>
-                                <div class="crl">Platform</div>
-                                <div class="crv">www.inteution.com</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
         </div>
     </section>
 
@@ -3014,6 +3323,191 @@
             });
         }, { threshold: 0.4 });
         sections.forEach(s => sObs.observe(s));
+        
+        // --- DIGITAL SENSOR LOGIC ---
+        class DigitalSensor {
+            constructor() {
+                this.selectedPriorities = [];
+                this.softCommitments = [];
+                this.expandedSections = [];
+                this.meetingFocus = [];
+                this.timeSpent = {};
+                this.init();
+            }
+
+            init() {
+                this.bindPriorityButtons();
+                this.bindSoftCommitments();
+                this.bindExpandLinks();
+                this.bindSlider();
+                this.bindMeetingOptions();
+            }
+
+            bindSlider() {
+                const points = document.querySelectorAll('.slider-point');
+                const fill = document.getElementById('slider-fill');
+                const feedback = document.getElementById('mirror-feedback');
+                
+                if(!points.length) return;
+
+                points.forEach((point, index) => {
+                    point.addEventListener('click', () => {
+                        // Reset all
+                        points.forEach(p => p.classList.remove('active'));
+                        // Set active up to clicked
+                        for(let i=0; i<=index; i++) {
+                            points[i].classList.add('active');
+                        }
+                        
+                        // Width calculation
+                        const percentage = (index / (points.length - 1)) * 100;
+                        fill.style.width = percentage + '%';
+                        
+                        // Feedback
+                        const msg = point.getAttribute('data-msg');
+                        feedback.textContent = msg;
+                        feedback.classList.remove('show');
+                        setTimeout(() => feedback.classList.add('show'), 50);
+
+                        this.logPlaybook();
+                    });
+                });
+            }
+
+            bindMeetingOptions() {
+                const options = document.querySelectorAll('.accel-btn');
+                options.forEach(opt => {
+                    opt.addEventListener('click', () => {
+                        const val = opt.getAttribute('data-topic');
+                        if (this.meetingFocus.includes(val)) {
+                            this.meetingFocus = this.meetingFocus.filter(f => f !== val);
+                            opt.classList.remove('selected');
+                        } else {
+                            this.meetingFocus.push(val);
+                            opt.classList.add('selected');
+                        }
+                        this.logPlaybook();
+                    });
+                });
+            }
+
+            bindPriorityButtons() {
+                const btns = document.querySelectorAll('.priority-btn');
+                btns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const val = btn.getAttribute('data-priority');
+                        if (this.selectedPriorities.includes(val)) {
+                            this.selectedPriorities = this.selectedPriorities.filter(p => p !== val);
+                            btn.classList.remove('selected');
+                        } else {
+                            if (this.selectedPriorities.length < 2) {
+                                this.selectedPriorities.push(val);
+                                btn.classList.add('selected');
+                            }
+                        }
+                        this.updatePriorityState();
+                    });
+                });
+            }
+
+            bindSoftCommitments() {
+                const commits = document.querySelectorAll('.soft-commit-btn');
+                commits.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const val = btn.getAttribute('data-commit');
+                        if (!this.softCommitments.includes(val)) {
+                            this.softCommitments.push(val);
+                            btn.classList.add('clicked');
+                            btn.textContent = "Noted"; 
+                            this.logPlaybook(); // Silently log on interaction
+                        }
+                    });
+                });
+            }
+
+            bindExpandLinks() {
+                const links = document.querySelectorAll('.expand-link');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        const title = link.previousElementSibling ? link.previousElementSibling.textContent : link.textContent;
+                        // Only log it the first time they open it
+                        if (link.nextElementSibling.classList.contains('open') && !this.expandedSections.includes(title)) {
+                            this.expandedSections.push(title.trim().substring(0, 40)); 
+                            this.logPlaybook();
+                        }
+                    });
+                });
+            }
+
+            updatePriorityState() {
+                const btns = document.querySelectorAll('.priority-btn');
+                if (this.selectedPriorities.length >= 2) {
+                    btns.forEach(b => {
+                        if (!b.classList.contains('selected')) b.classList.add('disabled');
+                    });
+                } else {
+                    btns.forEach(b => b.classList.remove('disabled'));
+                }
+                
+                this.mutateHeroText();
+                this.logPlaybook();
+            }
+
+            mutateHeroText() {
+                const heroH1 = document.getElementById('hero-headline');
+                const heroSub = document.getElementById('hero-subtext');
+                
+                if (!heroH1 || !heroSub) return;
+
+                if (this.selectedPriorities.length === 0) {
+                    heroH1.innerHTML = `Oman's location is its <em>destiny</em>,<br>but its technology is its <em>choice</em>.`;
+                    heroSub.innerHTML = `<p>VISION 2040 has transformed the Sultanate into a beacon of strategic growth — positioning Oman as an indispensable gateway in the global logistics landscape. <strong style="color:rgba(255,255,255,.82)">ASYAD Group is the national steward of Oman's economic future.</strong> By consolidating the Sultanate's ports, free zones, and shipping assets into one multimodal platform, ASYAD has transformed Oman into a natural global hub, leveraging unparalleled access to four major continents.</p>`;
+                    return;
+                }
+
+                const primary = this.selectedPriorities[0];
+                
+                if (primary === 'revenue' || primary === 'finance') {
+                    heroH1.innerHTML = `From fragmented reporting to<br><em>board-grade financial intelligence</em>.`;
+                    heroSub.innerHTML = `<p>We understand that financial visibility across a global shipping portfolio is a monumental challenge. <strong style="color:rgba(255,255,255,.82)">inTEUtion transforms physical movements into immediate fiscal footprints</strong>, eliminating manual bridges between your operations desk and ERP.</p>`;
+                } else if (primary === 'fleet') {
+                    heroH1.innerHTML = `From idle assets to<br><em>predictive container orchestration</em>.`;
+                    heroSub.innerHTML = `<p>Maximum utilization is the only metric that matters. <strong style="color:rgba(255,255,255,.82)">inTEUtion aligns empty repositioing, slot usage, and transshipments</strong> directly with profitability, ensuring your fleet works harder and smarter.</p>`;
+                } else if (primary === 'governance' || primary === 'fragmentation') {
+                    heroH1.innerHTML = `From disjointed entities to a<br><em>unified control fortress</em>.`;
+                    heroSub.innerHTML = `<p>Scaling across regions requires a unified digital discipline. <strong style="color:rgba(255,255,255,.82)">inTEUtion provides office-level isolation with centralized governance</strong>, meaning ASYAD controls the entire network securely without commercial leakage.</p>`;
+                } else if (primary === 'ai') {
+                    heroH1.innerHTML = `Building the<br><em>"Digital Soil"</em> for AI.`;
+                    heroSub.innerHTML = `<p>You cannot deploy Artificial Intelligence on fragmented data. <strong style="color:rgba(255,255,255,.82)">inTEUtion standardizes your operational data into an immutable ledger</strong>, making ASYAD instantly ready for sovereign AI and predictive modeling.</p>`;
+                }
+
+                heroH1.style.animation = 'none';
+                heroH1.offsetHeight; 
+                heroH1.style.animation = 'anim 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+                
+                heroSub.style.animation = 'none';
+                heroSub.offsetHeight;
+                heroSub.style.animation = 'anim 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+            }
+            
+            logPlaybook() {
+                console.log("--- 📊 ASYAD April Meeting Playbook ---");
+                console.log("Priorities Selected:", this.selectedPriorities);
+                console.log("Soft Commitments:", this.softCommitments);
+                console.log("Deep Dives Explored (Clicked Expand):", this.expandedSections);
+                
+                // Get current maturity from UI
+                const activePoints = document.querySelectorAll('.slider-point.active');
+                if (activePoints.length > 0) {
+                     console.log("Maturity Level Identified:", activePoints[activePoints.length-1].querySelector('.slider-label').textContent);
+                }
+
+                console.log("Requested Meeting Focus:", this.meetingFocus);
+                console.log("---------------------------------------");
+            }
+        }
+
+        window.digitalSensor = new DigitalSensor();
     </script>
 </body>
 
