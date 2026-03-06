@@ -377,7 +377,7 @@
         .s1-content {
             flex: 1;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.5fr 1fr;
             gap: 6%;
             align-items: center;
         }
@@ -1284,21 +1284,84 @@
             }
         }
         /* ─── INTERACTIVE SENSING ─── */
+        .shadow-play {
+            background: #051525;
+            border: 1px solid rgba(0, 209, 178, 0.2);
+            box-shadow: 0 0 20px rgba(0, 209, 178, 0.15);
+        }
+        
         .framing-q-box {
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(0, 204, 221, .2);
             border-radius: 16px;
-            padding: 30px;
+            padding: 35px;
             backdrop-filter: blur(12px);
             margin-top: 20px;
         }
 
         .framing-q-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
             color: #fff;
-            margin-bottom: 8px;
-            line-height: 1.2;
+            margin-bottom: 24px;
+            line-height: 1.4;
+            letter-spacing: .02em;
+        }
+        
+        .state-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .state-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            color: white;
+            width: 100%;
+        }
+
+        .state-card:hover {
+            background: rgba(0, 209, 178, 0.1);
+            border-color: #00d1b2;
+            transform: translateX(4px);
+        }
+
+        .state-card.selected {
+            background: rgba(0, 209, 178, 0.2);
+            border-color: #00d1b2;
+            box-shadow: 0 0 15px rgba(0, 209, 178, 0.3);
+        }
+
+        .state-card .st-icon {
+            font-size: 22px;
+        }
+
+        .state-card .st-text {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        
+        .reinforcement-area {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.4s ease, margin-top 0.4s ease;
+            opacity: 0;
+        }
+        
+        .reinforcement-area.open {
+            max-height: 600px;
+            opacity: 1;
+            margin-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
         }
 
         .framing-q-sub {
@@ -1646,29 +1709,36 @@
                     </div>
                 </div>
                 <div class="s1-right anim anim-d2">
-                    <div class="framing-q-box">
-                        <div class="framing-q-title">Do you feel your current digital platform is ready for 'Vision 2040'?</div>
-                        <div class="framing-q-sub">Select your primary focus areas to customize this briefing (Choose up to 2).</div>
+                    <div class="framing-q-box shadow-play">
+                        <div class="framing-q-title">Is your current digital core fully aligned with the Vision 2040 mission?</div>
                         
-                        <div class="priority-grid">
-                            <button class="priority-btn" data-priority="fleet">
-                                Fleet &amp; asset utilization
+                        <div class="state-cards" id="state-cards-container">
+                            <button class="state-card" data-state="ready">
+                                <span class="st-icon">🌊</span>
+                                <span class="st-text">Mission Ready</span>
                             </button>
-                            <button class="priority-btn" data-priority="revenue">
-                                Commercial rates &amp; revenue leakage
+                            <button class="state-card" data-state="seeking">
+                                <span class="st-icon">🏗️</span>
+                                <span class="st-text">Building Foundations / Seeking Alignment</span>
                             </button>
-                            <button class="priority-btn" data-priority="finance">
-                                Financial visibility &amp; forecasting
-                            </button>
-                            <button class="priority-btn" data-priority="fragmentation">
-                                Digital fragmentation across entities
-                            </button>
-                            <button class="priority-btn" data-priority="governance">
-                                Governance, compliance &amp; audit
-                            </button>
-                            <button class="priority-btn" data-priority="ai">
-                                AI readiness / data foundations
-                            </button>
+                        </div>
+                        
+                        <div class="reinforcement-area" id="reinforcement-area">
+                            <div class="framing-q-sub" style="margin-bottom: 15px; margin-top: 0">Select your Reinforcement Areas (Choose up to 2):</div>
+                            <div class="priority-grid">
+                                <button class="priority-btn" data-priority="fleet">
+                                    Fleet &amp; Asset Utilization
+                                </button>
+                                <button class="priority-btn" data-priority="revenue">
+                                    Commercial Rates &amp; Revenue Leakage
+                                </button>
+                                <button class="priority-btn" data-priority="finance">
+                                    Financial Visibility &amp; Forecasting
+                                </button>
+                                <button class="priority-btn" data-priority="fragmentation">
+                                    Manual Bridge Elimination
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3336,11 +3406,48 @@
             }
 
             init() {
+                this.bindStateCards();
                 this.bindPriorityButtons();
                 this.bindSoftCommitments();
                 this.bindExpandLinks();
                 this.bindSlider();
                 this.bindMeetingOptions();
+            }
+
+            bindStateCards() {
+                const cards = document.querySelectorAll('.state-card');
+                const reinforcementArea = document.getElementById('reinforcement-area');
+                const maturitySection = document.getElementById('maturity-section');
+                
+                if (!cards.length) return;
+                
+                cards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        cards.forEach(c => c.classList.remove('selected'));
+                        card.classList.add('selected');
+                        
+                        const state = card.getAttribute('data-state');
+                        if (state === 'seeking') {
+                            reinforcementArea.classList.add('open');
+                        } else {
+                            // If they are mission ready, hide the priority grid
+                            reinforcementArea.classList.remove('open');
+                            // Clear priorities if they select ready
+                            this.selectedPriorities = [];
+                            this.updatePriorityState();
+                        }
+                        
+                        // Show maturity slider with a fade in reveal
+                        if (maturitySection) {
+                            maturitySection.style.opacity = '1';
+                            maturitySection.style.pointerEvents = 'auto';
+                            maturitySection.style.height = 'auto';
+                            maturitySection.style.padding = '20px 5%';
+                        }
+                        
+                        this.logPlaybook();
+                    });
+                });
             }
 
             bindSlider() {
@@ -3462,25 +3569,7 @@
                 if (this.selectedPriorities.length === 0) {
                     heroH1.innerHTML = `Oman's location is its <em>destiny</em>,<br>but its technology is its <em>choice</em>.`;
                     heroSub.innerHTML = `<p>VISION 2040 has transformed the Sultanate into a beacon of strategic growth — positioning Oman as an indispensable gateway in the global logistics landscape. <strong style="color:rgba(255,255,255,.82)">ASYAD Group is the national steward of Oman's economic future.</strong> By consolidating the Sultanate's ports, free zones, and shipping assets into one multimodal platform, ASYAD has transformed Oman into a natural global hub, leveraging unparalleled access to four major continents.</p>`;
-                    return;
                 }
-
-                const primary = this.selectedPriorities[0];
-                
-                if (primary === 'revenue' || primary === 'finance') {
-                    heroH1.innerHTML = `From fragmented reporting to<br><em>board-grade financial intelligence</em>.`;
-                    heroSub.innerHTML = `<p>We understand that financial visibility across a global shipping portfolio is a monumental challenge. <strong style="color:rgba(255,255,255,.82)">inTEUtion transforms physical movements into immediate fiscal footprints</strong>, eliminating manual bridges between your operations desk and ERP.</p>`;
-                } else if (primary === 'fleet') {
-                    heroH1.innerHTML = `From idle assets to<br><em>predictive container orchestration</em>.`;
-                    heroSub.innerHTML = `<p>Maximum utilization is the only metric that matters. <strong style="color:rgba(255,255,255,.82)">inTEUtion aligns empty repositioing, slot usage, and transshipments</strong> directly with profitability, ensuring your fleet works harder and smarter.</p>`;
-                } else if (primary === 'governance' || primary === 'fragmentation') {
-                    heroH1.innerHTML = `From disjointed entities to a<br><em>unified control fortress</em>.`;
-                    heroSub.innerHTML = `<p>Scaling across regions requires a unified digital discipline. <strong style="color:rgba(255,255,255,.82)">inTEUtion provides office-level isolation with centralized governance</strong>, meaning ASYAD controls the entire network securely without commercial leakage.</p>`;
-                } else if (primary === 'ai') {
-                    heroH1.innerHTML = `Building the<br><em>"Digital Soil"</em> for AI.`;
-                    heroSub.innerHTML = `<p>You cannot deploy Artificial Intelligence on fragmented data. <strong style="color:rgba(255,255,255,.82)">inTEUtion standardizes your operational data into an immutable ledger</strong>, making ASYAD instantly ready for sovereign AI and predictive modeling.</p>`;
-                }
-
                 heroH1.style.animation = 'none';
                 heroH1.offsetHeight; 
                 heroH1.style.animation = 'anim 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards';
