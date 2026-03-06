@@ -1,0 +1,263 @@
+// Animate on scroll
+const obs = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("visible");
+      }
+    });
+  },
+  { threshold: 0.12 },
+);
+document.querySelectorAll(".anim").forEach((el) => obs.observe(el));
+
+// Active nav highlight
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+const sObs = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        navLinks.forEach((a) => a.classList.remove("active"));
+        const link = document.querySelector(
+          '.nav-links a[href="#' + e.target.id + '"]',
+        );
+        if (link) link.classList.add("active");
+      }
+    });
+  },
+  { threshold: 0.4 },
+);
+sections.forEach((s) => sObs.observe(s));
+
+// --- DIGITAL SENSOR LOGIC ---
+class DigitalSensor {
+  constructor() {
+    this.selectedPriorities = [];
+    this.softCommitments = [];
+    this.expandedSections = [];
+    this.meetingFocus = [];
+    this.timeSpent = {};
+    this.init();
+  }
+
+  init() {
+    this.bindStateCards();
+    this.bindPriorityButtons();
+    this.bindSoftCommitments();
+    this.bindExpandLinks();
+    this.bindSlider();
+    this.bindMeetingOptions();
+  }
+
+  bindStateCards() {
+    const cards = document.querySelectorAll(".state-card");
+    const reinforcementArea = document.getElementById("reinforcement-area");
+    const maturitySection = document.getElementById("maturity-section");
+
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        cards.forEach((c) => c.classList.remove("selected"));
+        card.classList.add("selected");
+        const state = card.getAttribute("data-state");
+        const qSub = reinforcementArea.querySelector(".framing-q-sub");
+        const s1bSection = document.getElementById("s1-b");
+
+        if (state === "seeking") {
+          reinforcementArea.classList.add("open");
+          if (s1bSection) s1bSection.style.display = "none";
+          if (qSub)
+            qSub.textContent = "Where shall we focus our initial deep dive:";
+        } else {
+          reinforcementArea.classList.remove("open");
+          if (s1bSection) s1bSection.style.display = "block";
+          
+          // Trigger animations in the new section manually if needed since it was display: none
+          const newAnims = s1bSection.querySelectorAll(".anim");
+          newAnims.forEach(el => el.classList.add("visible"));
+
+          this.selectedPriorities = [];
+          this.updatePriorityState();
+              
+          // Auto-scroll to the new section
+          if (s1bSection) {
+              setTimeout(() => {
+                  s1bSection.scrollIntoView({ behavior: 'smooth' });
+              }, 400); // slight delay to allow UI to update
+          }
+        }
+
+        // Show maturity slider with a fade in reveal
+        if (maturitySection) {
+          maturitySection.style.opacity = "1";
+          maturitySection.style.pointerEvents = "auto";
+          maturitySection.style.height = "auto";
+          maturitySection.style.padding = "20px 5%";
+        }
+
+        this.logPlaybook();
+      });
+    });
+  }
+
+  bindSlider() {
+    const points = document.querySelectorAll(".slider-point");
+    const fill = document.getElementById("slider-fill");
+    const feedback = document.getElementById("mirror-feedback");
+
+    if (!points.length) return;
+
+    points.forEach((point, index) => {
+      point.addEventListener("click", () => {
+        // Reset all
+        points.forEach((p) => p.classList.remove("active"));
+        // Set active up to clicked
+        for (let i = 0; i <= index; i++) {
+          points[i].classList.add("active");
+        }
+
+        // Width calculation
+        const percentage = (index / (points.length - 1)) * 100;
+        fill.style.width = percentage + "%";
+
+        // Feedback
+        const msg = point.getAttribute("data-msg");
+        feedback.textContent = msg;
+        feedback.classList.remove("show");
+        setTimeout(() => feedback.classList.add("show"), 50);
+
+        this.logPlaybook();
+      });
+    });
+  }
+
+  bindMeetingOptions() {
+    const options = document.querySelectorAll(".accel-btn");
+    options.forEach((opt) => {
+      opt.addEventListener("click", () => {
+        const val = opt.getAttribute("data-topic");
+        if (this.meetingFocus.includes(val)) {
+          this.meetingFocus = this.meetingFocus.filter((f) => f !== val);
+          opt.classList.remove("selected");
+        } else {
+          this.meetingFocus.push(val);
+          opt.classList.add("selected");
+        }
+        this.logPlaybook();
+      });
+    });
+  }
+
+  bindPriorityButtons() {
+    const btns = document.querySelectorAll(".priority-btn");
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const val = btn.getAttribute("data-priority");
+        if (this.selectedPriorities.includes(val)) {
+          this.selectedPriorities = this.selectedPriorities.filter(
+            (p) => p !== val,
+          );
+          btn.classList.remove("selected");
+        } else {
+          if (this.selectedPriorities.length < 2) {
+            this.selectedPriorities.push(val);
+            btn.classList.add("selected");
+          }
+        }
+        this.updatePriorityState();
+      });
+    });
+  }
+
+  bindSoftCommitments() {
+    const commits = document.querySelectorAll(".soft-commit-btn");
+    commits.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const val = btn.getAttribute("data-commit");
+        if (!this.softCommitments.includes(val)) {
+          this.softCommitments.push(val);
+          btn.classList.add("clicked");
+          btn.textContent = "Noted";
+          this.logPlaybook(); // Silently log on interaction
+        }
+      });
+    });
+  }
+
+  bindExpandLinks() {
+    const links = document.querySelectorAll(".expand-link");
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        const title = link.previousElementSibling
+          ? link.previousElementSibling.textContent
+          : link.textContent;
+        // Only log it the first time they open it
+        if (
+          link.nextElementSibling.classList.contains("open") &&
+          !this.expandedSections.includes(title)
+        ) {
+          this.expandedSections.push(title.trim().substring(0, 40));
+          this.logPlaybook();
+        }
+      });
+    });
+  }
+
+  updatePriorityState() {
+    const btns = document.querySelectorAll(".priority-btn");
+    if (this.selectedPriorities.length >= 2) {
+      btns.forEach((b) => {
+        if (!b.classList.contains("selected")) b.classList.add("disabled");
+      });
+    } else {
+      btns.forEach((b) => b.classList.remove("disabled"));
+    }
+
+    this.mutateHeroText();
+    this.logPlaybook();
+  }
+
+  mutateHeroText() {
+    const heroH1 = document.getElementById("hero-headline");
+    const heroSub = document.getElementById("hero-subtext");
+
+    if (!heroH1 || !heroSub) return;
+
+    if (this.selectedPriorities.length === 0) {
+      heroH1.innerHTML = `Oman's location is its <em>destiny</em>,<br>but its technology is its <em>choice</em>.`;
+      heroSub.innerHTML = `<p>VISION 2040 has transformed the Sultanate into a beacon of strategic growth — positioning Oman as an indispensable gateway in the global logistics landscape. <strong style="color:rgba(255,255,255,.82)">ASYAD Group is the national steward of Oman's economic future.</strong> By consolidating the Sultanate's ports, free zones, and shipping assets into one multimodal platform, ASYAD has transformed Oman into a natural global hub, leveraging unparalleled access to four major continents.</p>`;
+    }
+    heroH1.style.animation = "none";
+    heroH1.offsetHeight;
+    heroH1.style.animation = "anim 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+
+    heroSub.style.animation = "none";
+    heroSub.offsetHeight;
+    heroSub.style.animation =
+      "anim 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+  }
+
+  logPlaybook() {
+    console.log("--- 📊 ASYAD April Meeting Playbook ---");
+    console.log("Priorities Selected:", this.selectedPriorities);
+    console.log("Soft Commitments:", this.softCommitments);
+    console.log("Deep Dives Explored (Clicked Expand):", this.expandedSections);
+
+    // Get current maturity from UI
+    const activePoints = document.querySelectorAll(".slider-point.active");
+    if (activePoints.length > 0) {
+      console.log(
+        "Maturity Level Identified:",
+        activePoints[activePoints.length - 1].querySelector(".slider-label")
+          .textContent,
+      );
+    }
+
+    console.log("Requested Meeting Focus:", this.meetingFocus);
+    console.log("---------------------------------------");
+  }
+}
+
+window.digitalSensor = new DigitalSensor();
