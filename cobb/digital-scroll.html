@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>inTEUtion × ASYAD — Digital Intelligence Platform 2026</title>
@@ -1283,13 +1283,14 @@
                 width: 90%;
             }
         }
+
         /* ─── INTERACTIVE SENSING ─── */
         .shadow-play {
             background: #051525;
             border: 1px solid rgba(0, 209, 178, 0.2);
             box-shadow: 0 0 20px rgba(0, 209, 178, 0.15);
         }
-        
+
         .framing-q-box {
             border-radius: 16px;
             padding: 35px;
@@ -1305,7 +1306,7 @@
             line-height: 1.4;
             letter-spacing: .02em;
         }
-        
+
         .state-cards {
             display: flex;
             flex-direction: column;
@@ -1348,14 +1349,14 @@
             font-size: 15px;
             font-weight: 600;
         }
-        
+
         .reinforcement-area {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out, opacity 0.4s ease, margin-top 0.4s ease;
             opacity: 0;
         }
-        
+
         .reinforcement-area.open {
             max-height: 600px;
             opacity: 1;
@@ -1418,7 +1419,7 @@
             background: var(--CM);
             box-shadow: inset 0 0 0 3px rgba(0, 204, 221, .3);
         }
-        
+
         .priority-btn.disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -1439,7 +1440,7 @@
             margin-top: 10px;
             transition: color .2s;
         }
-        
+
         .expand-link:hover {
             color: var(--PL);
         }
@@ -1451,7 +1452,8 @@
         }
 
         .collapsible-content.open {
-            max-height: 500px; /* arbitrary large height */
+            max-height: 500px;
+            /* arbitrary large height */
             margin-top: 12px;
         }
 
@@ -1561,7 +1563,8 @@
             transition: all 0.2s;
         }
 
-        .slider-point:hover, .slider-point.active {
+        .slider-point:hover,
+        .slider-point.active {
             border-color: var(--CM);
             background: var(--CM);
             box-shadow: 0 0 10px rgba(0, 204, 221, .5);
@@ -1642,13 +1645,13 @@
             color: var(--CM);
             transform: translateX(4px);
         }
-        
+
         .accel-btn.selected {
             background: var(--CM);
             border-color: var(--CM);
             color: #000;
         }
-        
+
         .accel-btn.selected::after {
             content: '✓';
             color: #000;
@@ -1657,9 +1660,21 @@
         }
 
         @media(max-width: 600px) {
-            .priority-grid { grid-template-columns: 1fr; }
-            .slider-label { font-size: 8px; transform: translateX(-50%) rotate(45deg); top: 30px; transform-origin: top left; }
-            .mirror-moment { padding: 30px 15px; margin-bottom: 70px; }
+            .priority-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slider-label {
+                font-size: 8px;
+                transform: translateX(-50%) rotate(45deg);
+                top: 30px;
+                transform-origin: top left;
+            }
+
+            .mirror-moment {
+                padding: 30px 15px;
+                margin-bottom: 70px;
+            }
         }
     </style>
 </head>
@@ -1694,7 +1709,8 @@
                     <div class="eyebrow anim"><span class="bdot"></span>🌐 Oman Vision 2040 &nbsp;·&nbsp; Strategic
                         Blueprint</div>
                     <div class="anim anim-d1">
-                        <h1 class="s1-h1" id="hero-headline">Oman's location is its <em>destiny</em>,<br>but its technology is its
+                        <h1 class="s1-h1" id="hero-headline">Oman's location is its <em>destiny</em>,<br>but its
+                            technology is its
                             <em>choice</em>.
                         </h1>
                     </div>
@@ -1710,8 +1726,9 @@
                 </div>
                 <div class="s1-right anim anim-d2">
                     <div class="framing-q-box shadow-play">
-                        <div class="framing-q-title">Is your current digital core fully aligned with the Vision 2040 mission?</div>
-                        
+                        <div class="framing-q-title">Is your current digital core fully aligned with the Vision 2040
+                            mission?</div>
+
                         <div class="state-cards" id="state-cards-container">
                             <button class="state-card" data-state="ready">
                                 <span class="st-icon">🌊</span>
@@ -1722,21 +1739,22 @@
                                 <span class="st-text">Building Foundations / Seeking Alignment</span>
                             </button>
                         </div>
-                        
+
                         <div class="reinforcement-area" id="reinforcement-area">
-                            <div class="framing-q-sub" style="margin-bottom: 15px; margin-top: 0">Select your Reinforcement Areas (Choose up to 2):</div>
+                            <div class="framing-q-sub" style="margin-bottom: 15px; margin-top: 0">Where shall we focus
+                                our initial deep dive:</div>
                             <div class="priority-grid">
                                 <button class="priority-btn" data-priority="fleet">
-                                    Fleet &amp; Asset Utilization
+                                    Protecting Margins &amp; Revenue
                                 </button>
                                 <button class="priority-btn" data-priority="revenue">
-                                    Commercial Rates &amp; Revenue Leakage
+                                    Data Governance &amp; Accuracy
                                 </button>
                                 <button class="priority-btn" data-priority="finance">
-                                    Financial Visibility &amp; Forecasting
+                                    Quick turn around time
                                 </button>
                                 <button class="priority-btn" data-priority="fragmentation">
-                                    Manual Bridge Elimination
+                                    Efficient management of Assets
                                 </button>
                             </div>
                         </div>
@@ -1751,7 +1769,8 @@
         <div class="s2-inner">
             <div style="text-align:center;margin-bottom:36px" class="anim">
                 <div class="sh" style="font-size:clamp(28px,3.5vw,48px)">Oman’s Logistics Evolution:<br>From Hub to
-                    <em>Global Leader</em></div>
+                    <em>Global Leader</em>
+                </div>
                 <p
                     style="font-size:13px;color:var(--TS);margin-top:16px;max-width:800px;margin-left:auto;margin-right:auto;line-height:1.6;">
                     Oman’s strategic maritime and logistics pillars serve as the foundation for the Sultanate’s national
@@ -1762,7 +1781,9 @@
             <div class="hub-strip anim anim-d1" style="margin-bottom:24px">
                 <div class="hi">⚓</div>
                 <p>The transition from traditional operations to a future-ready digital ecosystem is central to
-                    maintaining this momentum. This <em>digital discipline</em> empowers scalable trade operations, ensuring that <strong>vessel traffic and containerized cargo</strong> movements across all corridors directly support Oman’s Logistics Strategy 2040 growth vision.</p>
+                    maintaining this momentum. This <em>digital discipline</em> empowers scalable trade operations,
+                    ensuring that <strong>vessel traffic and containerized cargo</strong> movements across all corridors
+                    directly support Oman’s Logistics Strategy 2040 growth vision.</p>
             </div>
             <div class="s2-hero">
                 <div class="s2-img-wrap anim">
@@ -1814,17 +1835,20 @@
                 <p>Data Governance · Cyber-Resilience · Human Capability</p>
             </div>
         </div>
-        <div class="s3-body">  
+        <div class="s3-body">
             <div class="hub-strip anim anim-d1"
                 style="margin-bottom:32px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1)">
                 <div class="hi">🌱</div>
-                <p style="color:#fff">Oman is in a high-growth phase of its <strong style="color:var(--CM)">National AI Program
+                <p style="color:#fff">Oman is in a high-growth phase of its <strong style="color:var(--CM)">National AI
+                        Program
                         (2024–2026)</strong>. It is "architecting" a sovereign digital ecosystem. This is known as the
-                    <em>"Digital Soil"</em>. It moves Oman beyond isolated silos into a unified, AI-ready economy.</p>
+                    <em>"Digital Soil"</em>. It moves Oman beyond isolated silos into a unified, AI-ready economy.
+                </p>
             </div>
 
             <div class="sh lt anim anim-d2" style="font-size:16px;margin-bottom:-13px">🤖 National AI Strategy &amp;
-                <em>"Digital Soil"</em></div>
+                <em>"Digital Soil"</em>
+            </div>
             <p class="anim anim-d2" style="font-size:12px;color:#fff;margin-bottom:-13px">Oman is aggressively embedding
                 AI. The goal is a 10% digital economy GDP contribution by 2040.</p>
             <div class="pillars3 anim anim-d3" style="margin-bottom:32px">
@@ -1850,7 +1874,8 @@
             </div>
 
             <div class="sh lt anim anim-d4" style="font-size:16px;margin-bottom:-13px">🛡️ Infrastructure &amp;
-                <em>Cyber-Resilience</em></div>
+                <em>Cyber-Resilience</em>
+            </div>
             <p class="anim anim-d4" style="font-size:12px;color:#fff;margin-bottom:-13px">The focus has shifted toward
                 "Green Compute" and data sovereignty.</p>
             <div class="pillars3 anim anim-d5" style="margin-bottom:32px">
@@ -1875,12 +1900,14 @@
             </div>
 
             <div class="sh lt anim anim-d6" style="font-size:16px;margin-bottom:-13px">🔄 Sector-Specific
-                <em>Transformation</em></div>
+                <em>Transformation</em>
+            </div>
             <div class="pillars3 anim anim-d7" style="margin-bottom:32px">
                 <div class="p3card cy3">
                     <span class="pci">⚓</span>
                     <div class="pct">Maritime &amp; Logistics</div>
-                    <div class="pcb">AI-driven <strong>predictive analytics</strong>, autonomous operations, and real-time ERP intelligence.</div>
+                    <div class="pcb">AI-driven <strong>predictive analytics</strong>, autonomous operations, and
+                        real-time ERP intelligence.</div>
                 </div>
                 <div class="p3card ai3">
                     <span class="pci">🔋</span>
@@ -1897,7 +1924,8 @@
             </div>
 
             <div class="sh lt anim anim-d8" style="font-size:16px;margin-bottom:-13px">🎓 Strategic Human
-                <em>Capabilities</em></div>
+                <em>Capabilities</em>
+            </div>
             <p class="anim anim-d8" style="font-size:12px;color:#fff;margin-bottom:-13px">Oman prioritizes "Local
                 Content" value development.</p>
             <div class="s3-bottom anim anim-d9">
@@ -2263,7 +2291,7 @@
             backdrop-filter: blur(4px);
         }
 
-        .fstep > div {
+        .fstep>div {
             display: block;
         }
 
@@ -3002,14 +3030,20 @@
                         <span class="bhi">📊</span>
                         <h3>Sales &amp; Pricing Intelligence</h3>
                     </div>
-                    <p style="font-size:12px;color:var(--TS);line-height:1.55;margin-bottom:10px;">Eliminating guesstimates with mathematical precision at the quotation stage.</p>
-                    
-                    <div class="expand-link" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Hide Details' : '▸ Explore how this works'">▸ Explore how this works</div>
+                    <p style="font-size:12px;color:var(--TS);line-height:1.55;margin-bottom:10px;">Eliminating
+                        guesstimates with mathematical precision at the quotation stage.</p>
+
+                    <div class="expand-link"
+                        onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Hide Details' : '▸ Explore how this works'">
+                        ▸ Explore how this works</div>
                     <div class="collapsible-content">
                         <ul>
-                            <li><strong>Pricing Yield Engine:</strong> Simulating ICD, Transshipment &amp; POD costs for instant Net Profit projections at quotation approval.</li>
-                            <li><strong>Live Slot Visibility:</strong> Sales reps view slot availability &amp; buy rates for port pairs during the quoting process.</li>
-                            <li><strong>inTEUtion Connect:</strong> Quotations, BLs, CROs, DOs, Invoices shared instantly via WhatsApp &amp; Email.</li>
+                            <li><strong>Pricing Yield Engine:</strong> Simulating ICD, Transshipment &amp; POD costs for
+                                instant Net Profit projections at quotation approval.</li>
+                            <li><strong>Live Slot Visibility:</strong> Sales reps view slot availability &amp; buy rates
+                                for port pairs during the quoting process.</li>
+                            <li><strong>inTEUtion Connect:</strong> Quotations, BLs, CROs, DOs, Invoices shared
+                                instantly via WhatsApp &amp; Email.</li>
                         </ul>
                         <div class="wa-pill">💬 WhatsApp Business API — Real-time quotes in seconds</div>
                     </div>
@@ -3019,18 +3053,22 @@
                         <span class="sl-badge">📦 Live Platform</span>
                         <div class="sl-title"><em>Slot Intelligence</em> — Real-Time Dashboard View</div>
                     </div>
-                    
-                    <div class="expand-link" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Hide Dashboard View' : '▸ Show Dashboard Interface'">▸ Show Dashboard Interface</div>
+
+                    <div class="expand-link"
+                        onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Hide Dashboard View' : '▸ Show Dashboard Interface'">
+                        ▸ Show Dashboard Interface</div>
                     <div class="collapsible-content">
                         <div class="slot-img" style="margin-top:14px; margin-bottom: 16px;">
-                            <img src="slot.png" alt="inTEUtion Slot Management Dashboard: Real-Time Yard Visibility, Slot Gatekeeper, Dead Freight Dashboards">
+                            <img src="slot.png"
+                                alt="inTEUtion Slot Management Dashboard: Real-Time Yard Visibility, Slot Gatekeeper, Dead Freight Dashboards">
                         </div>
                         <div class="slot-pills">
                             <div class="slot-pill p1">
                                 <span class="pil-icon">🏗️</span>
                                 <div>
                                     <div class="pt-title">Real-Time Yard Visibility</div>
-                                    <div class="pt-desc">Booking desk views container availability on-screen — eliminating phantom bookings.</div>
+                                    <div class="pt-desc">Booking desk views container availability on-screen —
+                                        eliminating phantom bookings.</div>
                                 </div>
                             </div>
                             <div class="slot-pill p2">
@@ -3044,7 +3082,8 @@
                                 <span class="pil-icon">📉</span>
                                 <div>
                                     <div class="pt-title">Dead Freight Dashboards</div>
-                                    <div class="pt-desc">Instant access to unutilized slots &amp; expiring contracts.</div>
+                                    <div class="pt-desc">Instant access to unutilized slots &amp; expiring contracts.
+                                    </div>
                                 </div>
                             </div>
                             <div class="slot-pill p4">
@@ -3057,7 +3096,8 @@
                         </div>
                     </div>
                     <div class="soft-commit-row">
-                        <div class="soft-commit-btn" data-commit="slot-visibility-relevant">This visibility is relevant to us</div>
+                        <div class="soft-commit-btn" data-commit="slot-visibility-relevant">This visibility is relevant
+                            to us</div>
                     </div>
                 </div>
             </div>
@@ -3074,7 +3114,8 @@
                         <div class="hbadge">⚡ Financial Architecture</div>
                         <h2
                             style="font-family:'Playfair Display', serif;font-size:clamp(20px,2.8vw,36px);font-weight:800;color:#fff;line-height:1.2;text-shadow:0 2px 10px rgba(0,0,0,.5);margin:6px 0;">
-                            Every Physical Move is a<br><em style="color:var(--CM);font-style:normal;">Real-Time Accounting
+                            Every Physical Move is a<br><em style="color:var(--CM);font-style:normal;">Real-Time
+                                Accounting
                                 Entry</em></h2>
                         <p>Move-Code Engine · Revenue Firewalls · Agency Governance</p>
                     </div>
@@ -3103,7 +3144,7 @@
             </div>
             <div class="s5-body">
                 <div style="display:flex;align-items:center;gap:10px" class="anim">
-                  
+
                     <div class="sh lt" style="font-size:18px">Financial Architecture &amp; <em>Revenue Protection</em>
                     </div>
                 </div>
@@ -3113,17 +3154,22 @@
                         engine
                         eliminates this permanently.</p>
                     <div class="soft-commit-row" style="margin-top:10px;">
-                        <div class="soft-commit-btn" data-commit="erp-gap-struggle">Bridging ERP & Ops is a struggle</div>
-                        <div class="soft-commit-btn" data-commit="erp-gap-exploring">We are exploring solutions here</div>
+                        <div class="soft-commit-btn" data-commit="erp-gap-struggle">Bridging ERP & Ops is a struggle
+                        </div>
+                        <div class="soft-commit-btn" data-commit="erp-gap-exploring">We are exploring solutions here
+                        </div>
                     </div>
                 </div>
                 <div class="s5-abc">
                     <div class="abc-block bm anim">
                         <span class="ab-icon">⚙️</span>
                         <div class="ab-title">The "Move-Code" Engine</div>
-                        <p style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:10px;">Physical = Financial. Every move instantly reflects in accounting.</p>
-                        
-                        <div class="expand-link" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Collapse' : '▸ View Protocol'">▸ View Protocol</div>
+                        <p style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:10px;">
+                            Physical = Financial. Every move instantly reflects in accounting.</p>
+
+                        <div class="expand-link"
+                            onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Collapse' : '▸ View Protocol'">
+                            ▸ View Protocol</div>
                         <div class="collapsible-content">
                             <ul>
                                 <li><strong>Instant Fiscal Recognition:</strong> Gate-In, Load, Transshipment events
@@ -3138,9 +3184,12 @@
                     <div class="abc-block br anim anim-d1">
                         <span class="ab-icon">🔒</span>
                         <div class="ab-title">Revenue &amp; Recovery Firewalls</div>
-                        <p style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:10px;">Enforced stops that protect balance sheets from leakage.</p>
-                        
-                        <div class="expand-link" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Collapse' : '▸ View Firewalls'">▸ View Firewalls</div>
+                        <p style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:10px;">
+                            Enforced stops that protect balance sheets from leakage.</p>
+
+                        <div class="expand-link"
+                            onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Collapse' : '▸ View Firewalls'">
+                            ▸ View Firewalls</div>
                         <div class="collapsible-content">
                             <ul>
                                 <li><strong>DO Lock:</strong> Expired Delivery Orders blocked — re-issuance requires
@@ -3162,12 +3211,16 @@
                     <div class="abc-block ba anim anim-d2">
                         <span class="ab-icon">🤝</span>
                         <div class="ab-title">Agency Governance</div>
-                        <p style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:10px;">Eliminating manual trust in Excel-based disbursements.</p>
-                        
-                        <div class="expand-link" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Collapse' : '▸ View Governance'">▸ View Governance</div>
+                        <p style="font-size:11px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:10px;">
+                            Eliminating manual trust in Excel-based disbursements.</p>
+
+                        <div class="expand-link"
+                            onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▾ Collapse' : '▸ View Governance'">
+                            ▸ View Governance</div>
                         <div class="collapsible-content">
                             <ul>
-                                <li><strong>Closed-Loop SOA:</strong> Master Agency Contracts embedded — system validates
+                                <li><strong>Closed-Loop SOA:</strong> Master Agency Contracts embedded — system
+                                    validates
                                     every
                                     commission and every penny via vessel-wise DA &amp; periodic DA.</li>
                                 <li>Eliminates manual "Trust" in Excel-based disbursement accounts.</li>
@@ -3278,14 +3331,16 @@
                                 <div class="fct">Operational Integrity</div>
                             </div>
                             <div class="fcb-body">Enforces VGM before Gate-In, ICD/Transshipment confirmations, and
-                                <strong>move-code overlap prevention.</strong></div>
+                                <strong>move-code overlap prevention.</strong>
+                            </div>
                         </div>
                         <div class="fc fcc anim anim-d3">
                             <div class="fc-head"><span class="fci">🇴🇲</span>
                                 <div class="fct">Oman VAT Compliance</div>
                             </div>
                             <div class="fcb-body">Full support for Oman VAT requirements natively built-in for
-                                <strong>seamless tax governance.</strong></div>
+                                <strong>seamless tax governance.</strong>
+                            </div>
                         </div>
                     </div>
 
@@ -3344,13 +3399,18 @@
                     <div class="cta-text">
                         <div class="cta-ey">Help Us Prepare</div>
                         <div class="cta-h">Guide our April Discussion</div>
-                        <div class="cta-sub" style="margin-bottom: 20px;">We want our upcoming meeting to be incredibly dense with value. What should we focus on?</div>
-                        
+                        <div class="cta-sub" style="margin-bottom: 20px;">We want our upcoming meeting to be incredibly
+                            dense with value. What should we focus on?</div>
+
                         <div class="meeting-accel-options" id="meeting-options">
-                            <div class="accel-btn" data-topic="Financial Deep Dive">Show us a financial deep dive (Move-Code & ERNNext)</div>
-                            <div class="accel-btn" data-topic="Operational Control">Focus on operational control (Slot Yield & Revenue Protection)</div>
-                            <div class="accel-btn" data-topic="Architecture Mapping">Map inTEUtion against our current ASYAD architecture</div>
-                            <div class="accel-btn" data-topic="Implementation ROI">Walk us through implementation timelines and immediate ROI</div>
+                            <div class="accel-btn" data-topic="Financial Deep Dive">Show us a financial deep dive
+                                (Move-Code & ERNNext)</div>
+                            <div class="accel-btn" data-topic="Operational Control">Focus on operational control (Slot
+                                Yield & Revenue Protection)</div>
+                            <div class="accel-btn" data-topic="Architecture Mapping">Map inTEUtion against our current
+                                ASYAD architecture</div>
+                            <div class="accel-btn" data-topic="Implementation ROI">Walk us through implementation
+                                timelines and immediate ROI</div>
                         </div>
 
                     </div>
@@ -3358,7 +3418,10 @@
                         <div class="cr" style="margin-bottom: 20px;"><span class="cri">👥</span>
                             <div>
                                 <div class="crl">The inTEUtion Team</div>
-                                <div class="crv" style="font-size: 12px; line-height: 1.4; color: rgba(255,255,255,0.7)">Your responses on this page<br>help us tailor a highly specific<br>presentation for ASYAD Group.</div>
+                                <div class="crv"
+                                    style="font-size: 12px; line-height: 1.4; color: rgba(255,255,255,0.7)">Your
+                                    responses on this page<br>help us tailor a highly specific<br>presentation for ASYAD
+                                    Group.</div>
                             </div>
                         </div>
                         <div class="cr"><span class="cri">📩</span>
@@ -3393,7 +3456,7 @@
             });
         }, { threshold: 0.4 });
         sections.forEach(s => sObs.observe(s));
-        
+
         // --- DIGITAL SENSOR LOGIC ---
         class DigitalSensor {
             constructor() {
@@ -3418,14 +3481,14 @@
                 const cards = document.querySelectorAll('.state-card');
                 const reinforcementArea = document.getElementById('reinforcement-area');
                 const maturitySection = document.getElementById('maturity-section');
-                
+
                 if (!cards.length) return;
-                
+
                 cards.forEach(card => {
                     card.addEventListener('click', () => {
                         cards.forEach(c => c.classList.remove('selected'));
                         card.classList.add('selected');
-                        
+
                         const state = card.getAttribute('data-state');
                         if (state === 'seeking') {
                             reinforcementArea.classList.add('open');
@@ -3436,7 +3499,7 @@
                             this.selectedPriorities = [];
                             this.updatePriorityState();
                         }
-                        
+
                         // Show maturity slider with a fade in reveal
                         if (maturitySection) {
                             maturitySection.style.opacity = '1';
@@ -3444,7 +3507,7 @@
                             maturitySection.style.height = 'auto';
                             maturitySection.style.padding = '20px 5%';
                         }
-                        
+
                         this.logPlaybook();
                     });
                 });
@@ -3454,22 +3517,22 @@
                 const points = document.querySelectorAll('.slider-point');
                 const fill = document.getElementById('slider-fill');
                 const feedback = document.getElementById('mirror-feedback');
-                
-                if(!points.length) return;
+
+                if (!points.length) return;
 
                 points.forEach((point, index) => {
                     point.addEventListener('click', () => {
                         // Reset all
                         points.forEach(p => p.classList.remove('active'));
                         // Set active up to clicked
-                        for(let i=0; i<=index; i++) {
+                        for (let i = 0; i <= index; i++) {
                             points[i].classList.add('active');
                         }
-                        
+
                         // Width calculation
                         const percentage = (index / (points.length - 1)) * 100;
                         fill.style.width = percentage + '%';
-                        
+
                         // Feedback
                         const msg = point.getAttribute('data-msg');
                         feedback.textContent = msg;
@@ -3525,7 +3588,7 @@
                         if (!this.softCommitments.includes(val)) {
                             this.softCommitments.push(val);
                             btn.classList.add('clicked');
-                            btn.textContent = "Noted"; 
+                            btn.textContent = "Noted";
                             this.logPlaybook(); // Silently log on interaction
                         }
                     });
@@ -3539,7 +3602,7 @@
                         const title = link.previousElementSibling ? link.previousElementSibling.textContent : link.textContent;
                         // Only log it the first time they open it
                         if (link.nextElementSibling.classList.contains('open') && !this.expandedSections.includes(title)) {
-                            this.expandedSections.push(title.trim().substring(0, 40)); 
+                            this.expandedSections.push(title.trim().substring(0, 40));
                             this.logPlaybook();
                         }
                     });
@@ -3555,7 +3618,7 @@
                 } else {
                     btns.forEach(b => b.classList.remove('disabled'));
                 }
-                
+
                 this.mutateHeroText();
                 this.logPlaybook();
             }
@@ -3563,7 +3626,7 @@
             mutateHeroText() {
                 const heroH1 = document.getElementById('hero-headline');
                 const heroSub = document.getElementById('hero-subtext');
-                
+
                 if (!heroH1 || !heroSub) return;
 
                 if (this.selectedPriorities.length === 0) {
@@ -3571,24 +3634,24 @@
                     heroSub.innerHTML = `<p>VISION 2040 has transformed the Sultanate into a beacon of strategic growth — positioning Oman as an indispensable gateway in the global logistics landscape. <strong style="color:rgba(255,255,255,.82)">ASYAD Group is the national steward of Oman's economic future.</strong> By consolidating the Sultanate's ports, free zones, and shipping assets into one multimodal platform, ASYAD has transformed Oman into a natural global hub, leveraging unparalleled access to four major continents.</p>`;
                 }
                 heroH1.style.animation = 'none';
-                heroH1.offsetHeight; 
+                heroH1.offsetHeight;
                 heroH1.style.animation = 'anim 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards';
-                
+
                 heroSub.style.animation = 'none';
                 heroSub.offsetHeight;
                 heroSub.style.animation = 'anim 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards';
             }
-            
+
             logPlaybook() {
                 console.log("--- 📊 ASYAD April Meeting Playbook ---");
                 console.log("Priorities Selected:", this.selectedPriorities);
                 console.log("Soft Commitments:", this.softCommitments);
                 console.log("Deep Dives Explored (Clicked Expand):", this.expandedSections);
-                
+
                 // Get current maturity from UI
                 const activePoints = document.querySelectorAll('.slider-point.active');
                 if (activePoints.length > 0) {
-                     console.log("Maturity Level Identified:", activePoints[activePoints.length-1].querySelector('.slider-label').textContent);
+                    console.log("Maturity Level Identified:", activePoints[activePoints.length - 1].querySelector('.slider-label').textContent);
                 }
 
                 console.log("Requested Meeting Focus:", this.meetingFocus);
