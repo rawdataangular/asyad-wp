@@ -48,6 +48,39 @@ class DigitalSensor {
     this.bindExpandLinks();
     this.bindSlider();
     this.bindMeetingOptions();
+    this.bindAccordions();
+  }
+
+  bindAccordions() {
+    const accBtns = document.querySelectorAll(".acc-btn");
+    accBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector(".acc-icon");
+        
+        if (content.style.display === "block") {
+          content.style.display = "none";
+          if (icon) icon.textContent = "+";
+        } else {
+          // Close other accordions in the same list
+          const parentList = btn.closest(".accordion-list");
+          if (parentList) {
+            parentList.querySelectorAll(".acc-content").forEach(c => c.style.display = "none");
+            parentList.querySelectorAll(".acc-icon").forEach(i => i.textContent = "+");
+          }
+          content.style.display = "block";
+          if (icon) icon.textContent = "-";
+          
+          // Log interaction
+          const textEl = btn.querySelector(".st-text") || btn.querySelector("span");
+          const title = textEl ? textEl.textContent.trim() : "Accordion";
+          if (!this.expandedSections.includes(title)) {
+            this.expandedSections.push(title);
+            this.logPlaybook();
+          }
+        }
+      });
+    });
   }
 
   bindStateCards() {

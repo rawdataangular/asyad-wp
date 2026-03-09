@@ -1753,67 +1753,126 @@
         <div class="s1-grid"></div>
         <div class="s1-glow" style="top: -50%; opacity: 0.5;"></div>
         <div class="s1-inner" style="position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
-            <div class="s1-content" id="content-mission">
-                <div class="s1-left anim anim-d1">
-                    <div class="light-badge" style="margin-bottom:12px">🚀 The Next Frontier</div>
+            <div id="content-mission" style="display: flex; flex-direction: column; max-width: 100%; margin: 0 auto; width: 100%;">
+                <div class="anim anim-d1" style="text-align: left; margin-bottom: 40px;">
+                    <div class="light-badge" style="margin-bottom:12px; display: inline-block;">🚀 The Next Frontier</div>
                     <h2 class="sh" style="font-size:clamp(28px,3.5vw,48px);line-height:1.2;margin:0 0 16px 0;">
                         Scaling sovereign intelligence.<br><em>What comes next?</em>
                     </h2>
-                    <p style="font-size:14px;color:rgba(255,255,255,.7);max-width:480px;line-height:1.6;margin-bottom:24px;">
+                    <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6; margin:0; max-width: 100%;">
                         Since your core is aligned, the opportunity shifts from foundational stability to aggressive market expansion and sovereign AI readiness. It’s time to weaponize your data.
                     </p>
                 </div>
-                <div class="s1-right anim anim-d2" style="display: flex; flex-direction: column; justify-content: center;">
-                    <div class="framing-q-box shadow-play">
-                        <div class="framing-q-title" style="margin-bottom: 20px;">Where do we accelerate?</div>
-                        <div class="state-cards">
-                            <button class="state-card" style="pointer-events: none; border-color: var(--CM); background: rgba(0,204,221,.05);">
-                                <span class="st-icon">📈</span>
-                                <span class="st-text">Sales and marketing</span>
-                            </button>
-                            <button class="state-card" style="pointer-events: none; border-color: var(--CM); background: rgba(0,204,221,.05);">
-                                <span class="st-icon">🌐</span>
-                                <span class="st-text">Global asset orchestration</span>
-                            </button>
-                            <button class="state-card" style="pointer-events: none; border-color: var(--CM); background: rgba(0,204,221,.05);">
-                                <span class="st-icon">🛡️</span>
-                                <span class="st-text">Zero leakage financial sovereignty</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            
-            <div class="s1-content" id="content-seeking" style="display: none;">
-                <div class="s1-left anim anim-d1">
-                    <div class="light-badge" style="margin-bottom:12px">🏗️ Building Foundations</div>
-                    <h2 class="sh" style="font-size:clamp(28px,3.5vw,48px);line-height:1.2;margin:0 0 16px 0;">
-                        Establishing a resilient digital core.
-                    </h2>
-                    <p style="font-size:14px;color:rgba(255,255,255,.7);max-width:480px;line-height:1.6;margin-bottom:24px;">
-                        To achieve Vision 2040 alignment, the focus must be on foundational stability, data accuracy, and operational efficiency before scaling. Let's identify the immediate priorities.
-                    </p>
-                </div>
-                <div class="s1-right anim anim-d2" style="display: flex; flex-direction: column; justify-content: center;">
-                    <div class="framing-q-box shadow-play">
-                        <div class="framing-q-title" style="margin-bottom: 20px;">Where shall we focus our Initial Deep dive?</div>
-                        <div class="priority-grid">
-                            <button class="priority-btn" data-priority="fleet">
-                                Protecting Margins &amp; Revenue
-                            </button>
-                            <button class="priority-btn" data-priority="revenue">
-                                Data Governance &amp; Accuracy
-                            </button>
-                            <button class="priority-btn" data-priority="finance">
-                                Quick turn around time
-                            </button>
-                            <button class="priority-btn" data-priority="fragmentation">
-                                Efficient management of Assets
-                            </button>
+                <div class="anim anim-d2" style="width: 100%;">
+                    <div class="framing-q-box shadow-play" style="width: 100%;">
+                        <div class="framing-q-title" style="margin-bottom: 20px; text-align: left;">Where do we accelerate?</div>
+                        <div class="accordion-list" style="display: flex; flex-direction: column; gap: 10px;">
+                            <div class="acc-item">
+                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
+                                    <span style="display: flex; align-items: center; gap: 15px;">
+                                        <span class="st-icon">📈</span>
+                                        <span class="st-text">Sales and marketing</span>
+                                    </span>
+                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM);">+</span>
+                                </button>
+                                <div class="acc-content" style="display: none; padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                    Sample data for Sales and marketing: Leverage predictive AI to identify high-value target segments, automate outreach campaigns globally, and optimize the conversion funnel to maximize regional acquisition.
+                                </div>
+                            </div>
+                            <div class="acc-item">
+                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
+                                    <span style="display: flex; align-items: center; gap: 15px;">
+                                        <span class="st-icon">🌐</span>
+                                        <span class="st-text">Global asset orchestration</span>
+                                    </span>
+                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM);">+</span>
+                                </button>
+                                <div class="acc-content" style="display: none; padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                    Sample data for Global asset orchestration: Unify the management of shipping fleets, free zones, and ports into a single cohesive control tower, utilizing real-time IoT tracking and centralized data governance.
+                                </div>
+                            </div>
+                            <div class="acc-item">
+                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
+                                    <span style="display: flex; align-items: center; gap: 15px;">
+                                        <span class="st-icon">🛡️</span>
+                                        <span class="st-text">Zero leakage financial sovereignty</span>
+                                    </span>
+                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM);">+</span>
+                                </button>
+                                <div class="acc-content" style="display: none; padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                    Sample data for Zero leakage financial sovereignty: Implement a robust, blockchain-backed financial reconciliation framework that eliminates discrepancies and ensures complete margin protection across all transactions.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <div id="content-seeking" style="display: none; flex-direction: column; max-width: 100%; margin: 0 auto; width: 100%;">
+                <div class="anim anim-d1" style="text-align: left; margin-bottom: 40px;">
+                    <div class="light-badge" style="margin-bottom:12px; display: inline-block;">🏗️ Building Foundations</div>
+                    <h2 class="sh" style="font-size:clamp(28px,3.5vw,48px);line-height:1.2;margin:0 0 16px 0;">
+                        Establishing a resilient digital core.
+                    </h2>
+                    <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6;margin:0; max-width: 100%;">
+                        To achieve Vision 2040 alignment, the focus must be on foundational stability, data accuracy, and operational efficiency before scaling. Let's identify the immediate priorities.
+                    </p>
+                </div>
+                <div class="anim anim-d2" style="width: 100%;">
+                    <div class="framing-q-box shadow-play" style="width: 100%;">
+                        <div class="framing-q-title" style="margin-bottom: 20px; text-align: left;">Where shall we focus our Initial Deep dive?</div>
+                        <div class="accordion-list" style="display: flex; flex-direction: column; gap: 10px;">
+                            <div class="acc-item">
+                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
+                                    <span style="display: flex; align-items: center; gap: 15px;">
+                                        <span class="st-icon">🛡️</span>
+                                        <span class="st-text">Protecting Margins &amp; Revenue</span>
+                                    </span>
+                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM);">+</span>
+                                </button>
+                                <div class="acc-content" style="display: none; padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                    Sample data for Protecting Margins &amp; Revenue: Enhance visibility into operational expenditures and systematically eliminate cost overruns to stabilize the core financial foundation.
+                                </div>
+                            </div>
+                            <div class="acc-item">
+                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
+                                    <span style="display: flex; align-items: center; gap: 15px;">
+                                        <span class="st-icon">📊</span>
+                                        <span class="st-text">Data Governance &amp; Accuracy</span>
+                                    </span>
+                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM);">+</span>
+                                </button>
+                                <div class="acc-content" style="display: none; padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                    Sample data for Data Governance &amp; Accuracy: Establish strict policies for data integrity, eradicate siloed information, and construct a trustworthy single source of truth across ASYAD Group.
+                                </div>
+                            </div>
+                            <div class="acc-item">
+                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
+                                    <span style="display: flex; align-items: center; gap: 15px;">
+                                        <span class="st-icon">⏱️</span>
+                                        <span class="st-text">Quick turn around time</span>
+                                    </span>
+                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM);">+</span>
+                                </button>
+                                <div class="acc-content" style="display: none; padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                    Sample data for Quick turn around time: Streamline customs clearance, modernize cargo handling procedures, and minimize wait times across strategic port nodes.
+                                </div>
+                            </div>
+                            <div class="acc-item">
+                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
+                                    <span style="display: flex; align-items: center; gap: 15px;">
+                                        <span class="st-icon">⚙️</span>
+                                        <span class="st-text">Efficient management of Assets</span>
+                                    </span>
+                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM);">+</span>
+                                </button>
+                                <div class="acc-content" style="display: none; padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                    Sample data for Efficient management of Assets: Leverage predictive maintenance and active fleet monitoring to ensure maximum uptime and operational ROI across physical investments.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
         </div>
     </section>
