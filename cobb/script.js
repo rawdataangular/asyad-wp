@@ -49,6 +49,32 @@ class DigitalSensor {
     this.bindSlider();
     this.bindMeetingOptions();
     this.bindAccordions();
+    this.bindInnerAccordions();
+  }
+
+  bindInnerAccordions() {
+    const innerBtns = document.querySelectorAll(".inner-acc-btn");
+    innerBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector(".tg-icon");
+        const isClosed = content.style.maxHeight === "0px" || content.style.maxHeight === "";
+        const parentAccContent = btn.closest(".acc-content");
+
+        if (isClosed) {
+          // Open
+          if (parentAccContent) parentAccContent.style.maxHeight = "none";
+          content.style.maxHeight = content.scrollHeight + "px";
+          content.style.opacity = "1";
+          if (icon) icon.style.transform = "rotate(180deg)";
+        } else {
+          // Close
+          content.style.maxHeight = "0px";
+          content.style.opacity = "0";
+          if (icon) icon.style.transform = "rotate(0deg)";
+        }
+      });
+    });
   }
 
   bindAccordions() {

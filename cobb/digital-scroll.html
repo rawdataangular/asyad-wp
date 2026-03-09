@@ -1659,6 +1659,72 @@
             transform: none;
         }
 
+        /* Nested Accordion / Challenge Box */
+        .inner-acc-box {
+            background: rgba(255, 60, 60, 0.05);
+            border-left: 3px solid rgba(255, 60, 60, 0.6);
+            border-radius: 0 8px 8px 0;
+            overflow: hidden;
+        }
+
+        .inner-acc-btn {
+            padding: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .inner-acc-btn p {
+            margin: 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .inner-acc-btn .tg-icon {
+            font-size: 12px;
+            color: rgba(255, 60, 60, 0.8);
+            flex-shrink: 0;
+            margin-left: 14px;
+            transition: transform 0.3s;
+        }
+
+        .inner-acc-content {
+            max-height: 0px;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .feature-card {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 14px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background 0.3s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .feature-card strong {
+            color: #fff;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .feature-card span {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         @media(max-width: 600px) {
             .priority-grid {
                 grid-template-columns: 1fr;
@@ -1777,41 +1843,64 @@
                                 </button>
                                 <div class="acc-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
                                     <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
-                                        <!-- Challenge Box -->
-                                        <div style="background: rgba(255, 60, 60, 0.05); border-left: 3px solid rgba(255, 60, 60, 0.6); padding: 16px; border-radius: 0 8px 8px 0;">
-                                            <p style="margin: 0; font-size: 13px; color: rgba(255,255,255,0.9); font-style: italic; line-height: 1.6;">
-                                                <strong>The Challenge:</strong> Facing challenges in consolidating buy rates from multiple carriers and slot operators received in varied formats like PDFs, Excel sheets, and images, which is creating a bottleneck?
-                                            </p>
-                                        </div>
+                                        <!-- Challenge Box / Nested Accordion 1 -->
+                                        <div class="inner-acc-box" style="margin-top: -8px;">
+                                            <div class="inner-acc-btn">
+                                                <p>
+                                                    <strong>The Challenge:</strong> Facing challenges in consolidating buy rates from multiple carriers and slot operators received in varied formats like PDFs, Excel sheets, and images, which is creating a bottleneck?
+                                                </p>
+                                                <span class="tg-icon">▼</span>
+                                            </div>
+                                            <div class="inner-acc-content">
+                                                <div style="padding: 0 16px 16px 16px;">
+                                                    <!-- Solution Text -->
+                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); margin-bottom: 20px; padding-top: 8px;">
+                                                        Our <strong style="color: var(--CM);">Generative AI engine</strong> eliminates the time-intensive task of consolidating diverse carrier formats. It intelligently parses complex tables, remarks, and surcharges, converting them into a unified format in seconds.
+                                                    </div>
 
-                                        <!-- Solution Text -->
-                                        <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85);">
-                                            Our <strong style="color: var(--CM);">Generative AI engine</strong> eliminates the time-intensive task of consolidating diverse carrier formats. It intelligently parses complex tables, remarks, and surcharges, converting them into a unified format in seconds.
-                                        </div>
-
-                                        <!-- Feature Grid -->
-                                        <div style="display: grid; gap: 12px;">
-                                            <div style="display: flex; gap: 12px; align-items: flex-start; background: rgba(255,255,255,0.03); padding: 14px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: background 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.07)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
-                                                <span style="font-size: 18px; line-height: 1;">⚡</span>
-                                                <div>
-                                                    <strong style="color: #fff; font-size: 13px; display: block; margin-bottom: 4px;">Zero Latency</strong>
-                                                    <span style="font-size: 13px; color: rgba(255,255,255,0.7);">Move to quote instantly by verifying the rates.</span>
+                                                    <!-- Feature Grid -->
+                                                    <div class="feature-grid" style="display: grid; gap: 12px;">
+                                                        <div class="feature-card">
+                                                            <span style="font-size: 18px; line-height: 1;">⚡</span>
+                                                            <div>
+                                                                <strong>Zero Latency</strong>
+                                                                <span>Move to quote instantly by verifying the rates.</span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="feature-card">
+                                                            <span style="font-size: 18px; line-height: 1;">💬</span>
+                                                            <div>
+                                                                <strong>Conversational Intel</strong>
+                                                                <span>Query your global rate database via an AI chatbot as easily as sending a text.</span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="feature-card">
+                                                            <span style="font-size: 18px; line-height: 1;">🎯</span>
+                                                            <div>
+                                                                <strong>Total Accuracy</strong>
+                                                                <span>Eliminate the 'hidden costs' that slip through manual spreadsheets.</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            
-                                            <div style="display: flex; gap: 12px; align-items: flex-start; background: rgba(255,255,255,0.03); padding: 14px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: background 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.07)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
-                                                <span style="font-size: 18px; line-height: 1;">💬</span>
-                                                <div>
-                                                    <strong style="color: #fff; font-size: 13px; display: block; margin-bottom: 4px;">Conversational Intel</strong>
-                                                    <span style="font-size: 13px; color: rgba(255,255,255,0.7);">Query your global rate database via an AI chatbot as easily as sending a text.</span>
-                                                </div>
+                                        </div>
+
+                                        <!-- Challenge Box / Nested Accordion 2 (Sample) -->
+                                        <div class="inner-acc-box" style="margin-top: 8px;">
+                                            <div class="inner-acc-btn">
+                                                <p>
+                                                    <strong>The Challenge:</strong>Would you like to Transition your  business from"What happened?" to "What will happen?"    
+                                                </p>
+                                                <span class="tg-icon">▼</span>
                                             </div>
-                                            
-                                            <div style="display: flex; gap: 12px; align-items: flex-start; background: rgba(255,255,255,0.03); padding: 14px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: background 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.07)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
-                                                <span style="font-size: 18px; line-height: 1;">🎯</span>
-                                                <div>
-                                                    <strong style="color: #fff; font-size: 13px; display: block; margin-bottom: 4px;">Total Accuracy</strong>
-                                                    <span style="font-size: 13px; color: rgba(255,255,255,0.7);">Eliminate the 'hidden costs' that slip through manual spreadsheets.</span>
+                                            <div class="inner-acc-content">
+                                                <div style="padding: 0 16px 16px 16px;">
+                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
+                                                       Don't just track your fleet; predict the globe. Our AI-driven scout scans trade shifts and seasonal surges before they hit the water. For an organization as large as ASYAD, capturing a surge 14 days earlier represents millions in recovered opportunity. 
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1826,6 +1915,27 @@
                                     </span>
                                     <span class="acc-icon" style="font-size: 18px; color: var(--CM); transition: transform 0.3s ease;">+</span>
                                 </button>
+                                <!-- Challenge Box / Nested Accordion 1 -->
+                                 <div class="acc-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                    <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
+                                        <div class="inner-acc-box" style="margin-top: -8px;">
+                                            <div class="inner-acc-btn">
+                                                <p>
+                                                    <strong>The Challenge:</strong>Would you like to Transition your  business from"What happened?" to "What will happen?"    
+                                                </p>
+                                                <span class="tg-icon">▼</span>
+                                            </div>
+                                            <div class="inner-acc-content">
+                                                <div style="padding: 0 16px 16px 16px;">
+                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
+                                                       Don't just track your fleet; predict the globe. Our AI-driven scout scans trade shifts and seasonal surges before they hit the water. For an organization as large as ASYAD, capturing a surge 14 days earlier represents millions in recovered opportunity. 
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        </div>
+                                        </div>
                                 <div class="acc-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
                                     <div style="padding: 20px;">
                                         Sample data for Global asset orchestration: Unify the management of shipping fleets, free zones, and ports into a single cohesive control tower, utilizing real-time IoT tracking and centralized data governance.
