@@ -52,7 +52,9 @@ class DigitalSensor {
 
   bindStateCards() {
     const cards = document.querySelectorAll(".state-card");
-    const reinforcementArea = document.getElementById("reinforcement-area");
+    const s1bSection = document.getElementById("s1-b");
+    const contentMission = document.getElementById("content-mission");
+    const contentSeeking = document.getElementById("content-seeking");
     const maturitySection = document.getElementById("maturity-section");
 
     if (!cards.length) return;
@@ -62,31 +64,30 @@ class DigitalSensor {
         cards.forEach((c) => c.classList.remove("selected"));
         card.classList.add("selected");
         const state = card.getAttribute("data-state");
-        const qSub = reinforcementArea.querySelector(".framing-q-sub");
-        const s1bSection = document.getElementById("s1-b");
+
+        if (s1bSection) s1bSection.style.display = "block";
 
         if (state === "seeking") {
-          reinforcementArea.classList.add("open");
-          if (s1bSection) s1bSection.style.display = "none";
-          if (qSub)
-            qSub.textContent = "Where shall we focus our initial deep dive:";
+          if (contentMission) contentMission.style.display = "none";
+          if (contentSeeking) contentSeeking.style.display = "";
         } else {
-          reinforcementArea.classList.remove("open");
-          if (s1bSection) s1bSection.style.display = "block";
-          
-          // Trigger animations in the new section manually if needed since it was display: none
-          const newAnims = s1bSection.querySelectorAll(".anim");
-          newAnims.forEach(el => el.classList.add("visible"));
-
+          if (contentSeeking) contentSeeking.style.display = "none";
+          if (contentMission) contentMission.style.display = "";
           this.selectedPriorities = [];
           this.updatePriorityState();
-              
-          // Auto-scroll to the new section
-          if (s1bSection) {
-              setTimeout(() => {
-                  s1bSection.scrollIntoView({ behavior: 'smooth' });
-              }, 400); // slight delay to allow UI to update
-          }
+        }
+        
+        // Trigger animations in the new section manually
+        if (s1bSection) {
+            const newAnims = s1bSection.querySelectorAll(".anim");
+            newAnims.forEach(el => el.classList.add("visible"));
+        }
+
+        // Auto-scroll to the new section
+        if (s1bSection) {
+            setTimeout(() => {
+                s1bSection.scrollIntoView({ behavior: 'smooth' });
+            }, 400); // slight delay to allow UI to update
         }
 
         // Show maturity slider with a fade in reveal
