@@ -58,18 +58,30 @@ class DigitalSensor {
         const content = btn.nextElementSibling;
         const icon = btn.querySelector(".acc-icon");
         
-        if (content.style.display === "block") {
-          content.style.display = "none";
-          if (icon) icon.textContent = "+";
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px" && content.style.maxHeight !== "0";
+
+        if (isOpen) {
+          content.style.maxHeight = "0px";
+          if (icon) {
+            icon.textContent = "+";
+            icon.style.transform = "rotate(0deg)";
+          }
         } else {
           // Close other accordions in the same list
           const parentList = btn.closest(".accordion-list");
           if (parentList) {
-            parentList.querySelectorAll(".acc-content").forEach(c => c.style.display = "none");
-            parentList.querySelectorAll(".acc-icon").forEach(i => i.textContent = "+");
+            parentList.querySelectorAll(".acc-content").forEach(c => c.style.maxHeight = "0px");
+            parentList.querySelectorAll(".acc-icon").forEach(i => {
+                i.textContent = "+";
+                i.style.transform = "rotate(0deg)";
+            });
           }
-          content.style.display = "block";
-          if (icon) icon.textContent = "-";
+          // Open this one
+          content.style.maxHeight = content.scrollHeight + "px";
+          if (icon) {
+            icon.textContent = "×";
+            icon.style.transform = "rotate(90deg)";
+          }
           
           // Log interaction
           const textEl = btn.querySelector(".st-text") || btn.querySelector("span");
@@ -84,7 +96,7 @@ class DigitalSensor {
   }
 
   bindStateCards() {
-    const cards = document.querySelectorAll(".state-card");
+    const cards = document.querySelectorAll(".state-card:not(.acc-btn)");
     const s1bSection = document.getElementById("s1-b");
     const contentMission = document.getElementById("content-mission");
     const contentSeeking = document.getElementById("content-seeking");
