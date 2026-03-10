@@ -140,10 +140,10 @@ class DigitalSensor {
 
         if (state === "seeking") {
           if (contentMission) contentMission.style.display = "none";
-          if (contentSeeking) contentSeeking.style.display = "";
+          if (contentSeeking) contentSeeking.style.display = "flex";
         } else {
           if (contentSeeking) contentSeeking.style.display = "none";
-          if (contentMission) contentMission.style.display = "";
+          if (contentMission) contentMission.style.display = "flex";
           this.selectedPriorities = [];
           this.updatePriorityState();
         }
