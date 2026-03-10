@@ -1742,6 +1742,134 @@
                 margin-bottom: 70px;
             }
         }
+
+        /* Alignment Gaps Interactive Blocks */
+        .gap-stages-container {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gap-stage-btn {
+            flex: 1;
+            min-width: 140px;
+            background: rgba(0, 204, 221, 0.05);
+            border: 1px solid rgba(0, 204, 221, 0.2);
+            border-radius: 8px;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .gap-stage-btn:hover {
+            background: rgba(0, 204, 221, 0.15);
+            border-color: rgba(0, 204, 221, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .gap-stage-btn.active {
+            background: rgba(0, 204, 221, 0.25);
+            border-color: #00CCDD;
+            box-shadow: 0 0 20px rgba(0, 204, 221, 0.3);
+        }
+
+        .gap-stage-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: rgba(0, 204, 221, 0.8) transparent transparent transparent;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gap-stage-btn.active::after {
+            opacity: 1;
+        }
+
+        .gap-stage-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 8px rgba(0, 204, 221, 0.5));
+        }
+
+        .gap-stage-text {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .gap-details-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 204, 221, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 10px;
+            min-height: 160px;
+            display: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .gap-details-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--CM), transparent);
+        }
+
+        .gap-details-box.active {
+            display: block;
+            animation: fadeInGap 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeInGap {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gap-block-detail {
+            display: none;
+        }
+
+        .gap-block-detail.active {
+            display: block;
+            animation: fadeInGapDetails 0.3s ease-out forwards;
+        }
+        
+        @keyframes fadeInGapDetails {
+            from { opacity: 0; transform: translateX(10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .gap-detail-title {
+            font-size: 20px;
+            color: var(--CM);
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+        
+        .gap-detail-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+        }
     </style>
 </head>
 
@@ -2010,7 +2138,72 @@
                         To achieve Vision 2040 alignment, the focus must be on foundational stability, data accuracy, and operational efficiency before scaling. Let's identify the immediate priorities.
                     </p>
                 </div>
-                <div class="anim anim-d2" style="width: 100%;">
+                
+                <!-- Alignment Gaps Interactive Blocks -->
+                <div class="anim anim-d2" style="width: 100%; margin-top: 20px; margin-bottom: 40px;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <h3 style="font-size: 22px; font-weight: 700; letter-spacing: 0.05em; color: #fff; margin-bottom: 6px;">WHERE IS YOUR MOMENTUM STALLING?</h3>
+                        <p style="font-size: 13px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.05em;">Click a stage to identify your alignment gaps.</p>
+                    </div>
+
+                    <div class="gap-stages-container">
+                        <div class="gap-stage-btn active" data-stage="pre-booking">
+                            <span class="gap-stage-icon">📅</span>
+                            <span class="gap-stage-text">Pre-Booking<br>& Sales</span>
+                        </div>
+                        <div class="gap-stage-btn" data-stage="documentation">
+                            <span class="gap-stage-icon">📋</span>
+                            <span class="gap-stage-text">Documentation<br>& Gate-In</span>
+                        </div>
+                        <div class="gap-stage-btn" data-stage="vessel">
+                            <span class="gap-stage-icon">🚢</span>
+                            <span class="gap-stage-text">Vessel<br>Operations</span>
+                        </div>
+                        <div class="gap-stage-btn" data-stage="arrival">
+                            <span class="gap-stage-icon">🚚</span>
+                            <span class="gap-stage-text">Arrival &<br>Final Mile</span>
+                        </div>
+                        <div class="gap-stage-btn" data-stage="accounting">
+                            <span class="gap-stage-icon">💰</span>
+                            <span class="gap-stage-text">Accounting &<br>Agency Mgmt</span>
+                        </div>
+                    </div>
+
+                    <div class="gap-details-box active">
+                        <div class="gap-block-detail active" id="detail-pre-booking">
+                            <div class="gap-detail-title">Pre-Booking & Sales</div>
+                            <div class="gap-detail-desc">
+                                <strong>Alignment Gaps:</strong> Disconnected systems often lead to mismatched rate quotes and slow booking confirmations. Consolidating buy rates and sales intelligence enables zero-latency responses and aggressive market expansion earlier in the pipeline.
+                            </div>
+                        </div>
+                        <div class="gap-block-detail" id="detail-documentation">
+                            <div class="gap-detail-title">Documentation & Gate-In</div>
+                            <div class="gap-detail-desc">
+                                <strong>Alignment Gaps:</strong> Manual data entry creates bottlenecks at the terminal gate. Achieving strict data governance eliminates siloed information, minimizing wait times and ensuring VGM compliance prior to physical entry.
+                            </div>
+                        </div>
+                        <div class="gap-block-detail" id="detail-vessel">
+                            <div class="gap-detail-title">Vessel Operations</div>
+                            <div class="gap-detail-desc">
+                                <strong>Alignment Gaps:</strong> Inefficient slot management causes artificial capacity constraints. Predictive position intelligence transforms your fleet into an active organism, directing surplus containers to critical shortage zones proactively.
+                            </div>
+                        </div>
+                        <div class="gap-block-detail" id="detail-arrival">
+                            <div class="gap-detail-title">Arrival & Final Mile</div>
+                            <div class="gap-detail-desc">
+                                <strong>Alignment Gaps:</strong> Lack of end-to-end visibility leaves cargo stranded. Modernized cargo handling coupled with real-time arrival intelligence guarantees a swift turnover, optimizing your downstream transportation nodes.
+                            </div>
+                        </div>
+                        <div class="gap-block-detail" id="detail-accounting">
+                            <div class="gap-detail-title">Accounting & Agency Management</div>
+                            <div class="gap-detail-desc">
+                                <strong>Alignment Gaps:</strong> Operational-financial discrepancies trigger immediate margin erosion. A blockchain-backed financial framework inherently enforces zero leakage, ensuring instantaneous reconciliation from vendor invoices to end ledger.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class="anim anim-d2" style="width: 100%;">
                     <div class="framing-q-box shadow-play" style="width: 100%;">
                         <div class="framing-q-title" style="margin-bottom: 20px; text-align: left;">Where shall we focus our Initial Deep dive?</div>
                         <div class="accordion-list" style="display: flex; flex-direction: column; gap: 10px;">
@@ -2072,7 +2265,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
         </div>
         </div>
     </section>

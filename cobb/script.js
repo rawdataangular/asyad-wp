@@ -50,6 +50,7 @@ class DigitalSensor {
     this.bindMeetingOptions();
     this.bindAccordions();
     this.bindInnerAccordions();
+    this.bindGapStages();
   }
 
   bindInnerAccordions() {
@@ -72,6 +73,47 @@ class DigitalSensor {
           content.style.maxHeight = "0px";
           content.style.opacity = "0";
           if (icon) icon.style.transform = "rotate(0deg)";
+        }
+      });
+    });
+  }
+
+  bindGapStages() {
+    const gapBtns = document.querySelectorAll(".gap-stage-btn");
+    const gapDetailsContainer = document.querySelector(".gap-details-box");
+    const gapDetails = document.querySelectorAll(".gap-block-detail");
+
+    if (!gapBtns.length || !gapDetailsContainer) return;
+
+    gapBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const stage = btn.getAttribute("data-stage");
+        
+        // Update Buttons
+        gapBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        
+        // Show container if hidden
+        gapDetailsContainer.classList.add("active");
+
+        // Update Details
+        gapDetails.forEach((detail) => {
+          detail.classList.remove("active");
+          if (detail.id === "detail-" + stage) {
+            // Trigger animation re-flow
+            detail.style.animation = "none";
+            detail.offsetHeight; /* trigger reflow */
+            detail.style.animation = null;
+            detail.classList.add("active");
+          }
+        });
+
+        // Log interaction
+        const textEl = btn.querySelector(".gap-stage-text");
+        const title = textEl ? textEl.innerHTML.replace("<br>", " ") : "Gap Stage";
+        if (!this.expandedSections.includes("Gap: " + title)) {
+            this.expandedSections.push("Gap: " + title);
+            this.logPlaybook();
         }
       });
     });
