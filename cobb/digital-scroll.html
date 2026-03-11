@@ -1840,8 +1840,15 @@
         }
 
         @keyframes fadeInGap {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .gap-block-detail {
@@ -1852,19 +1859,26 @@
             display: block;
             animation: fadeInGapDetails 0.3s ease-out forwards;
         }
-        
+
         @keyframes fadeInGapDetails {
-            from { opacity: 0; transform: translateX(10px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
-        
+
         .gap-detail-title {
             font-size: 20px;
             color: var(--CM);
             margin-bottom: 14px;
             font-weight: 600;
         }
-        
+
         .gap-detail-desc {
             font-size: 14px;
             color: rgba(255, 255, 255, 0.85);
@@ -1946,44 +1960,60 @@
         <div class="s1-overlay"></div>
         <div class="s1-grid"></div>
         <div class="s1-glow" style="top: -50%; opacity: 0.5;"></div>
-        <div class="s1-inner" style="position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
-            <div id="content-mission" style="display: flex; flex-direction: column; max-width: 100%; margin: 0 auto; width: 100%;">
+        <div class="s1-inner"
+            style="position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+            <div id="content-mission"
+                style="display: flex; flex-direction: column; max-width: 100%; margin: 0 auto; width: 100%;">
                 <div class="anim anim-d1" style="text-align: left; margin-bottom: 40px;">
-                    <div class="light-badge" style="margin-bottom:12px; display: inline-block;">🚀 The Next Frontier</div>
+                    <div class="light-badge" style="margin-bottom:12px; display: inline-block;">🚀 The Next Frontier
+                    </div>
                     <h2 class="sh" style="font-size:clamp(28px,3.5vw,48px);line-height:1.2;margin:0 0 16px 0;">
                         Scaling sovereign intelligence.<br><em>What comes next?</em>
                     </h2>
                     <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6; margin:0; max-width: 100%;">
-                        Since your core is aligned, the opportunity shifts from foundational stability to aggressive market expansion and sovereign AI readiness. It’s time to weaponize your data.
+                        Since your core is aligned, the opportunity shifts from foundational stability to aggressive
+                        market expansion and sovereign AI readiness. It’s time to weaponize your data.
                     </p>
                 </div>
                 <div class="anim anim-d2" style="width: 100%;">
                     <div class="framing-q-box shadow-play" style="width: 100%;">
-                        <div class="framing-q-title" style="margin-bottom: 20px; text-align: left;">Where do we accelerate?</div>
+                        <div class="framing-q-title" style="margin-bottom: 20px; text-align: left;">Where do we
+                            accelerate?</div>
                         <div class="accordion-list" style="display: flex; flex-direction: column; gap: 10px;">
                             <div class="acc-item">
-                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
+                                <button class="state-card acc-btn"
+                                    style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
                                     <span style="display: flex; align-items: center; gap: 15px;">
                                         <span class="st-icon">📈</span>
                                         <span class="st-text">Sales and Procurement</span>
                                     </span>
-                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM); transition: transform 0.3s ease;">+</span>
+                                    <span class="acc-icon"
+                                        style="font-size: 18px; color: var(--CM); transition: transform 0.3s ease;">+</span>
                                 </button>
-                                <div class="acc-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                <div class="acc-content"
+                                    style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
                                     <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
                                         <!-- Challenge Box / Nested Accordion 1 -->
                                         <div class="inner-acc-box" style="margin-top: -8px;">
                                             <div class="inner-acc-btn">
                                                 <p>
-                                                    <strong>The Challenge:</strong> Facing challenges in consolidating buy rates from multiple carriers and slot operators received in varied formats like PDFs, Excel sheets, and images, which is creating a bottleneck?
+                                                    <strong>The Challenge:</strong> Facing challenges in consolidating
+                                                    buy rates from multiple carriers and slot operators received in
+                                                    varied formats like PDFs, Excel sheets, and images, which is
+                                                    creating a bottleneck?
                                                 </p>
                                                 <span class="tg-icon">▼</span>
                                             </div>
                                             <div class="inner-acc-content">
                                                 <div style="padding: 0 16px 16px 16px;">
                                                     <!-- Solution Text -->
-                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); margin-bottom: 20px; padding-top: 8px;">
-                                                        Our <strong style="color: var(--CM);">Generative AI engine</strong> eliminates the time-intensive task of consolidating diverse carrier formats. It intelligently parses complex tables, remarks, and surcharges, converting them into a unified format in seconds.
+                                                    <div
+                                                        style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); margin-bottom: 20px; padding-top: 8px;">
+                                                        Our <strong style="color: var(--CM);">Generative AI
+                                                            engine</strong> eliminates the time-intensive task of
+                                                        consolidating diverse carrier formats. It intelligently parses
+                                                        complex tables, remarks, and surcharges, converting them into a
+                                                        unified format in seconds.
                                                     </div>
 
                                                     <!-- Feature Grid -->
@@ -1992,23 +2022,26 @@
                                                             <span style="font-size: 18px; line-height: 1;">⚡</span>
                                                             <div>
                                                                 <strong>Zero Latency</strong>
-                                                                <span>Move to quote instantly by verifying the rates.</span>
+                                                                <span>Move to quote instantly by verifying the
+                                                                    rates.</span>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="feature-card">
                                                             <span style="font-size: 18px; line-height: 1;">💬</span>
                                                             <div>
                                                                 <strong>Conversational Intel</strong>
-                                                                <span>Query your global rate database via an AI chatbot as easily as sending a text.</span>
+                                                                <span>Query your global rate database via an AI chatbot
+                                                                    as easily as sending a text.</span>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="feature-card">
                                                             <span style="font-size: 18px; line-height: 1;">🎯</span>
                                                             <div>
                                                                 <strong>Total Accuracy</strong>
-                                                                <span>Eliminate the 'hidden costs' that slip through manual spreadsheets.</span>
+                                                                <span>Eliminate the 'hidden costs' that slip through
+                                                                    manual spreadsheets.</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2020,14 +2053,19 @@
                                         <div class="inner-acc-box" style="margin-top: 8px;">
                                             <div class="inner-acc-btn">
                                                 <p>
-                                                    <strong>The Challenge:</strong>Would you like to Transition your  business from"What happened?" to "What will happen?"    
+                                                    <strong>The Challenge:</strong>Would you like to Transition your
+                                                    business from"What happened?" to "What will happen?"
                                                 </p>
                                                 <span class="tg-icon">▼</span>
                                             </div>
                                             <div class="inner-acc-content">
                                                 <div style="padding: 0 16px 16px 16px;">
-                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
-                                                       Don't just track your fleet; predict the globe. Our AI-driven scout scans trade shifts and seasonal surges before they hit the water. For an organization as large as ASYAD, capturing a surge 14 days earlier represents millions in recovered opportunity. 
+                                                    <div
+                                                        style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
+                                                        Don't just track your fleet; predict the globe. Our AI-driven
+                                                        scout scans trade shifts and seasonal surges before they hit the
+                                                        water. For an organization as large as ASYAD, capturing a surge
+                                                        14 days earlier represents millions in recovered opportunity.
                                                     </div>
                                                 </div>
                                             </div>
@@ -2036,29 +2074,39 @@
                                 </div>
                             </div>
                             <div class="acc-item">
-                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
+                                <button class="state-card acc-btn"
+                                    style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
                                     <span style="display: flex; align-items: center; gap: 15px;">
                                         <span class="st-icon">🌐</span>
                                         <span class="st-text">Global asset orchestration</span>
                                     </span>
-                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM); transition: transform 0.3s ease;">+</span>
+                                    <span class="acc-icon"
+                                        style="font-size: 18px; color: var(--CM); transition: transform 0.3s ease;">+</span>
                                 </button>
                                 <!-- Challenge Box / Nested Accordion 1 -->
-                                 <div class="acc-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                <div class="acc-content"
+                                    style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
                                     <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
                                         <div class="inner-acc-box" style="margin-top: -8px;">
                                             <div class="inner-acc-btn">
                                                 <p>
-                                                    <strong>The Challenge:</strong> Would you like to orchestrate where the container must be?    
+                                                    <strong>The Challenge:</strong> Would you like to orchestrate where
+                                                    the container must be?
                                                 </p>
                                                 <span class="tg-icon">▼</span>
                                             </div>
                                             <div class="inner-acc-content">
                                                 <div style="padding: 0 16px 16px 16px;">
-                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
-                                                        <strong>Turn your container fleet into  a Living Organism</strong>
+                                                    <div
+                                                        style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
+                                                        <strong>Turn your container fleet into a Living
+                                                            Organism</strong>
                                                         <br>
-                                                        Beyond simple tracking lies Position Intelligence. We categorize ASYAD’s global fleet into Surplus, Shortage, and Critical zones using historical booking trends. We don't just show you where your boxes are; we show you where they need to be for maximum yield.
+                                                        Beyond simple tracking lies Position Intelligence. We categorize
+                                                        ASYAD’s global fleet into Surplus, Shortage, and Critical zones
+                                                        using historical booking trends. We don't just show you where
+                                                        your boxes are; we show you where they need to be for maximum
+                                                        yield.
                                                     </div>
                                                 </div>
                                             </div>
@@ -2068,26 +2116,31 @@
                                 </div>
                             </div>
                             <div class="acc-item">
-                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
+                                <button class="state-card acc-btn"
+                                    style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
                                     <span style="display: flex; align-items: center; gap: 15px;">
                                         <span class="st-icon">🛡️</span>
                                         <span class="st-text">Zero leakage financial sovereignty</span>
                                     </span>
-                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM); transition: transform 0.3s ease;">+</span>
+                                    <span class="acc-icon"
+                                        style="font-size: 18px; color: var(--CM); transition: transform 0.3s ease;">+</span>
                                 </button>
-                                <div class="acc-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
+                                <div class="acc-content"
+                                    style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
                                     <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
                                         <div class="inner-acc-box" style="margin-top: -8px;">
                                             <div class="inner-acc-btn">
                                                 <p>
-                                                    <strong>The Challenge:</strong>  Being worried about cost and revenue leakage?       
+                                                    <strong>The Challenge:</strong> Being worried about cost and revenue
+                                                    leakage?
                                                 </p>
                                                 <span class="tg-icon">▼</span>
                                             </div>
                                             <div class="inner-acc-content">
                                                 <div style="padding: 0 16px 16px 16px;">
-                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
-                                                       
+                                                    <div
+                                                        style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
+
                                                     </div>
 
                                                     <!-- Feature Grid -->
@@ -2096,23 +2149,30 @@
                                                             <span style="font-size: 18px; line-height: 1;">🔄</span>
                                                             <div>
                                                                 <strong>Automated Accounting Impact</strong>
-                                                                <span>Every operational movement triggers the corresponding accounting entry, ensuring all financial impacts are captured in real time and eliminating the risk of revenue leakage.</span>
+                                                                <span>Every operational movement triggers the
+                                                                    corresponding accounting entry, ensuring all
+                                                                    financial impacts are captured in real time and
+                                                                    eliminating the risk of revenue leakage.</span>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="feature-card">
                                                             <span style="font-size: 18px; line-height: 1;">⚖️</span>
                                                             <div>
                                                                 <strong>Operational–Financial Alignment</strong>
-                                                                <span>Charges are automatically recorded against operational activities, ensuring transparency and accuracy.</span>
+                                                                <span>Charges are automatically recorded against
+                                                                    operational activities, ensuring transparency and
+                                                                    accuracy.</span>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="feature-card">
                                                             <span style="font-size: 18px; line-height: 1;">✅</span>
                                                             <div>
                                                                 <strong>Vendor Invoice Validation</strong>
-                                                                <span>Vendor invoices can be verified against system records before payment, helping prevent excess payments and reducing the risk of disputes.</span>
+                                                                <span>Vendor invoices can be verified against system
+                                                                    records before payment, helping prevent excess
+                                                                    payments and reducing the risk of disputes.</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2127,23 +2187,30 @@
                     </div>
                 </div>
             </div>
-            
-            <div id="content-seeking" style="display: none; flex-direction: column; max-width: 100%; margin: 0 auto; width: 100%;">
+
+            <div id="content-seeking"
+                style="display: none; flex-direction: column; max-width: 100%; margin: 0 auto; width: 100%;">
                 <div class="anim anim-d1" style="text-align: left; margin-bottom: 40px;">
-                    <div class="light-badge" style="margin-bottom:12px; display: inline-block;">🏗️ Building Foundations</div>
+                    <div class="light-badge" style="margin-bottom:12px; display: inline-block;">🏗️ Building Foundations
+                    </div>
                     <h2 class="sh" style="font-size:clamp(28px,3.5vw,48px);line-height:1.2;margin:0 0 16px 0;">
                         Establishing a resilient digital core.
                     </h2>
                     <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6;margin:0; max-width: 100%;">
-                        To achieve Vision 2040 alignment, the focus must be on foundational stability, data accuracy, and operational efficiency before scaling. Let's identify the immediate priorities.
+                        To achieve Vision 2040 alignment, the focus must be on foundational stability, data accuracy,
+                        and operational efficiency before scaling. Let's identify the immediate priorities.
                     </p>
                 </div>
-                
+
                 <!-- Alignment Gaps Interactive Blocks -->
                 <div class="anim anim-d2" style="width: 100%; margin-top: 20px; margin-bottom: 40px;">
                     <div style="text-align: center; margin-bottom: 20px;">
-                        <h3 style="font-size: 22px; font-weight: 700; letter-spacing: 0.05em; color: #fff; margin-bottom: 6px;">WHERE IS YOUR MOMENTUM STALLING?</h3>
-                        <p style="font-size: 13px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.05em;">Click a stage to identify your alignment gaps.</p>
+                        <h3
+                            style="font-size: 22px; font-weight: 700; letter-spacing: 0.05em; color: #fff; margin-bottom: 6px;">
+                            WHERE IS YOUR MOMENTUM STALLING?</h3>
+                        <p
+                            style="font-size: 13px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.05em;">
+                            Click a stage to identify your alignment gaps.</p>
                     </div>
 
                     <div class="gap-stages-container">
@@ -2171,39 +2238,59 @@
 
                     <div class="gap-details-box active">
                         <div class="gap-block-detail active" id="detail-pre-booking">
-                            <div class="gap-detail-title">Pre-Booking & Sales</div>
+                            <div class="gap-detail-title">Pricing</div>
                             <div class="gap-detail-desc">
-                                <strong>Alignment Gaps:</strong> Disconnected systems often lead to mismatched rate quotes and slow booking confirmations. Consolidating buy rates and sales intelligence enables zero-latency responses and aggressive market expansion earlier in the pipeline.
+                                <strong>Manual pricing leads to "Guess-Work" and indirect cost leakages that
+                                    eat into your bottom line margin?</strong>
+
+                                <div class="gap-detail-desc">
+                                    <strong Eliminate indirect cost erosion with inTEUtion pricing logic. We help your
+                                        sales team determine the "Best-Fit" price for every shipment with guaranteed
+                                        profitability. It’s not just a quote; it’s a protected margin. </strong>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gap-block-detail" id="detail-documentation">
-                            <div class="gap-detail-title">Documentation & Gate-In</div>
-                            <div class="gap-detail-desc">
-                                <strong>Alignment Gaps:</strong> Manual data entry creates bottlenecks at the terminal gate. Achieving strict data governance eliminates siloed information, minimizing wait times and ensuring VGM compliance prior to physical entry.
+                            <div class="gap-block-detail" id="detail-documentation">
+                                <div class="gap-detail-title">Documentation & Gate-In</div>
+                                <div class="gap-detail-desc">
+                                    <strong>Alignment Gaps:</strong> Manual data entry creates bottlenecks at the
+                                    terminal
+                                    gate. Achieving strict data governance eliminates siloed information, minimizing
+                                    wait
+                                    times and ensuring VGM compliance prior to physical entry.
+                                </div>
                             </div>
-                        </div>
-                        <div class="gap-block-detail" id="detail-vessel">
-                            <div class="gap-detail-title">Vessel Operations</div>
-                            <div class="gap-detail-desc">
-                                <strong>Alignment Gaps:</strong> Inefficient slot management causes artificial capacity constraints. Predictive position intelligence transforms your fleet into an active organism, directing surplus containers to critical shortage zones proactively.
+                            <div class="gap-block-detail" id="detail-vessel">
+                                <div class="gap-detail-title">Vessel Operations</div>
+                                <div class="gap-detail-desc">
+                                    <strong>Alignment Gaps:</strong> Inefficient slot management causes artificial
+                                    capacity
+                                    constraints. Predictive position intelligence transforms your fleet into an active
+                                    organism, directing surplus containers to critical shortage zones proactively.
+                                </div>
                             </div>
-                        </div>
-                        <div class="gap-block-detail" id="detail-arrival">
-                            <div class="gap-detail-title">Arrival & Final Mile</div>
-                            <div class="gap-detail-desc">
-                                <strong>Alignment Gaps:</strong> Lack of end-to-end visibility leaves cargo stranded. Modernized cargo handling coupled with real-time arrival intelligence guarantees a swift turnover, optimizing your downstream transportation nodes.
+                            <div class="gap-block-detail" id="detail-arrival">
+                                <div class="gap-detail-title">Arrival & Final Mile</div>
+                                <div class="gap-detail-desc">
+                                    <strong>Alignment Gaps:</strong> Lack of end-to-end visibility leaves cargo
+                                    stranded.
+                                    Modernized cargo handling coupled with real-time arrival intelligence guarantees a
+                                    swift
+                                    turnover, optimizing your downstream transportation nodes.
+                                </div>
                             </div>
-                        </div>
-                        <div class="gap-block-detail" id="detail-accounting">
-                            <div class="gap-detail-title">Accounting & Agency Management</div>
-                            <div class="gap-detail-desc">
-                                <strong>Alignment Gaps:</strong> Operational-financial discrepancies trigger immediate margin erosion. A blockchain-backed financial framework inherently enforces zero leakage, ensuring instantaneous reconciliation from vendor invoices to end ledger.
+                            <div class="gap-block-detail" id="detail-accounting">
+                                <div class="gap-detail-title">Accounting & Agency Management</div>
+                                <div class="gap-detail-desc">
+                                    <strong>Alignment Gaps:</strong> Operational-financial discrepancies trigger
+                                    immediate
+                                    margin erosion. A blockchain-backed financial framework inherently enforces zero
+                                    leakage, ensuring instantaneous reconciliation from vendor invoices to end ledger.
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- <div class="anim anim-d2" style="width: 100%;">
+
+                    <!-- <div class="anim anim-d2" style="width: 100%;">
                     <div class="framing-q-box shadow-play" style="width: 100%;">
                         <div class="framing-q-title" style="margin-bottom: 20px; text-align: left;">Where shall we focus our Initial Deep dive?</div>
                         <div class="accordion-list" style="display: flex; flex-direction: column; gap: 10px;">
@@ -2266,8 +2353,8 @@
                         </div>
                     </div>
                 </div> -->
-        </div>
-        </div>
+                </div>
+            </div>
     </section>
 
     <!-- ══════ S2: BRIDGING THE GAP — Page 2 ══════ -->
