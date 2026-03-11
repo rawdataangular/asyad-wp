@@ -1870,6 +1870,72 @@
             color: rgba(255, 255, 255, 0.85);
             line-height: 1.7;
         }
+        
+        /* Gap Detail Grid Layout */
+        .gap-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .gap-detail-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .gap-detail-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 204, 221, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .gap-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gap-card-icon {
+            font-size: 20px;
+            color: var(--CM);
+            background: rgba(0, 204, 221, 0.1);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .gap-card-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.02em;
+        }
+
+        .gap-card-problem {
+            font-size: 13px;
+            color: #ffcccc;
+            font-style: italic;
+            border-left: 2px solid rgba(255, 60, 60, 0.6);
+            padding-left: 10px;
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+
+        .gap-card-solution {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
     </style>
 </head>
 
@@ -2173,7 +2239,42 @@
                         <div class="gap-block-detail active" id="detail-pre-booking">
                             <div class="gap-detail-title">Pre-Booking & Sales</div>
                             <div class="gap-detail-desc">
-                                <strong>Alignment Gaps:</strong> Disconnected systems often lead to mismatched rate quotes and slow booking confirmations. Consolidating buy rates and sales intelligence enables zero-latency responses and aggressive market expansion earlier in the pipeline.
+                                Disconnected systems often lead to mismatched rate quotes and slow booking confirmations. Consolidating buy rates and sales intelligence enables zero-latency responses and aggressive market expansion earlier in the pipeline.
+                            </div>
+                            
+                            <div class="gap-detail-grid">
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">💲</span>
+                                        <div class="gap-card-title">Pricing</div>
+                                    </div>
+                                    <div class="gap-card-problem">Manual pricing leads to "Guess-Work" and indirect cost leakages that eat into your bottom line.</div>
+                                    <div class="gap-card-solution">Eliminate indirect cost erosion with inTEUtion pricing logic. We help your sales team determine the "Best-Fit" price for every shipment with guaranteed profitability. It’s not just a quote; it’s a protected margin.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">👁️</span>
+                                        <div class="gap-card-title">Live Slot Visibility</div>
+                                    </div>
+                                    <div class="gap-card-problem">Waiting for the capacity team or digging on reports/mail reg the slots availability before proceeding booking?</div>
+                                    <div class="gap-card-solution">inTEUtion provides a live window into your slot inventory during the booking process. Secure the booking before the competition even finishes their internal check.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">🏗️</span>
+                                        <div class="gap-card-title">CRO</div>
+                                    </div>
+                                    <div class="gap-card-problem">Bridge the Gap Between Booking and the Box. A confirmed booking is only as good as the equipment behind it. Traditionally, your booking team is forced to play "phone tag".</div>
+                                    <div class="gap-card-solution">inTEUtion eliminates the guesswork by providing real-time yard inventory visibility directly within the booking workflow. Secure the equipment the moment you secure the booking.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">🔗</span>
+                                        <div class="gap-card-title">SI Link</div>
+                                    </div>
+                                    <div class="gap-card-problem">Manual data entry from shipper emailed Shipping Instructions leads to cause of typos and costly BL reworks.</div>
+                                    <div class="gap-card-solution">inTEUtion eliminates the "middleman" error by providing Shippers with a secure, direct-entry link. Achieve 100% accuracy, eliminate manual feeding, and get your documentation right the first time.</div>
+                                </div>
                             </div>
                         </div>
                         <div class="gap-block-detail" id="detail-documentation">
