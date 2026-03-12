@@ -224,7 +224,7 @@ class DigitalSensor {
         if (state === "seeking") {
           if (contentMission) contentMission.style.display = "none";
           if (contentSeeking) contentSeeking.style.display = "flex";
-        } else {
+        } else if (state === "ready") {
           if (contentSeeking) contentSeeking.style.display = "none";
           if (contentMission) contentMission.style.display = "flex";
           this.selectedPriorities = [];
