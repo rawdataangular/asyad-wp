@@ -33,6 +33,8 @@ sections.forEach((s) => sObs.observe(s));
 // --- DIGITAL SENSOR LOGIC ---
 class DigitalSensor {
   constructor() {
+    this.clicksLog = [];
+    this.selectedState = null;
     this.selectedPriorities = [];
     this.softCommitments = [];
     this.expandedSections = [];
@@ -51,6 +53,40 @@ class DigitalSensor {
     this.bindAccordions();
     this.bindInnerAccordions();
     this.bindGapStages();
+    this.bindProgressiveCards();
+  }
+
+  bindProgressiveCards() {
+    const progressiveCards = document.querySelectorAll(".progressive-card");
+    progressiveCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const isOpen = card.classList.contains("open");
+        const parentGrid = card.closest(".gap-detail-grid");
+        
+        // Scope the closing of other cards to this specific grid
+        if (parentGrid) {
+            const siblingCards = parentGrid.querySelectorAll(".progressive-card");
+            siblingCards.forEach((c) => c.classList.remove("open"));
+        } else {
+            // Fallback just in case
+            progressiveCards.forEach((c) => c.classList.remove("open"));
+        }
+        
+        // Open the clicked card if it wasn't already open
+        if (!isOpen) {
+          card.classList.add("open");
+          
+          // Log interaction
+          const textEl = card.querySelector(".gap-card-title");
+          const title = textEl ? textEl.textContent.trim() : "Progressive Card";
+          const sectionTitle = "Progressive Card: " + title;
+          if (!this.expandedSections.includes(sectionTitle)) {
+             this.expandedSections.push(sectionTitle);
+             this.logPlaybook();
+          }
+        }
+      });
+    });
   }
 
   bindInnerAccordions() {
@@ -80,24 +116,27 @@ class DigitalSensor {
 
   bindGapStages() {
     const gapBtns = document.querySelectorAll(".gap-stage-btn");
-    const gapDetailsContainer = document.querySelector(".gap-details-box");
-    const gapDetails = document.querySelectorAll(".gap-block-detail");
-
-    if (!gapBtns.length || !gapDetailsContainer) return;
+    if (!gapBtns.length) return;
 
     gapBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const stage = btn.getAttribute("data-stage");
+        const contextStageSet = btn.closest(".gap-stages-container");
+        const contextDetailsBox = contextStageSet ? contextStageSet.nextElementSibling : null;
         
+        if (!contextStageSet || !contextDetailsBox || !contextDetailsBox.classList.contains("gap-details-box")) return;
+
         // Update Buttons
-        gapBtns.forEach((b) => b.classList.remove("active"));
+        const currentBtns = contextStageSet.querySelectorAll(".gap-stage-btn");
+        currentBtns.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
         
         // Show container if hidden
-        gapDetailsContainer.classList.add("active");
+        contextDetailsBox.classList.add("active");
 
         // Update Details
-        gapDetails.forEach((detail) => {
+        const currentDetails = contextDetailsBox.querySelectorAll(".gap-block-detail");
+        currentDetails.forEach((detail) => {
           detail.classList.remove("active");
           if (detail.id === "detail-" + stage) {
             // Trigger animation re-flow
@@ -177,6 +216,8 @@ class DigitalSensor {
         cards.forEach((c) => c.classList.remove("selected"));
         card.classList.add("selected");
         const state = card.getAttribute("data-state");
+        const stText = card.querySelector(".st-text");
+        this.selectedState = stText ? stText.textContent.trim() : state;
 
         if (s1bSection) s1bSection.style.display = "block";
 
@@ -355,6 +396,7 @@ class DigitalSensor {
 
   logPlaybook() {
     console.log("--- 📊 ASYAD April Meeting Playbook ---");
+    console.log("Strategic Alignment State:", this.selectedState || "Not Selected");
     console.log("Priorities Selected:", this.selectedPriorities);
     console.log("Soft Commitments:", this.softCommitments);
     console.log("Deep Dives Explored (Clicked Expand):", this.expandedSections);
