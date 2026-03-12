@@ -1936,6 +1936,46 @@
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
         }
+
+        /* Progressive Disclosure Grid Cards */
+        .progressive-card {
+            cursor: pointer;
+            user-select: none;
+            overflow: hidden;
+            align-self: start;
+        }
+
+        .progressive-card.open {
+            grid-column: 1 / -1;
+        }
+
+        .progressive-card .gap-card-header {
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .gap-icon-chevron {
+            font-size: 14px;
+            color: var(--CM);
+            transition: transform 0.3s ease;
+        }
+
+        .progressive-card.open .gap-icon-chevron {
+            transform: rotate(180deg);
+        }
+
+        .gap-card-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+        }
+
+        .progressive-card.open .gap-card-content {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -1943,12 +1983,12 @@
 
     <nav class="topbar">
         <img src="inteution-light.png" alt="inTEUtion">
-        <ul class="nav-links">
+        <!-- <ul class="nav-links">
             <li><a href="#s1">Vision</a></li>
             <li><a href="#s2">Logistics</a></li>
             <li><a href="#s3">Digital</a></li>
             <li><a href="#s4">Why inTEUtion?</a></li>
-        </ul>
+        </ul> -->
         <span
             style="font-size:11px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.12em;text-transform:uppercase">ASYAD
             GROUP &nbsp;·&nbsp; VISION 2040</span>
@@ -2026,169 +2066,112 @@
                 <div class="anim anim-d2" style="width: 100%;">
                     <div class="framing-q-box shadow-play" style="width: 100%;">
                         <div class="framing-q-title" style="margin-bottom: 20px; text-align: left;">Where do we accelerate?</div>
-                        <div class="accordion-list" style="display: flex; flex-direction: column; gap: 10px;">
-                            <div class="acc-item">
-                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
-                                    <span style="display: flex; align-items: center; gap: 15px;">
-                                        <span class="st-icon">📈</span>
-                                        <span class="st-text">Sales and Procurement</span>
-                                    </span>
-                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM); transition: transform 0.3s ease;">+</span>
-                                </button>
-                                <div class="acc-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
-                                    <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
-                                        <!-- Challenge Box / Nested Accordion 1 -->
-                                        <div class="inner-acc-box" style="margin-top: -8px;">
-                                            <div class="inner-acc-btn">
-                                                <p>
-                                                    <strong>The Challenge:</strong> Facing challenges in consolidating buy rates from multiple carriers and slot operators received in varied formats like PDFs, Excel sheets, and images, which is creating a bottleneck?
-                                                </p>
-                                                <span class="tg-icon">▼</span>
-                                            </div>
-                                            <div class="inner-acc-content">
-                                                <div style="padding: 0 16px 16px 16px;">
-                                                    <!-- Solution Text -->
-                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); margin-bottom: 20px; padding-top: 8px;">
-                                                        Our <strong style="color: var(--CM);">Generative AI engine</strong> eliminates the time-intensive task of consolidating diverse carrier formats. It intelligently parses complex tables, remarks, and surcharges, converting them into a unified format in seconds.
-                                                    </div>
+                        
+                        <!-- Accel Tabs -->
+                        <div class="gap-stages-container">
+                            <div class="gap-stage-btn" data-stage="sales-procurement">
+                                <span class="gap-stage-icon">📈</span>
+                                <span class="gap-stage-text">Sales and<br>Procurement</span>
+                            </div>
+                            <div class="gap-stage-btn" data-stage="global-asset">
+                                <span class="gap-stage-icon">🌐</span>
+                                <span class="gap-stage-text">Global Asset<br>Orchestration</span>
+                            </div>
+                            <div class="gap-stage-btn" data-stage="zero-leakage">
+                                <span class="gap-stage-icon">🛡️</span>
+                                <span class="gap-stage-text">Zero Leakage<br>Financial Sovereignty</span>
+                            </div>
+                        </div>
 
-                                                    <!-- Feature Grid -->
-                                                    <div class="feature-grid" style="display: grid; gap: 12px;">
-                                                        <div class="feature-card">
-                                                            <span style="font-size: 18px; line-height: 1;">⚡</span>
-                                                            <div>
-                                                                <strong>Zero Latency</strong>
-                                                                <span>Move to quote instantly by verifying the rates.</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="feature-card">
-                                                            <span style="font-size: 18px; line-height: 1;">💬</span>
-                                                            <div>
-                                                                <strong>Conversational Intel</strong>
-                                                                <span>Query your global rate database via an AI chatbot as easily as sending a text.</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="feature-card">
-                                                            <span style="font-size: 18px; line-height: 1;">🎯</span>
-                                                            <div>
-                                                                <strong>Total Accuracy</strong>
-                                                                <span>Eliminate the 'hidden costs' that slip through manual spreadsheets.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                        <div class="gap-details-box" style="margin-top: 20px;">
+                            
+                            <!-- Tab 1: Sales and Procurement -->
+                            <div class="gap-block-detail" id="detail-sales-procurement">
+                                <div class="gap-detail-grid">
+                                    <div class="gap-detail-card">
+                                        <div class="gap-card-header">
+                                            <span class="gap-card-icon">🎯</span>
+                                            <div class="gap-card-title">The Challenge: Consolidating Buy Rates</div>
+                                        </div>
+                                        <div class="gap-card-problem">
+                                            Facing challenges in consolidating buy rates from multiple carriers and slot operators received in varied formats like PDFs, Excel sheets, and images, which is creating a bottleneck?
+                                        </div>
+                                        <div class="gap-card-solution">
+                                            Our <strong style="color: var(--CM);">Generative AI engine</strong> eliminates the time-intensive task of consolidating diverse carrier formats. It intelligently parses complex tables, remarks, and surcharges, converting them into a unified format in seconds.
+                                            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+                                                <div><strong>⚡ Zero Latency:</strong> Move to quote instantly by verifying the rates.</div>
+                                                <div><strong>💬 Conversational Intel:</strong> Query your global rate database via an AI chatbot as easily as sending a text.</div>
+                                                <div><strong>🎯 Total Accuracy:</strong> Eliminate the 'hidden costs' that slip through manual spreadsheets.</div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <!-- Challenge Box / Nested Accordion 2 (Sample) -->
-                                        <div class="inner-acc-box" style="margin-top: 8px;">
-                                            <div class="inner-acc-btn">
-                                                <p>
-                                                    <strong>The Challenge:</strong>Would you like to Transition your  business from"What happened?" to "What will happen?"    
-                                                </p>
-                                                <span class="tg-icon">▼</span>
-                                            </div>
-                                            <div class="inner-acc-content">
-                                                <div style="padding: 0 16px 16px 16px;">
-                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
-                                                       Don't just track your fleet; predict the globe. Our AI-driven scout scans trade shifts and seasonal surges before they hit the water. For an organization as large as ASYAD, capturing a surge 14 days earlier represents millions in recovered opportunity. 
-                                                    </div>
+                                    <div class="gap-detail-card">
+                                        <div class="gap-card-header">
+                                            <span class="gap-card-icon">🔮</span>
+                                            <div class="gap-card-title">The Challenge: Transitioning to Prediction</div>
+                                        </div>
+                                        <div class="gap-card-problem">
+                                            Would you like to Transition your business from "What happened?" to "What will happen?"
+                                        </div>
+                                        <div class="gap-card-solution">
+                                            Don't just track your fleet; predict the globe. Our AI-driven scout scans trade shifts and seasonal surges before they hit the water. For an organization as large as ASYAD, capturing a surge 14 days earlier represents millions in recovered opportunity.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab 2: Global Asset Orchestration -->
+                            <div class="gap-block-detail" id="detail-global-asset">
+                                <div class="gap-detail-grid">
+                                    <div class="gap-detail-card">
+                                        <div class="gap-card-header">
+                                            <span class="gap-card-icon">📍</span>
+                                            <div class="gap-card-title">The Challenge: Orchestrating the Container</div>
+                                        </div>
+                                        <div class="gap-card-problem">
+                                            Would you like to orchestrate where the container must be?
+                                        </div>
+                                        <div class="gap-card-solution">
+                                            <strong>Turn your container fleet into a Living Organism</strong>
+                                            <br><br>
+                                            Beyond simple tracking lies Position Intelligence. We categorize ASYAD’s global fleet into Surplus, Shortage, and Critical zones using historical booking trends. We don't just show you where your boxes are; we show you where they need to be for maximum yield.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab 3: Zero Leakage Financial Sovereignty -->
+                            <div class="gap-block-detail" id="detail-zero-leakage">
+                                <div class="gap-detail-grid">
+                                    <div class="gap-detail-card">
+                                        <div class="gap-card-header">
+                                            <span class="gap-card-icon">💰</span>
+                                            <div class="gap-card-title">The Challenge: Preventing Margin Erosion</div>
+                                        </div>
+                                        <div class="gap-card-problem">
+                                            Being worried about cost and revenue leakage?
+                                        </div>
+                                        <div class="gap-card-solution">
+                                            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+                                                <div>
+                                                    <strong>🔄 Automated Accounting Impact</strong><br>
+                                                    Every operational movement triggers the corresponding accounting entry, ensuring all financial impacts are captured in real time and eliminating the risk of revenue leakage.
+                                                </div>
+                                                <div>
+                                                    <strong>⚖️ Operational–Financial Alignment</strong><br>
+                                                    Charges are automatically recorded against operational activities, ensuring transparency and accuracy.
+                                                </div>
+                                                <div>
+                                                    <strong>✅ Vendor Invoice Validation</strong><br>
+                                                    Vendor invoices can be verified against system records before payment, helping prevent excess payments and reducing the risk of disputes.
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="acc-item">
-                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
-                                    <span style="display: flex; align-items: center; gap: 15px;">
-                                        <span class="st-icon">🌐</span>
-                                        <span class="st-text">Global asset orchestration</span>
-                                    </span>
-                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM); transition: transform 0.3s ease;">+</span>
-                                </button>
-                                <!-- Challenge Box / Nested Accordion 1 -->
-                                 <div class="acc-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
-                                    <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
-                                        <div class="inner-acc-box" style="margin-top: -8px;">
-                                            <div class="inner-acc-btn">
-                                                <p>
-                                                    <strong>The Challenge:</strong> Would you like to orchestrate where the container must be?    
-                                                </p>
-                                                <span class="tg-icon">▼</span>
-                                            </div>
-                                            <div class="inner-acc-content">
-                                                <div style="padding: 0 16px 16px 16px;">
-                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
-                                                        <strong>Turn your container fleet into  a Living Organism</strong>
-                                                        <br>
-                                                        Beyond simple tracking lies Position Intelligence. We categorize ASYAD’s global fleet into Surplus, Shortage, and Critical zones using historical booking trends. We don't just show you where your boxes are; we show you where they need to be for maximum yield.
-                                                    </div>
-                                                </div>
-                                            </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="acc-item">
-                                <button class="state-card acc-btn" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; border-color: var(--CM); background: rgba(0,204,221,.05); cursor: pointer; border-radius: 8px;">
-                                    <span style="display: flex; align-items: center; gap: 15px;">
-                                        <span class="st-icon">🛡️</span>
-                                        <span class="st-text">Zero leakage financial sovereignty</span>
-                                    </span>
-                                    <span class="acc-icon" style="font-size: 18px; color: var(--CM); transition: transform 0.3s ease;">+</span>
-                                </button>
-                                <div class="acc-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6;">
-                                    <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px;">
-                                        <div class="inner-acc-box" style="margin-top: -8px;">
-                                            <div class="inner-acc-btn">
-                                                <p>
-                                                    <strong>The Challenge:</strong>  Being worried about cost and revenue leakage?       
-                                                </p>
-                                                <span class="tg-icon">▼</span>
-                                            </div>
-                                            <div class="inner-acc-content">
-                                                <div style="padding: 0 16px 16px 16px;">
-                                                    <div style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); padding-top: 8px;">
-                                                       
-                                                    </div>
-
-                                                    <!-- Feature Grid -->
-                                                    <div class="feature-grid" style="display: grid; gap: 12px;">
-                                                        <div class="feature-card">
-                                                            <span style="font-size: 18px; line-height: 1;">🔄</span>
-                                                            <div>
-                                                                <strong>Automated Accounting Impact</strong>
-                                                                <span>Every operational movement triggers the corresponding accounting entry, ensuring all financial impacts are captured in real time and eliminating the risk of revenue leakage.</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="feature-card">
-                                                            <span style="font-size: 18px; line-height: 1;">⚖️</span>
-                                                            <div>
-                                                                <strong>Operational–Financial Alignment</strong>
-                                                                <span>Charges are automatically recorded against operational activities, ensuring transparency and accuracy.</span>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                        <div class="feature-card">
-                                                            <span style="font-size: 18px; line-height: 1;">✅</span>
-                                                            <div>
-                                                                <strong>Vendor Invoice Validation</strong>
-                                                                <span>Vendor invoices can be verified against system records before payment, helping prevent excess payments and reducing the risk of disputes.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -2213,7 +2196,7 @@
                     </div>
 
                     <div class="gap-stages-container">
-                        <div class="gap-stage-btn active" data-stage="pre-booking">
+                        <div class="gap-stage-btn" data-stage="pre-booking">
                             <span class="gap-stage-icon">📅</span>
                             <span class="gap-stage-text">Pre-Booking<br>& Sales</span>
                         </div>
@@ -2235,111 +2218,211 @@
                         </div>
                     </div>
 
-                    <div class="gap-details-box active">
-                        <div class="gap-block-detail active" id="detail-pre-booking">
+                    <div class="gap-details-box">
+                        <div class="gap-block-detail" id="detail-pre-booking">
                             <div class="gap-detail-title">Pre-Booking & Sales</div>
-                            <div class="gap-detail-desc">
-                                Disconnected systems often lead to mismatched rate quotes and slow booking confirmations. Consolidating buy rates and sales intelligence enables zero-latency responses and aggressive market expansion earlier in the pipeline.
-                            </div>
                             
                             <div class="gap-detail-grid">
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">💲</span>
-                                        <div class="gap-card-title">Pricing</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">💲</span>
+                                            <div class="gap-card-title">Pricing</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">Manual pricing leads to "Guess-Work" and indirect cost leakages that eat into your bottom line.</div>
-                                    <div class="gap-card-solution">Eliminate indirect cost erosion with inTEUtion pricing logic. We help your sales team determine the "Best-Fit" price for every shipment with guaranteed profitability. It’s not just a quote; it’s a protected margin.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Beyond the Quote: Where Every Shipment is a Guaranteed Win."</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• Set automated profitability floors so your sales team never quotes below a sustainable margin.</div>
+                                                <div>• Stop 'cost leakage' by capturing every charge.</div>
+                                                <div>• <strong>Whatsapp Business Quotes</strong> - Real time quotes in seconds.</div>
+                                                <div>• Empower your team to deliver "Best-Fit" pricing for every shipment, every time.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">👁️</span>
-                                        <div class="gap-card-title">Live Slot Visibility</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">👁️</span>
+                                            <div class="gap-card-title">Live Slot Visibility</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">Waiting for the capacity team or digging on reports/mail reg the slots availability before proceeding booking?</div>
-                                    <div class="gap-card-solution">inTEUtion provides a live window into your slot inventory during the booking process. Secure the booking before the competition even finishes their internal check.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Real-Time Capacity. Zero-Wait Bookings."</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• No more "back-and-forth" with the capacity desk or waiting on email replies from carriers.</div>
+                                                <div>• Direct visibility into your allocated space vs. open market capacity to optimize every TEU.</div>
+                                                <div>• Capitalize on last-minute capacity openings before the rest of the market catches up.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">🏗️</span>
-                                        <div class="gap-card-title">CRO</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">🏗️</span>
+                                            <div class="gap-card-title">Real time yard inventory</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">Bridge the Gap Between Booking and the Box. A confirmed booking is only as good as the equipment behind it. Traditionally, your booking team is forced to play "phone tag".</div>
-                                    <div class="gap-card-solution">inTEUtion eliminates the guesswork by providing real-time yard inventory visibility directly within the booking workflow. Secure the equipment the moment you secure the booking.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Don't Just Book the Space. Guarantee the Box."</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• Get a live 'status check' on available equipment across your preferred yards without leaving the booking screen.</div>
+                                                <div>• Accelerate your 'Gate-In' times by ensuring the right equipment is staged and ready for your haulers.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">🔗</span>
-                                        <div class="gap-card-title">SI Link</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">🔗</span>
+                                            <div class="gap-card-title">Zero-Error Shipping Instructions</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">Manual data entry from shipper emailed Shipping Instructions leads to cause of typos and costly BL reworks.</div>
-                                    <div class="gap-card-solution">inTEUtion eliminates the "middleman" error by providing Shippers with a secure, direct-entry link. Achieve 100% accuracy, eliminate manual feeding, and get your documentation right the first time.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Stop Retyping. Start Releasing."</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• Capture Shipping Instructions directly from the shipper to eliminate manual re-keying errors.</div>
+                                                <div>• Empower your customers with a secure, user-friendly interface for instant SI submission.</div>
+                                                <div>• Free your documentation team from data entry so they can focus on exception management.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="gap-block-detail" id="detail-documentation">
                             <div class="gap-detail-title">Documentation & Gate-In</div>
-                            <div class="gap-detail-desc">
-                                Manual data entry creates bottlenecks at the terminal gate. Achieving strict data governance eliminates siloed information, minimizing wait times and ensuring VGM compliance prior to physical entry.
-                            </div>
-
                             <div class="gap-detail-grid">
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">⚓</span>
-                                        <div class="gap-card-title">Transshipment and ICD Confirmation</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">⚓</span>
+                                            <div class="gap-card-title">Transhipment and ICD confirmation</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">The Transition from an Inland Container Depot (ICD) to the Port of Loading (POL), and finally through a Transshipment (T/S) hub, is where the most expensive mistakes happen. If the "handshake" between these points isn't perfect, you face missed vessels, massive storage costs, and vessel stowage chaos.</div>
-                                    <div class="gap-card-solution">A container's journey is a relay race where the hand-off is everything. inTEUtion digitizes the critical confirmation process between ICDs, POLs, and Transshipment hubs. Our platform ensures that before a rail or truck even departs the inland depot, the destination port and T/S agent have provided a "Go-Ahead" based on real-time vessel schedules. No more deviations, no more "blind" shipments—just perfectly timed arrivals that align with terminal stowage plans and berth allotments.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"The Perfect Handshake: From ICD and POL to T/S Hub, Without the Friction."</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• Secure a digital "Go-Ahead" from the POL and T/S hub before the first mile even begins.</div>
+                                                <div>• Align your inland moves with real-time vessel windows to minimize terminal dwell time and storage costs.</div>
+                                                <div>• Identify schedule slips early to reroute cargo or adjust cargo planning before the 'hand-off' fails.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">📦</span>
-                                        <div class="gap-card-title">Boxes Management and Tracking</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">📦</span>
+                                            <div class="gap-card-title">Boxes Management and Tracking - EMS Dashboard</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">Equipment is your biggest asset and your biggest liability. Tracking a global fleet across leased units, owned boxes, and various move codes is usually a nightmare of fragmented spreadsheets and reports.</div>
-                                    <div class="gap-card-solution">The inTEUtion EMS Dashboard is a dedicated intelligence hub that aggregates data from every corner of your operation. From live fleet reports and incoming inventory to leased-unit tracking and move-code-specific status, we provide a single, unified view of your entire equipment ecosystem. Whether a box is on a rail, in a yard, or on the water, you have real-time data to eliminate "ghost inventory" and keep your fleet in constant motion.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"One Screen. Every Box. Global Visibility."</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• A single, digitized hub that replaces fragmented reports with real-time fleet intelligence.</div>
+                                                <div>• Gain absolute clarity on every unit—whether it’s on a rail, a truck, or a vessel.</div>
+                                                <div>• Minimize idle time and detention charges by keeping your equipment in constant motion.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="gap-block-detail" id="detail-vessel">
                             <div class="gap-detail-title">Vessel Operations</div>
-                            <div class="gap-detail-desc">
-                                Inefficient slot management causes artificial capacity constraints. Predictive position intelligence transforms your fleet into an active organism, directing surplus containers to critical shortage zones proactively.
-                            </div>
-
                             <div class="gap-detail-grid">
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">📊</span>
-                                        <div class="gap-card-title">Slot Utilisation</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">📊</span>
+                                            <div class="gap-card-title">Slot Utilisation</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">Slot Utilization isn't just a metric; it’s the difference between a profitable voyage and a massive loss. Managing complex contracts like DF and other types of slots manually is where most companies lose their grip.</div>
-                                    <div class="gap-card-solution">inTEUtion transforms the "headache" of capacity management into a streamlined profit engine. Whether you are managing complex dead freight contracts or traditional slot allocations, our platform provides a high-definition view of your real-time utilization. Move beyond estimates and see the exact picture of your space commitments, allowing you to fill every TEU and eliminate wasted spend.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Stop Paying for Empty Space. Start Monetizing Every Slot."</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• Turn "Dead Freight" risks into opportunities by identifying unused slots before the vessel cuts-off.</div>
+                                                <div>• Monitor complex contract thresholds to ensure you meet MQC (Minimum Quantity Commitments) without over-extending.</div>
+                                                <div>• Ensure every TEU contributes to your bottom line with automated utilization tracking.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">📑</span>
-                                        <div class="gap-card-title">Slot Contract Mapping</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">📑</span>
+                                            <div class="gap-card-title">Slot Contract Mapping</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">The Slot Reconciliation process is where NVOCCs lose thousands of dollars due to overbilling by carriers or missed rollovers. The tension between "what was booked" and "what actually sailed" often leads to messy invoice disputes and data mismatches.</div>
-                                    <div class="gap-card-solution">inTEUtion solves this by mandating a post-sailing "Slot-to-Contract Mapping" for every voyage. By reconciling loaded units versus rollovers before any vendor invoice is processed, we ensure that you only pay for the capacity you actually used. Total financial integrity, baked into the workflow.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Pre-Audit Every Voyage. Protect Every Rial / Dollar."</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• Mandate a "Slot-to-Contract mapping" for every voyage to ensure total billing accuracy.</div>
+                                                <div>• Move from "messy data mismatches" to "verified performance" for every vendor invoice.</div>
+                                                <div>• Ensure you only pay for the slots which you actually used.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">🔄</span>
-                                        <div class="gap-card-title">Rollover Analysis</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">🔄</span>
+                                            <div class="gap-card-title">Rollover Analysis</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">In a volatile market, rollovers are often inevitable—but they shouldn't be invisible. While most systems lose track of cargo once it’s bumped.</div>
-                                    <div class="gap-card-solution">inTEUtion maintains a continuous "Digital Thread" on every rolled unit. Our advanced Rollover Analytics transform these disruptions into visual insights, allowing you to identify recurring carrier bottlenecks, analyze volume overflows, and optimize your slot strategy with high-impact graphical reporting.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Don't Just Track the Delay. Analyze the Pattern."</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• Maintain total visibility of rolled units from the original booking to the final 'vessel sailed' confirmation.</div>
+                                                <div>• Use historical rollover data to adjust your slot strategy and avoid carrier "hot zones."</div>
+                                                <div>• End-to-End Continuity: Ensure no unit is ever "lost" in the system, no matter how many times it’s bumped.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">🧠</span>
-                                        <div class="gap-card-title">Advanced Capacity Intelligence</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">🧠</span>
+                                            <div class="gap-card-title">Advanced Capacity Intelligence</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">Facing lack of visibility into true vessel utilization and making loading decisions based on static reports?</div>
-                                    <div class="gap-card-solution"><span>• Comprehensive Yield & Loading Analysis</span><br><span>• Future-Proof Fill Factor Forecasting</span><br><span>• Voyage-Level Profitability Tracking</span><br><span>• Multi-Dimensional Financial analysis by Loading Revenue, Operational Costs, Port-Pair, and Category</span></div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-problem">Facing lack of visibility into true vessel utilization and making loading decisions based on static reports?</div>
+                                        <div class="gap-card-solution">
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• Comprehensive Yield & Loading Analysis</div>
+                                                <div>• Future-Proof Fill Factor Forecasting</div>
+                                                <div>• Voyage-Level Profitability Tracking</div>
+                                                <div>• Multi-Dimensional Financial analysis by Loading Revenue, Operational Costs, Port-Pair, and Category</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2350,21 +2433,43 @@
                             </div>
 
                             <div class="gap-detail-grid">
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">⏱️</span>
-                                        <div class="gap-card-title">Advance Detention Collection</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">⏱️</span>
+                                            <div class="gap-card-title">Advance Detention Collection</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">Detention and Demurrage (D&D) are often the biggest sources of invoice disputes and margin leakage.</div>
-                                    <div class="gap-card-solution">Handling them efficiently in advance within the import invoice workflow ensures you are billing every possible day of equipment usage. inTEUtion enables Advance Detention Calculations based on the consignee's committed return date. By calculating potential averages based on expected versus actual gate activity, the system flags additional charges instantly, ensuring all detention penalties are recovered prior to empty gate-in.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Are you losing revenue to 'untraceable' detention days because you waited for the empty gate-in?"</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• Shift from 'reactive billing' to 'advance recovery' by calculating detention based on committed return dates within the import invoice workflow.</div>
+                                                <div>• Instantly flag additional charges by cross-referencing expected return windows with actual gate activity, ensuring 100% of penalties are captured prior to equipment release.</div>
+                                                <div>• Ensure all detention penalties are secured and recovered as part of the core import workflow.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="gap-detail-card">
+                                <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
-                                        <span class="gap-card-icon">🔧</span>
-                                        <div class="gap-card-title">CMNR</div>
+                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                            <span class="gap-card-icon">🔧</span>
+                                            <div class="gap-card-title">CMNR</div>
+                                        </div>
+                                        <span class="gap-icon-chevron">▼</span>
                                     </div>
-                                    <div class="gap-card-problem">Letting your depots dictate your repair costs and paying for the same without proper verification? A damage estimate is triggering an immediate expense?</div>
-                                    <div class="gap-card-solution">inTEUtion brings transparency to the repair process by enforcing digital approval workflows for M&R estimates. Link damage estimates directly to CMNR users to eliminate disputes and ensure every repair is justified. Compare repair costs for the same container across our global network to identify the optimal time and place for maintenance, saving thousands by postponing non-critical repairs or getting the best market rate.</div>
+                                    <div class="gap-card-content">
+                                        <div class="gap-card-solution">
+                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Are your depots dictating your repair spend, or are you approving expenses based on verified data?"</div>
+                                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                                <div>• Compare real-time repair rates across your entire global network yards to identify the most cost-effective yard for performing non-critical maintenance and repairs.</div>
+                                                <div>• Link every estimate directly to CMNR user profile to eliminate duplicate billing and resolve depot disputes instantly.</div>
+                                                <div>• Supports joint survey estimates and operations for dispute containers.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
