@@ -1884,6 +1884,72 @@
             color: rgba(255, 255, 255, 0.85);
             line-height: 1.7;
         }
+
+        /* Gap Detail Grid Layout */
+        .gap-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .gap-detail-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .gap-detail-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 204, 221, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .gap-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gap-card-icon {
+            font-size: 20px;
+            color: var(--CM);
+            background: rgba(0, 204, 221, 0.1);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .gap-card-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.02em;
+        }
+
+        .gap-card-problem {
+            font-size: 13px;
+            color: #ffcccc;
+            font-style: italic;
+            border-left: 2px solid rgba(255, 60, 60, 0.6);
+            padding-left: 10px;
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+
+        .gap-card-solution {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
     </style>
 </head>
 
@@ -2238,53 +2304,249 @@
 
                     <div class="gap-details-box active">
                         <div class="gap-block-detail active" id="detail-pre-booking">
-                            <div class="gap-detail-title">Pricing</div>
+                            <div class="gap-detail-title">Pre-Booking & Sales</div>
                             <div class="gap-detail-desc">
-                                <strong>Manual pricing leads to "Guess-Work" and indirect cost leakages that
-                                    eat into your bottom line margin?</strong>
+                                Disconnected systems often lead to mismatched rate quotes and slow booking
+                                confirmations. Consolidating buy rates and sales intelligence enables zero-latency
+                                responses and aggressive market expansion earlier in the pipeline.
+                            </div>
 
-                                <div class="gap-detail-desc">
-                                    <strong Eliminate indirect cost erosion with inTEUtion pricing logic. We help your
-                                        sales team determine the "Best-Fit" price for every shipment with guaranteed
-                                        profitability. It’s not just a quote; it’s a protected margin. </strong>
+                            <div class="gap-detail-grid">
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">💲</span>
+                                        <div class="gap-card-title">Pricing</div>
+                                    </div>
+                                    <div class="gap-card-problem">Manual pricing leads to "Guess-Work" and indirect cost
+                                        leakages that eat into your bottom line.</div>
+                                    <div class="gap-card-solution">Eliminate indirect cost erosion with inTEUtion
+                                        pricing logic. We help your sales team determine the "Best-Fit" price for every
+                                        shipment with guaranteed profitability.
+
+                                        ""IT's NOT JUST A QUOTE; IT's A PROTECTED MARGIN"" </div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">👁️</span>
+                                        <div class="gap-card-title">Live Slot Visibility</div>
+                                    </div>
+                                    <div class="gap-card-problem">Waiting for the capacity team or digging on
+                                        reports/mail reg the slots availability before proceeding booking?</div>
+                                    <div class="gap-card-solution">inTEUtion provides a live window into your slot
+                                        inventory during the booking process. Secure the booking before the competition
+                                        even finishes their internal check.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">🏗️</span>
+                                        <div class="gap-card-title">CRO</div>
+                                    </div>
+                                    <div class="gap-card-problem">Bridge the Gap Between Booking and the Box. A
+                                        confirmed booking is only as good as the equipment behind it. Traditionally,
+                                        your booking team is forced to play "phone tag".</div>
+                                    <div class="gap-card-solution">inTEUtion eliminates the guesswork by providing
+                                        real-time yard inventory visibility directly within the booking workflow. Secure
+                                        the equipment the moment you secure the booking.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">🔗</span>
+                                        <div class="gap-card-title">SI Link</div>
+                                    </div>
+                                    <div class="gap-card-problem">Manual data entry from shipper emailed Shipping
+                                        Instructions leads to cause of typos and costly BL reworks.</div>
+                                    <div class="gap-card-solution">inTEUtion eliminates the "middleman" error by
+                                        providing Shippers with a secure, direct-entry link. Achieve 100% accuracy,
+                                        eliminate manual feeding, and get your documentation right the first time.</div>
                                 </div>
                             </div>
-                            <div class="gap-block-detail" id="detail-documentation">
-                                <div class="gap-detail-title">Documentation & Gate-In</div>
-                                <div class="gap-detail-desc">
-                                    <strong>Alignment Gaps:</strong> Manual data entry creates bottlenecks at the
-                                    terminal
-                                    gate. Achieving strict data governance eliminates siloed information, minimizing
-                                    wait
-                                    times and ensuring VGM compliance prior to physical entry.
+                        </div>
+                        <div class="gap-block-detail" id="detail-documentation">
+                            <div class="gap-detail-title">Documentation & Gate-In</div>
+                            <div class="gap-detail-desc">
+                                Manual data entry creates bottlenecks at the terminal gate. Achieving strict data
+                                governance eliminates siloed information, minimizing wait times and ensuring VGM
+                                compliance prior to physical entry.
+                            </div>
+
+                            <div class="gap-detail-grid">
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">⚓</span>
+                                        <div class="gap-card-title">Transshipment and ICD Confirmation</div>
+                                    </div>
+                                    <div class="gap-card-problem">The Transition from an Inland Container Depot (ICD) to
+                                        the Port of Loading (POL), and finally through a Transshipment (T/S) hub, is
+                                        where the most expensive mistakes happen. If the "handshake" between these
+                                        points isn't perfect, you face missed vessels, massive storage costs, and vessel
+                                        stowage chaos.</div>
+                                    <div class="gap-card-solution">A container's journey is a relay race where the
+                                        hand-off is everything. inTEUtion digitizes the critical confirmation process
+                                        between ICDs, POLs, and Transshipment hubs. Our platform ensures that before a
+                                        rail or truck even departs the inland depot, the destination port and T/S agent
+                                        have provided a "Go-Ahead" based on real-time vessel schedules. No more
+                                        deviations, no more "blind" shipments—just perfectly timed arrivals that align
+                                        with terminal stowage plans and berth allotments.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">📦</span>
+                                        <div class="gap-card-title">Boxes Management and Tracking</div>
+                                    </div>
+                                    <div class="gap-card-problem">Equipment is your biggest asset and your biggest
+                                        liability. Tracking a global fleet across leased units, owned boxes, and various
+                                        move codes is usually a nightmare of fragmented spreadsheets and reports.</div>
+                                    <div class="gap-card-solution">The inTEUtion EMS Dashboard is a dedicated
+                                        intelligence hub that aggregates data from every corner of your operation. From
+                                        live fleet reports and incoming inventory to leased-unit tracking and
+                                        move-code-specific status, we provide a single, unified view of your entire
+                                        equipment ecosystem. Whether a box is on a rail, in a yard, or on the water, you
+                                        have real-time data to eliminate "ghost inventory" and keep your fleet in
+                                        constant motion.</div>
                                 </div>
                             </div>
-                            <div class="gap-block-detail" id="detail-vessel">
-                                <div class="gap-detail-title">Vessel Operations</div>
-                                <div class="gap-detail-desc">
-                                    <strong>Alignment Gaps:</strong> Inefficient slot management causes artificial
-                                    capacity
-                                    constraints. Predictive position intelligence transforms your fleet into an active
-                                    organism, directing surplus containers to critical shortage zones proactively.
+                        </div>
+                        <div class="gap-block-detail" id="detail-vessel">
+                            <div class="gap-detail-title">Vessel Operations</div>
+                            <div class="gap-detail-desc">
+                                Inefficient slot management causes artificial capacity constraints. Predictive position
+                                intelligence transforms your fleet into an active organism, directing surplus containers
+                                to critical shortage zones proactively.
+                            </div>
+
+                            <div class="gap-detail-grid">
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">📊</span>
+                                        <div class="gap-card-title">Slot Utilisation</div>
+                                    </div>
+                                    <div class="gap-card-problem">Slot Utilization isn't just a metric; it’s the
+                                        difference between a profitable voyage and a massive loss. Managing complex
+                                        contracts like DF and other types of slots manually is where most companies lose
+                                        their grip.</div>
+                                    <div class="gap-card-solution">inTEUtion transforms the "headache" of capacity
+                                        management into a streamlined profit engine. Whether you are managing complex
+                                        dead freight contracts or traditional slot allocations, our platform provides a
+                                        high-definition view of your real-time utilization. Move beyond estimates and
+                                        see the exact picture of your space commitments, allowing you to fill every TEU
+                                        and eliminate wasted spend.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">📑</span>
+                                        <div class="gap-card-title">Slot Contract Mapping</div>
+                                    </div>
+                                    <div class="gap-card-problem">The Slot Reconciliation process is where NVOCCs lose
+                                        thousands of dollars due to overbilling by carriers or missed rollovers. The
+                                        tension between "what was booked" and "what actually sailed" often leads to
+                                        messy invoice disputes and data mismatches.</div>
+                                    <div class="gap-card-solution">inTEUtion solves this by mandating a post-sailing
+                                        "Slot-to-Contract Mapping" for every voyage. By reconciling loaded units versus
+                                        rollovers before any vendor invoice is processed, we ensure that you only pay
+                                        for the capacity you actually used. Total financial integrity, baked into the
+                                        workflow.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">🔄</span>
+                                        <div class="gap-card-title">Rollover Analysis</div>
+                                    </div>
+                                    <div class="gap-card-problem">In a volatile market, rollovers are often
+                                        inevitable—but they shouldn't be invisible. While most systems lose track of
+                                        cargo once it’s bumped.</div>
+                                    <div class="gap-card-solution">inTEUtion maintains a continuous "Digital Thread" on
+                                        every rolled unit. Our advanced Rollover Analytics transform these disruptions
+                                        into visual insights, allowing you to identify recurring carrier bottlenecks,
+                                        analyze volume overflows, and optimize your slot strategy with high-impact
+                                        graphical reporting.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">🧠</span>
+                                        <div class="gap-card-title">Advanced Capacity Intelligence</div>
+                                    </div>
+                                    <div class="gap-card-problem">Facing lack of visibility into true vessel utilization
+                                        and making loading decisions based on static reports?</div>
+                                    <div class="gap-card-solution"><span>• Comprehensive Yield & Loading
+                                            Analysis</span><br><span>• Future-Proof Fill Factor
+                                            Forecasting</span><br><span>• Voyage-Level Profitability
+                                            Tracking</span><br><span>• Multi-Dimensional Financial analysis by Loading
+                                            Revenue, Operational Costs, Port-Pair, and Category</span></div>
                                 </div>
                             </div>
-                            <div class="gap-block-detail" id="detail-arrival">
-                                <div class="gap-detail-title">Arrival & Final Mile</div>
-                                <div class="gap-detail-desc">
-                                    <strong>Alignment Gaps:</strong> Lack of end-to-end visibility leaves cargo
-                                    stranded.
-                                    Modernized cargo handling coupled with real-time arrival intelligence guarantees a
-                                    swift
-                                    turnover, optimizing your downstream transportation nodes.
+                        </div>
+                        <div class="gap-block-detail" id="detail-arrival">
+                            <div class="gap-detail-title">Arrival & Final Mile</div>
+                            <div class="gap-detail-desc">
+                                Lack of end-to-end visibility leaves cargo stranded. Modernized cargo handling coupled
+                                with real-time arrival intelligence guarantees a swift turnover, optimizing your
+                                downstream transportation nodes.
+                            </div>
+
+                            <div class="gap-detail-grid">
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">⏱️</span>
+                                        <div class="gap-card-title">Advance Detention Collection</div>
+                                    </div>
+                                    <div class="gap-card-problem">Detention and Demurrage (D&D) are often the biggest
+                                        sources of invoice disputes and margin leakage.</div>
+                                    <div class="gap-card-solution">Handling them efficiently in advance within the
+                                        import invoice workflow ensures you are billing every possible day of equipment
+                                        usage. inTEUtion enables Advance Detention Calculations based on the consignee's
+                                        committed return date. By calculating potential averages based on expected
+                                        versus actual gate activity, the system flags additional charges instantly,
+                                        ensuring all detention penalties are recovered prior to empty gate-in.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">🔧</span>
+                                        <div class="gap-card-title">CMNR</div>
+                                    </div>
+                                    <div class="gap-card-problem">Letting your depots dictate your repair costs and
+                                        paying for the same without proper verification? A damage estimate is triggering
+                                        an immediate expense?</div>
+                                    <div class="gap-card-solution">inTEUtion brings transparency to the repair process
+                                        by enforcing digital approval workflows for M&R estimates. Link damage estimates
+                                        directly to CMNR users to eliminate disputes and ensure every repair is
+                                        justified. Compare repair costs for the same container across our global network
+                                        to identify the optimal time and place for maintenance, saving thousands by
+                                        postponing non-critical repairs or getting the best market rate.</div>
                                 </div>
                             </div>
-                            <div class="gap-block-detail" id="detail-accounting">
-                                <div class="gap-detail-title">Accounting & Agency Management</div>
-                                <div class="gap-detail-desc">
-                                    <strong>Alignment Gaps:</strong> Operational-financial discrepancies trigger
-                                    immediate
-                                    margin erosion. A blockchain-backed financial framework inherently enforces zero
-                                    leakage, ensuring instantaneous reconciliation from vendor invoices to end ledger.
+                        </div>
+                        <div class="gap-block-detail" id="detail-accounting">
+                            <div class="gap-detail-title">Accounting & Agency Management</div>
+                            <div class="gap-detail-desc">
+                                Operational-financial discrepancies trigger immediate margin erosion. A
+                                blockchain-backed financial framework inherently enforces zero leakage, ensuring
+                                instantaneous reconciliation from vendor invoices to end ledger.
+                            </div>
+
+                            <div class="gap-detail-grid">
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">🏢</span>
+                                        <div class="gap-card-title">Agency Management</div>
+                                    </div>
+                                    <div class="gap-card-problem">Manual Disbursement Account (DA) tracking, delayed
+                                        commission calculations based on messy spreadsheets, and endless back-and-forth
+                                        emails between local agents and corporate for approvals?</div>
+                                    <div class="gap-card-solution">inTEUtion provides Separate Vessel DAs for
+                                        voyage-specific costs/revenue and Periodic DAs for ongoing operational expenses
+                                        via a seamless digital submission and approval process.</div>
+                                </div>
+                                <div class="gap-detail-card">
+                                    <div class="gap-card-header">
+                                        <span class="gap-card-icon">🧮</span>
+                                        <div class="gap-card-title">Commission Automation</div>
+                                    </div>
+                                    <div class="gap-card-problem">Manual calculation of complex commissions leads to
+                                        errors and disputes? Slow approval cycles hold up payments and damage agent
+                                        relationships?</div>
+                                    <div class="gap-card-solution">Our Digital Contract Engine automatically calculates
+                                        commissions based on import/export/TS and container type upon DA submission and
+                                        approval process via the agent submission interface.</div>
                                 </div>
                             </div>
                         </div>
