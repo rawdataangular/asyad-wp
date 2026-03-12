@@ -1840,8 +1840,15 @@
         }
 
         @keyframes fadeInGap {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .gap-block-detail {
@@ -1852,25 +1859,32 @@
             display: block;
             animation: fadeInGapDetails 0.3s ease-out forwards;
         }
-        
+
         @keyframes fadeInGapDetails {
-            from { opacity: 0; transform: translateX(10px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
-        
+
         .gap-detail-title {
             font-size: 20px;
             color: var(--CM);
             margin-bottom: 14px;
             font-weight: 600;
         }
-        
+
         .gap-detail-desc {
             font-size: 14px;
             color: rgba(255, 255, 255, 0.85);
             line-height: 1.7;
         }
-        
+
         /* Gap Detail Grid Layout */
         .gap-detail-grid {
             display: grid;
@@ -1889,7 +1903,7 @@
             gap: 10px;
             transition: all 0.3s ease;
         }
-        
+
         .gap-detail-card:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(0, 204, 221, 0.3);
@@ -2052,21 +2066,26 @@
         <div class="s1-overlay"></div>
         <div class="s1-grid"></div>
         <div class="s1-glow" style="top: -50%; opacity: 0.5;"></div>
-        <div class="s1-inner" style="position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
-            <div id="content-mission" style="display: flex; flex-direction: column; max-width: 100%; margin: 0 auto; width: 100%;">
+        <div class="s1-inner"
+            style="position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+            <div id="content-mission"
+                style="display: flex; flex-direction: column; max-width: 100%; margin: 0 auto; width: 100%;">
                 <div class="anim anim-d1" style="text-align: left; margin-bottom: 40px;">
-                    <div class="light-badge" style="margin-bottom:12px; display: inline-block;">🚀 The Next Frontier</div>
+                    <div class="light-badge" style="margin-bottom:12px; display: inline-block;">🚀 The Next Frontier
+                    </div>
                     <h2 class="sh" style="font-size:clamp(28px,3.5vw,48px);line-height:1.2;margin:0 0 16px 0;">
                         Scaling sovereign intelligence.<br><em>What comes next?</em>
                     </h2>
                     <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6; margin:0; max-width: 100%;">
-                        Since your core is aligned, the opportunity shifts from foundational stability to aggressive market expansion and sovereign AI readiness. It’s time to weaponize your data.
+                        Since your core is aligned, the opportunity shifts from foundational stability to aggressive
+                        market expansion and sovereign AI readiness. It’s time to weaponize your data.
                     </p>
                 </div>
                 <div class="anim anim-d2" style="width: 100%;">
                     <div class="framing-q-box shadow-play" style="width: 100%;">
-                        <div class="framing-q-title" style="margin-bottom: 20px; text-align: left;">Where do we accelerate?</div>
-                        
+                        <div class="framing-q-title" style="margin-bottom: 20px; text-align: left;">Where do we
+                            accelerate?</div>
+
                         <!-- Accel Tabs -->
                         <div class="gap-stages-container">
                             <div class="gap-stage-btn" data-stage="sales-procurement">
@@ -2084,7 +2103,7 @@
                         </div>
 
                         <div class="gap-details-box" style="margin-top: 20px;">
-                            
+
                             <!-- Tab 1: Sales and Procurement -->
                             <div class="gap-block-detail" id="detail-sales-procurement">
                                 <div class="gap-detail-grid">
@@ -2094,14 +2113,23 @@
                                             <div class="gap-card-title">The Challenge: Consolidating Buy Rates</div>
                                         </div>
                                         <div class="gap-card-problem">
-                                            Facing challenges in consolidating buy rates from multiple carriers and slot operators received in varied formats like PDFs, Excel sheets, and images, which is creating a bottleneck?
+                                            Facing challenges in consolidating buy rates from multiple carriers and slot
+                                            operators received in varied formats like PDFs, Excel sheets, and images,
+                                            which is creating a bottleneck?
                                         </div>
                                         <div class="gap-card-solution">
-                                            Our <strong style="color: var(--CM);">Generative AI engine</strong> eliminates the time-intensive task of consolidating diverse carrier formats. It intelligently parses complex tables, remarks, and surcharges, converting them into a unified format in seconds.
-                                            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
-                                                <div><strong>⚡ Zero Latency:</strong> Move to quote instantly by verifying the rates.</div>
-                                                <div><strong>💬 Conversational Intel:</strong> Query your global rate database via an AI chatbot as easily as sending a text.</div>
-                                                <div><strong>🎯 Total Accuracy:</strong> Eliminate the 'hidden costs' that slip through manual spreadsheets.</div>
+                                            Our <strong style="color: var(--CM);">Generative AI engine</strong>
+                                            eliminates the time-intensive task of consolidating diverse carrier formats.
+                                            It intelligently parses complex tables, remarks, and surcharges, converting
+                                            them into a unified format in seconds.
+                                            <div
+                                                style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+                                                <div><strong>⚡ Zero Latency:</strong> Move to quote instantly by
+                                                    verifying the rates.</div>
+                                                <div><strong>💬 Conversational Intel:</strong> Query your global rate
+                                                    database via an AI chatbot as easily as sending a text.</div>
+                                                <div><strong>🎯 Total Accuracy:</strong> Eliminate the 'hidden costs'
+                                                    that slip through manual spreadsheets.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2112,7 +2140,8 @@
                                             <div class="gap-card-title">The Challenge: Transitioning to Prediction</div>
                                         </div>
                                         <div class="gap-card-problem">
-                                            Would you like to Transition your business from "What happened?" to "What will happen?"
+                                            Would you like to Transition your business from "What happened?" to "What
+                                            will happen?"
                                         </div>
                                         <div class="gap-card-solution">
                                             <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
@@ -2167,46 +2196,58 @@
                                             Being worried about cost and revenue leakage?
                                         </div>
                                         <div class="gap-card-solution">
-                                            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
+                                            <div
+                                                style="display: flex; flex-direction: column; gap: 12px; margin-top: 8px;">
                                                 <div>
                                                     <strong>🔄 Automated Accounting Impact</strong><br>
-                                                    Every operational movement triggers the corresponding accounting entry, ensuring all financial impacts are captured in real time and eliminating the risk of revenue leakage.
+                                                    Every operational movement triggers the corresponding accounting
+                                                    entry, ensuring all financial impacts are captured in real time and
+                                                    eliminating the risk of revenue leakage.
                                                 </div>
                                                 <div>
                                                     <strong>⚖️ Operational–Financial Alignment</strong><br>
-                                                    Charges are automatically recorded against operational activities, ensuring transparency and accuracy.
+                                                    Charges are automatically recorded against operational activities,
+                                                    ensuring transparency and accuracy.
                                                 </div>
                                                 <div>
                                                     <strong>✅ Vendor Invoice Validation</strong><br>
-                                                    Vendor invoices can be verified against system records before payment, helping prevent excess payments and reducing the risk of disputes.
+                                                    Vendor invoices can be verified against system records before
+                                                    payment, helping prevent excess payments and reducing the risk of
+                                                    disputes.
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div id="content-seeking" style="display: none; flex-direction: column; max-width: 100%; margin: 0 auto; width: 100%;">
+
+            <div id="content-seeking"
+                style="display: none; flex-direction: column; max-width: 100%; margin: 0 auto; width: 100%;">
                 <div class="anim anim-d1" style="text-align: left; margin-bottom: 40px;">
-                    <div class="light-badge" style="margin-bottom:12px; display: inline-block;">🏗️ Building Foundations</div>
+                    <div class="light-badge" style="margin-bottom:12px; display: inline-block;">🏗️ Building Foundations
+                    </div>
                     <h2 class="sh" style="font-size:clamp(28px,3.5vw,48px);line-height:1.2;margin:0 0 16px 0;">
                         Establishing a resilient digital core.
                     </h2>
                     <p style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.6;margin:0; max-width: 100%;">
-                        To achieve Vision 2040 alignment, the focus must be on foundational stability, data accuracy, and operational efficiency before scaling. Let's identify the immediate priorities.
+                        To achieve Vision 2040 alignment, the focus must be on foundational stability, data accuracy,
+                        and operational efficiency before scaling. Let's identify the immediate priorities.
                     </p>
                 </div>
-                
+
                 <!-- Alignment Gaps Interactive Blocks -->
                 <div class="anim anim-d2" style="width: 100%; margin-top: 20px; margin-bottom: 40px;">
                     <div style="text-align: center; margin-bottom: 20px;">
-                        <h3 style="font-size: 22px; font-weight: 700; letter-spacing: 0.05em; color: #fff; margin-bottom: 6px;">WHERE IS YOUR MOMENTUM STALLING?</h3>
-                        <p style="font-size: 13px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.05em;">Click a stage to identify your alignment gaps.</p>
+                        <h3
+                            style="font-size: 22px; font-weight: 700; letter-spacing: 0.05em; color: #fff; margin-bottom: 6px;">
+                            WHERE IS YOUR MOMENTUM STALLING?</h3>
+                        <p
+                            style="font-size: 13px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.05em;">
+                            Click a stage to identify your alignment gaps.</p>
                     </div>
 
                     <div class="gap-stages-container">
@@ -2235,7 +2276,7 @@
                     <div class="gap-details-box">
                         <div class="gap-block-detail" id="detail-pre-booking">
                             <div class="gap-detail-title">Pre-Booking & Sales</div>
-                            
+
                             <div class="gap-detail-grid">
                                 <div class="gap-detail-card progressive-card">
                                     <div class="gap-card-header">
@@ -2247,12 +2288,17 @@
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Beyond the Quote: Where Every Shipment is a Guaranteed Win."</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "Beyond the Quote: Where Every Shipment is a Guaranteed Win."</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• Set automated profitability floors so your sales team never quotes below a sustainable margin.</div>
+                                                <div>• Set automated profitability floors so your sales team never
+                                                    quotes below a sustainable margin.</div>
                                                 <div>• Stop 'cost leakage' by capturing every charge.</div>
-                                                <div>• <strong>Whatsapp Business Quotes</strong> - Real time quotes in seconds.</div>
-                                                <div>• Empower your team to deliver "Best-Fit" pricing for every shipment, every time.</div>
+                                                <div>• <strong>Whatsapp Business Quotes</strong> - Real time quotes in
+                                                    seconds.</div>
+                                                <div>• Empower your team to deliver "Best-Fit" pricing for every
+                                                    shipment, every time.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2267,11 +2313,16 @@
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Real-Time Capacity. Zero-Wait Bookings."</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "Real-Time Capacity. Zero-Wait Bookings."</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• No more "back-and-forth" with the capacity desk or waiting on email replies from carriers.</div>
-                                                <div>• Direct visibility into your allocated space vs. open market capacity to optimize every TEU.</div>
-                                                <div>• Capitalize on last-minute capacity openings before the rest of the market catches up.</div>
+                                                <div>• No more "back-and-forth" with the capacity desk or waiting on
+                                                    email replies from carriers.</div>
+                                                <div>• Direct visibility into your allocated space vs. open market
+                                                    capacity to optimize every TEU.</div>
+                                                <div>• Capitalize on last-minute capacity openings before the rest of
+                                                    the market catches up.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2286,10 +2337,14 @@
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Don't Just Book the Space. Guarantee the Box."</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "Don't Just Book the Space. Guarantee the Box."</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• Get a live 'status check' on available equipment across your preferred yards without leaving the booking screen.</div>
-                                                <div>• Accelerate your 'Gate-In' times by ensuring the right equipment is staged and ready for your haulers.</div>
+                                                <div>• Get a live 'status check' on available equipment across your
+                                                    preferred yards without leaving the booking screen.</div>
+                                                <div>• Accelerate your 'Gate-In' times by ensuring the right equipment
+                                                    is staged and ready for your haulers.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2304,11 +2359,16 @@
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Stop Retyping. Start Releasing."</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "Stop Retyping. Start Releasing."</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• Capture Shipping Instructions directly from the shipper to eliminate manual re-keying errors.</div>
-                                                <div>• Empower your customers with a secure, user-friendly interface for instant SI submission.</div>
-                                                <div>• Free your documentation team from data entry so they can focus on exception management.</div>
+                                                <div>• Capture Shipping Instructions directly from the shipper to
+                                                    eliminate manual re-keying errors.</div>
+                                                <div>• Empower your customers with a secure, user-friendly interface for
+                                                    instant SI submission.</div>
+                                                <div>• Free your documentation team from data entry so they can focus on
+                                                    exception management.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2328,11 +2388,17 @@
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"The Perfect Handshake: From ICD and POL to T/S Hub, Without the Friction."</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "The Perfect Handshake: From ICD and POL to T/S Hub, Without the
+                                                Friction."</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• Secure a digital "Go-Ahead" from the POL and T/S hub before the first mile even begins.</div>
-                                                <div>• Align your inland moves with real-time vessel windows to minimize terminal dwell time and storage costs.</div>
-                                                <div>• Identify schedule slips early to reroute cargo or adjust cargo planning before the 'hand-off' fails.</div>
+                                                <div>• Secure a digital "Go-Ahead" from the POL and T/S hub before the
+                                                    first mile even begins.</div>
+                                                <div>• Align your inland moves with real-time vessel windows to minimize
+                                                    terminal dwell time and storage costs.</div>
+                                                <div>• Identify schedule slips early to reroute cargo or adjust cargo
+                                                    planning before the 'hand-off' fails.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2341,17 +2407,23 @@
                                     <div class="gap-card-header">
                                         <div style="display: flex; align-items: center; gap: 10px;">
                                             <span class="gap-card-icon">📦</span>
-                                            <div class="gap-card-title">Boxes Management and Tracking - EMS Dashboard</div>
+                                            <div class="gap-card-title">Boxes Management and Tracking - EMS Dashboard
+                                            </div>
                                         </div>
                                         <span class="gap-icon-chevron">▼</span>
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"One Screen. Every Box. Global Visibility."</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "One Screen. Every Box. Global Visibility."</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• A single, digitized hub that replaces fragmented reports with real-time fleet intelligence.</div>
-                                                <div>• Gain absolute clarity on every unit—whether it’s on a rail, a truck, or a vessel.</div>
-                                                <div>• Minimize idle time and detention charges by keeping your equipment in constant motion.</div>
+                                                <div>• A single, digitized hub that replaces fragmented reports with
+                                                    real-time fleet intelligence.</div>
+                                                <div>• Gain absolute clarity on every unit—whether it’s on a rail, a
+                                                    truck, or a vessel.</div>
+                                                <div>• Minimize idle time and detention charges by keeping your
+                                                    equipment in constant motion.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2371,11 +2443,16 @@
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Stop Paying for Empty Space. Start Monetizing Every Slot."</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "Stop Paying for Empty Space. Start Monetizing Every Slot."</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• Turn "Dead Freight" risks into opportunities by identifying unused slots before the vessel cuts-off.</div>
-                                                <div>• Monitor complex contract thresholds to ensure you meet MQC (Minimum Quantity Commitments) without over-extending.</div>
-                                                <div>• Ensure every TEU contributes to your bottom line with automated utilization tracking.</div>
+                                                <div>• Turn "Dead Freight" risks into opportunities by identifying
+                                                    unused slots before the vessel cuts-off.</div>
+                                                <div>• Monitor complex contract thresholds to ensure you meet MQC
+                                                    (Minimum Quantity Commitments) without over-extending.</div>
+                                                <div>• Ensure every TEU contributes to your bottom line with automated
+                                                    utilization tracking.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2390,10 +2467,14 @@
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Pre-Audit Every Voyage. Protect Every Rial / Dollar."</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "Pre-Audit Every Voyage. Protect Every Rial / Dollar."</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• Mandate a "Slot-to-Contract mapping" for every voyage to ensure total billing accuracy.</div>
-                                                <div>• Move from "messy data mismatches" to "verified performance" for every vendor invoice.</div>
+                                                <div>• Mandate a "Slot-to-Contract mapping" for every voyage to ensure
+                                                    total billing accuracy.</div>
+                                                <div>• Move from "messy data mismatches" to "verified performance" for
+                                                    every vendor invoice.</div>
                                                 <div>• Ensure you only pay for the slots which you actually used.</div>
                                             </div>
                                         </div>
@@ -2409,11 +2490,16 @@
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Don't Just Track the Delay. Analyze the Pattern."</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "Don't Just Track the Delay. Analyze the Pattern."</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• Maintain total visibility of rolled units from the original booking to the final 'vessel sailed' confirmation.</div>
-                                                <div>• Use historical rollover data to adjust your slot strategy and avoid carrier "hot zones."</div>
-                                                <div>• End-to-End Continuity: Ensure no unit is ever "lost" in the system, no matter how many times it’s bumped.</div>
+                                                <div>• Maintain total visibility of rolled units from the original
+                                                    booking to the final 'vessel sailed' confirmation.</div>
+                                                <div>• Use historical rollover data to adjust your slot strategy and
+                                                    avoid carrier "hot zones."</div>
+                                                <div>• End-to-End Continuity: Ensure no unit is ever "lost" in the
+                                                    system, no matter how many times it’s bumped.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2427,13 +2513,15 @@
                                         <span class="gap-icon-chevron">▼</span>
                                     </div>
                                     <div class="gap-card-content">
-                                        <div class="gap-card-problem">Facing lack of visibility into true vessel utilization and making loading decisions based on static reports?</div>
+                                        <div class="gap-card-problem">Facing lack of visibility into true vessel
+                                            utilization and making loading decisions based on static reports?</div>
                                         <div class="gap-card-solution">
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
                                                 <div>• Comprehensive Yield & Loading Analysis</div>
                                                 <div>• Future-Proof Fill Factor Forecasting</div>
                                                 <div>• Voyage-Level Profitability Tracking</div>
-                                                <div>• Multi-Dimensional Financial analysis by Loading Revenue, Operational Costs, Port-Pair, and Category</div>
+                                                <div>• Multi-Dimensional Financial analysis by Loading Revenue,
+                                                    Operational Costs, Port-Pair, and Category</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2443,7 +2531,9 @@
                         <div class="gap-block-detail" id="detail-arrival">
                             <div class="gap-detail-title">Arrival & Final Mile</div>
                             <div class="gap-detail-desc">
-                                Lack of end-to-end visibility leaves cargo stranded. Modernized cargo handling coupled with real-time arrival intelligence guarantees a swift turnover, optimizing your downstream transportation nodes.
+                                Lack of end-to-end visibility leaves cargo stranded. Modernized cargo handling coupled
+                                with real-time arrival intelligence guarantees a swift turnover, optimizing your
+                                downstream transportation nodes.
                             </div>
 
                             <div class="gap-detail-grid">
@@ -2457,11 +2547,19 @@
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Are you losing revenue to 'untraceable' detention days because you waited for the empty gate-in?"</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "Are you losing revenue to 'untraceable' detention days because you
+                                                waited for the empty gate-in?"</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• Shift from 'reactive billing' to 'advance recovery' by calculating detention based on committed return dates within the import invoice workflow.</div>
-                                                <div>• Instantly flag additional charges by cross-referencing expected return windows with actual gate activity, ensuring 100% of penalties are captured prior to equipment release.</div>
-                                                <div>• Ensure all detention penalties are secured and recovered as part of the core import workflow.</div>
+                                                <div>• Shift from 'reactive billing' to 'advance recovery' by
+                                                    calculating detention based on committed return dates within the
+                                                    import invoice workflow.</div>
+                                                <div>• Instantly flag additional charges by cross-referencing expected
+                                                    return windows with actual gate activity, ensuring 100% of penalties
+                                                    are captured prior to equipment release.</div>
+                                                <div>• Ensure all detention penalties are secured and recovered as part
+                                                    of the core import workflow.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2476,11 +2574,18 @@
                                     </div>
                                     <div class="gap-card-content">
                                         <div class="gap-card-solution">
-                                            <div style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">"Are your depots dictating your repair spend, or are you approving expenses based on verified data?"</div>
+                                            <div
+                                                style="font-weight: 600; font-style: italic; margin-bottom: 12px; color: var(--CM);">
+                                                "Are your depots dictating your repair spend, or are you approving
+                                                expenses based on verified data?"</div>
                                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                                <div>• Compare real-time repair rates across your entire global network yards to identify the most cost-effective yard for performing non-critical maintenance and repairs.</div>
-                                                <div>• Link every estimate directly to CMNR user profile to eliminate duplicate billing and resolve depot disputes instantly.</div>
-                                                <div>• Supports joint survey estimates and operations for dispute containers.</div>
+                                                <div>• Compare real-time repair rates across your entire global network
+                                                    yards to identify the most cost-effective yard for performing
+                                                    non-critical maintenance and repairs.</div>
+                                                <div>• Link every estimate directly to CMNR user profile to eliminate
+                                                    duplicate billing and resolve depot disputes instantly.</div>
+                                                <div>• Supports joint survey estimates and operations for dispute
+                                                    containers.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -2532,9 +2637,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- <div class="anim anim-d2" style="width: 100%;">
+
+                    <!-- <div class="anim anim-d2" style="width: 100%;">
                     <div class="framing-q-box shadow-play" style="width: 100%;">
                         <div class="framing-q-title" style="margin-bottom: 20px; text-align: left;">Where shall we focus our Initial Deep dive?</div>
                         <div class="accordion-list" style="display: flex; flex-direction: column; gap: 10px;">
